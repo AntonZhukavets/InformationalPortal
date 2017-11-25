@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfPortal.data", "InfPortal
 		{49651B23-C2D8-4627-98CC-1CBBC1AD441C} = {49651B23-C2D8-4627-98CC-1CBBC1AD441C}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfPortal.business", "InfPortal.business\InfPortal.business.csproj", "{E03324DF-22D1-465B-9F45-E8C12604C616}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{6F3D3AEA-3C66-437C-9E84-C9AA15C8252C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F3D3AEA-3C66-437C-9E84-C9AA15C8252C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F3D3AEA-3C66-437C-9E84-C9AA15C8252C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E03324DF-22D1-465B-9F45-E8C12604C616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E03324DF-22D1-465B-9F45-E8C12604C616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E03324DF-22D1-465B-9F45-E8C12604C616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E03324DF-22D1-465B-9F45-E8C12604C616}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,16 +15,16 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace InfPortal.data.DependencyResolution {
+namespace InfPortal.business.DependencyResolution {
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
-    using InfPortal.data.Interfaces;   
-    using InfPortal.data.Implementations;
+    using InfPortal.business.Implementations;
+    using InfPortal.business.Interfaces;
 	
-    public class DataRegistry : Registry {
+    public class BusinessRegistry : Registry {
         #region Constructors and Destructors
 
-        public DataRegistry()
+        public BusinessRegistry()
         {
             Scan(
                 scan =>
@@ -32,7 +32,7 @@ namespace InfPortal.data.DependencyResolution {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
                 });
-            For<IServiceProvider>().Use<ServiceProvider>();
+            For<IDataProvider>().Use<DataProvider>();
         }
 
         #endregion

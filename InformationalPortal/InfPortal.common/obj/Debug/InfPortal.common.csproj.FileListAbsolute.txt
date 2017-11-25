@@ -1,5 +1,0 @@
-D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.common\bin\Debug\InfPortal.common.dll
-D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.common\bin\Debug\InfPortal.common.pdb
-D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.common\obj\Debug\InfPortal.common.csprojResolveAssemblyReference.cache
-D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.common\obj\Debug\InfPortal.common.dll
-D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.common\obj\Debug\InfPortal.common.pdb

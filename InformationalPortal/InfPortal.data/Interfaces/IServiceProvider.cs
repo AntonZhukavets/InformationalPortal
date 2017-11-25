@@ -7,7 +7,7 @@ using InfPortal.data.Entities;
 
 namespace InfPortal.data.Interfaces
 {
-    public interface IDBManager
+    public interface IServiceProvider
     {       
         List<Article> GetArticles();
         Article GetArticleById(int? id);

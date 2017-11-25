@@ -13,6 +13,7 @@ namespace InformationalPortal.Controllers
 
         public ActionResult Index()
         {
+
             return View();
         }
 

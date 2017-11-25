@@ -8,10 +8,10 @@ using InfPortal.data.Entities;
 using InfPortal.data.ArticleProxy;
 namespace InfPortal.data.Implementations
 {
-    public class DBManager:IDBManager
+    public class ServiceProvider: InfPortal.data.Interfaces.IServiceProvider
     {
         ArticleServiceClient articleClient;
-        public DBManager()
+        public ServiceProvider()
         {
             articleClient = new ArticleServiceClient("BasicHttpBinding_IArticleService");
         }

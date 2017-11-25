@@ -65,8 +65,8 @@
     <Compile Include="Entities\ArticleHeading.cs" />
     <Compile Include="Entities\Heading.cs" />
     <Compile Include="Entities\Info.cs" />
-    <Compile Include="Implementations\DBManager.cs" />
-    <Compile Include="Interfaces\IDBManager.cs" />
+    <Compile Include="Implementations\ServiceProvider.cs" />
+    <Compile Include="Interfaces\IServiceProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ArticleProxy\Reference.cs">
       <AutoGen>True</AutoGen>
