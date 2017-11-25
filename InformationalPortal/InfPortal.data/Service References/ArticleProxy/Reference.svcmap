@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="150915b2-5304-492f-817d-2fd6d78fd6a6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/InfPortal.service/Implementations/ArticleService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ArticleService.disco" MetadataType="Disco" ID="6747f749-4847-47c1-a9ac-6a48f83c0d36" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?disco" />
+    <MetadataFile FileName="ArticleService.wsdl" MetadataType="Wsdl" ID="4a326187-47eb-4a2a-b389-ff5ff3f33c89" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?wsdl" />
+    <MetadataFile FileName="ArticleService.xsd" MetadataType="Schema" ID="eb8ebebf-dab6-4b01-9ed4-94a12df27ca8" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ArticleService1.xsd" MetadataType="Schema" ID="24a2f35c-a7df-4461-a088-9869999e831e" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ArticleService2.xsd" MetadataType="Schema" ID="dbfd578b-09ad-4fef-8e2a-f77b77a7b460" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

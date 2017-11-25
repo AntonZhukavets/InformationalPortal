@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace InfPortal.service.DBEntities
+namespace InfPortal.data.Entities
 {
-    public class ArticleEntity
+    public class Article
     {
         public int Id { get; set; }
         public string Name { get; set; }
 
         public string PictureLink { get; set; }
 
-        public InfoEntity Details { get; set; }
+        public Info Details { get; set; }
     }
 }

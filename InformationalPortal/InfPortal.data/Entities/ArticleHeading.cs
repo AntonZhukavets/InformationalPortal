@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace InfPortal.service.DBEntities
+namespace InfPortal.data.Entities
 {
-    public class ArticleHeadingEntity
+    public class ArticleHeading
     {
         public int ArticleId { get; set; }
         public int HeadingId { get; set; }

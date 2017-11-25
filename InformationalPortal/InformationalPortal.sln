@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfPortal.web", "Informatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfPortal.service", "InfPortal.service\InfPortal.service.csproj", "{49651B23-C2D8-4627-98CC-1CBBC1AD441C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfPortal.data", "InfPortal.data\InfPortal.data.csproj", "{6F3D3AEA-3C66-437C-9E84-C9AA15C8252C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{49651B23-C2D8-4627-98CC-1CBBC1AD441C} = {49651B23-C2D8-4627-98CC-1CBBC1AD441C}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +26,10 @@ Global
 		{49651B23-C2D8-4627-98CC-1CBBC1AD441C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49651B23-C2D8-4627-98CC-1CBBC1AD441C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49651B23-C2D8-4627-98CC-1CBBC1AD441C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F3D3AEA-3C66-437C-9E84-C9AA15C8252C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F3D3AEA-3C66-437C-9E84-C9AA15C8252C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F3D3AEA-3C66-437C-9E84-C9AA15C8252C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F3D3AEA-3C66-437C-9E84-C9AA15C8252C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

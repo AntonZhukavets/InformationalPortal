@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>structuremap</id>
+    <version>3.1.9.463</version>
+    <title>StructureMap</title>
+    <authors>Jeremy Miller</authors>
+    <owners>Jeremy Miller</owners>
+    <licenseUrl>https://github.com/structuremap/structuremap/raw/master/LICENSE.TXT</licenseUrl>
+    <projectUrl>http://structuremap.github.io/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>StructureMap is a Dependency Injection / Inversion of Control tool for .Net</description>
+    <releaseNotes>https://github.com/structuremap/structuremap/pull/513</releaseNotes>
+  </metadata>
+</package>

@@ -66,10 +66,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBEntities\ArticleEntity.cs" />
-    <Compile Include="DBEntities\ArticleHeadingEntity.cs" />
-    <Compile Include="DBEntities\HeadingEntity.cs" />
-    <Compile Include="DBEntities\InfoEntity.cs" />
+    <Compile Include="Entities\ArticleEntity.cs" />
+    <Compile Include="Entities\ArticleHeadingEntity.cs" />
+    <Compile Include="Entities\HeadingEntity.cs" />
+    <Compile Include="Entities\InfoEntity.cs" />
     <Compile Include="Implementations\HeadingService.svc.cs">
       <DependentUpon>HeadingService.svc</DependentUpon>
     </Compile>
@@ -80,7 +80,6 @@
     <Compile Include="Contracts\IArticleService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -88,6 +87,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

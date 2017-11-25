@@ -4,10 +4,11 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using InfPortal.service.DBEntities;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using InfPortal.service.Contracts;
+using InfPortal.service.Entities;
 
 namespace InfPortal.service.Contracts
 {
