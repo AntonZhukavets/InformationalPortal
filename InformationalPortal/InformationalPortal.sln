@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Web
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationalPortal", "InformationalPortal\InformationalPortal.csproj", "{F4BBD202-BF45-4F49-88F8-EF7DA246A0F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfPortal.web", "InformationalPortal\InfPortal.web.csproj", "{F4BBD202-BF45-4F49-88F8-EF7DA246A0F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfPortal.service", "InfPortal.service\InfPortal.service.csproj", "{49651B23-C2D8-4627-98CC-1CBBC1AD441C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F4BBD202-BF45-4F49-88F8-EF7DA246A0F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4BBD202-BF45-4F49-88F8-EF7DA246A0F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4BBD202-BF45-4F49-88F8-EF7DA246A0F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49651B23-C2D8-4627-98CC-1CBBC1AD441C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49651B23-C2D8-4627-98CC-1CBBC1AD441C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49651B23-C2D8-4627-98CC-1CBBC1AD441C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49651B23-C2D8-4627-98CC-1CBBC1AD441C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
