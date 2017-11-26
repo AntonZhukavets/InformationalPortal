@@ -18,3 +18,7 @@ D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.business\b
 D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.business\obj\Debug\InfPortal.business.csprojResolveAssemblyReference.cache
 D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.business\obj\Debug\InfPortal.business.dll
 D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.business\obj\Debug\InfPortal.business.pdb
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.business\bin\Debug\InfPortal.common.dll
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.business\bin\Debug\log4net.dll
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.business\bin\Debug\InfPortal.common.pdb
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.business\bin\Debug\log4net.xml

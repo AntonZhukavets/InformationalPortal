@@ -14,6 +14,7 @@ namespace InfPortal.business.Interfaces
         void DeleteArticle(int? id);
         ArticleDTO GetArticle(int? id);
         List<ArticleDTO> GetArticles();
+        List<HeadingDTO> GetHeadings();
         void Dispose();
         int GetCountOfArticles();
     }

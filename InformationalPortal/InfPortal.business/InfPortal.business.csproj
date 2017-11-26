@@ -71,6 +71,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InfPortal.common\InfPortal.common.csproj">
+      <Project>{0a8446c7-b8f4-4836-af53-ced5a41ef942}</Project>
+      <Name>InfPortal.common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InfPortal.data\InfPortal.data.csproj">
       <Project>{6f3d3aea-3c66-437c-9e84-c9aa15c8252c}</Project>
       <Name>InfPortal.data</Name>

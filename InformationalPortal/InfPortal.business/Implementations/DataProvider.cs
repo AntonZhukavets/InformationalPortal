@@ -7,12 +7,15 @@ using InfPortal.business.Interfaces;
 using InfPortal.business.DTO;
 using InfPortal.data.Interfaces;
 using InfPortal.data.Entities;
+using InfPortal.data.Implementations;
+using InfPortal.common.Logs;
+using InfPortal.common.Exceptions;
 namespace InfPortal.business.Implementations
 {
     public class DataProvider : IDataProvider
     {
         readonly InfPortal.data.Interfaces.IServiceProvider serviceProvider;
-        
+
         public DataProvider(InfPortal.data.Interfaces.IServiceProvider serviceProvider)
         {
             this.serviceProvider = serviceProvider;
@@ -54,23 +57,30 @@ namespace InfPortal.business.Implementations
         public List<ArticleDTO> GetArticles()
         {
             List<ArticleDTO> articleDTOList = new List<ArticleDTO>();
-            foreach(var item in serviceProvider.GetArticles())
+            try
             {
-                articleDTOList.Add(new ArticleDTO()
+                foreach (var item in serviceProvider.GetArticles())
                 {
-                    Id=item.Id,
-                    Name=item.Name,
-                    PictureLink=item.PictureLink,
-                    Details = new InfoDTO()
+                    articleDTOList.Add(new ArticleDTO()
                     {
-                        Id=item.Id,
-                        Text=item.Details.Text,
-                        Date=item.Details.Date,
-                        Language=item.Details.Language,
-                        VideoLink=item.Details.VideoLink
-                    }
-                });
+                        Id = item.Id,
+                        Name = item.Name,
+                        PictureLink = item.PictureLink,
+                        Details = new InfoDTO()
+                        {
+                            Id = item.Id,
+                            Text = item.Details.Text,
+                            Date = item.Details.Date,
+                            Language = item.Details.Language,
+                            VideoLink = item.Details.VideoLink
+                        }
+                    });
+                }
             }
+            catch(DataBaseConnectionException ex)
+            {
+                throw new DataBaseConnectionException(ex.Message);
+            }                
             return articleDTOList;
         }
 
@@ -82,6 +92,23 @@ namespace InfPortal.business.Implementations
         public int GetCountOfArticles()
         {
             throw new NotImplementedException();
+        }
+
+
+        public List<HeadingDTO> GetHeadings()
+        {
+            List<HeadingDTO> headingDTOList = new List<HeadingDTO>();
+            foreach(var item in serviceProvider.GetHeadings())
+            {
+                headingDTOList.Add(new HeadingDTO()
+                {
+                    Id=item.Id,
+                    Name=item.Name,
+                    Description=item.Description
+                });
+            }
+
+            return headingDTOList;
         }
     }
 }

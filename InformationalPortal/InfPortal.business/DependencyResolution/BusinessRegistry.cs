@@ -18,8 +18,8 @@
 namespace InfPortal.business.DependencyResolution {
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
-    using InfPortal.business.Implementations;
-    using InfPortal.business.Interfaces;
+    using InfPortal.data.Interfaces;
+    using InfPortal.data.Implementations;
 	
     public class BusinessRegistry : Registry {
         #region Constructors and Destructors
@@ -32,7 +32,7 @@ namespace InfPortal.business.DependencyResolution {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
                 });
-            For<IDataProvider>().Use<DataProvider>();
+            For<IServiceProvider>().Use<ServiceProvider>();
         }
 
         #endregion

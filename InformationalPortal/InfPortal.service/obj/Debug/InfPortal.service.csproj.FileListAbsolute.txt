@@ -4,3 +4,7 @@ D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bi
 D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\InfPortal.service.pdb
 D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\obj\Debug\InfPortal.service.dll
 D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\obj\Debug\InfPortal.service.pdb
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\InfPortal.common.dll
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\log4net.dll
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\InfPortal.common.pdb
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\log4net.xml

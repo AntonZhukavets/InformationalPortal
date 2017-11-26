@@ -32,7 +32,7 @@ namespace InfPortal.data.DependencyResolution {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
                 });
-            For<IServiceProvider>().Use<ServiceProvider>();
+            For<InfPortal.data.Interfaces.IServiceProvider>().Use<ServiceProvider>();
         }
 
         #endregion

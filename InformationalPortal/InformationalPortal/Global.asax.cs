@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformationalPortal.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,6 +20,8 @@ namespace InformationalPortal
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            LoggerConfig.RegistrLoger();
+
         }
     }
 }

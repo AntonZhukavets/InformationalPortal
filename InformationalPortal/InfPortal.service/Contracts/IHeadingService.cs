@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using InfPortal.service.Entities;
 
 namespace InfPortal.service.Contracts
 {
@@ -12,6 +13,9 @@ namespace InfPortal.service.Contracts
     public interface IHeadingService
     {
         [OperationContract]
-        void DoWork();
+        List<HeadingEntity> GetHeadings();
+        
+        [OperationContract]
+        List<HeadingEntity> GetHeadingsByArticleId(int? id);
     }
 }

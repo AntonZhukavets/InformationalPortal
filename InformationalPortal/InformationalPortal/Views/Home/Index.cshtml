@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<InformationalPortal.Models.Article>
+@{
     Layout = null;
 }
 
@@ -7,11 +8,56 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/CSS/Portal.css" rel="stylesheet" />
     <title>Index</title>
 </head>
 <body>
     <div>
-        <h1>Static information for informational portal</h1>
-    </div>
+        <h1>Informational portal</h1>       
+        <table border="1">
+            <tr>
+                <td valign="top" width="10%" align="center">
+                    <h3>
+                        @foreach(string heading in ViewBag.HeadingsName)
+                        {
+                            <br />@Ajax.ActionLink(heading, "GetArticlesByHeadingId", null);                           
+                                                       
+                        }
+                    </h3>
+                </td>
+                <td align="center">
+                    <div id="articlesTable">
+                       @Html.Partial("ArticlesTable")
+                    </div>
+                </td>
+            </tr>
+
+
+        </table>
+
+       
+    
+    </div>   
+    
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>        
+        $(document).ready(function ()
+        {
+            
+            for(i=1;i<=5;i++)
+            {
+
+                $.ajax({
+                    type: 'GET',
+                    async:false,
+                    url: '@Url.Action("GetArticlePreView")/' + i,
+                    success: function (data) {
+                        $("#span_"+i).html(data);
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -73,6 +73,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\HeadingProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -90,12 +95,26 @@
     <None Include="Service References\ArticleProxy\InfPortal.data.ArticleProxy.ArticleEntity.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\HeadingProxy\HeadingService.wsdl" />
+    <None Include="Service References\HeadingProxy\HeadingService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeadingProxy\HeadingService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeadingProxy\HeadingService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeadingProxy\InfPortal.data.HeadingProxy.HeadingEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ArticleProxy\" />
+    <WCFMetadataStorage Include="Service References\HeadingProxy\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ArticleProxy\ArticleService.disco" />
@@ -108,6 +127,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ArticleProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfPortal.common\InfPortal.common.csproj">
+      <Project>{0a8446c7-b8f4-4836-af53-ced5a41ef942}</Project>
+      <Name>InfPortal.common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeadingProxy\HeadingService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeadingProxy\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeadingProxy\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeadingProxy\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

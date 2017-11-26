@@ -1,0 +1,47 @@
+﻿@model InformationalPortal.Models.Article
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Article</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>Id:</td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <td>Text:</td>
+                <td>@Model.Details.Text</td>
+            </tr>
+            <tr>
+                <td>Picture:</td>
+                <td>@Model.PictureLink</td>
+            </tr>
+            <tr>
+                <td>Language:</td>
+                <td>@Model.Details.Language</td>
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td>@Model.Details.Date</td>
+            </tr>
+            <tr>
+                <td>Video:</td>
+                <td>@Model.Details.VideoLink</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

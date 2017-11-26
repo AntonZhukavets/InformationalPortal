@@ -17,3 +17,7 @@ D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.data\bin\D
 D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.data\bin\Debug\StructureMap.Web.xml
 D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.data\obj\Debug\InfPortal.data.dll
 D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.data\obj\Debug\InfPortal.data.pdb
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.data\bin\Debug\InfPortal.common.dll
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.data\bin\Debug\log4net.dll
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.data\bin\Debug\InfPortal.common.pdb
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.data\bin\Debug\log4net.xml
