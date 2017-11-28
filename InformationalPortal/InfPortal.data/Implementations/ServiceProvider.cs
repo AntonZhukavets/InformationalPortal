@@ -9,6 +9,8 @@ using InfPortal.data.ArticleProxy;
 using InfPortal.data.HeadingProxy;
 using InfPortal.common.Logs;
 using InfPortal.common.Exceptions;
+using System.ServiceModel;
+using InfPortal.data.Implementations;
 namespace InfPortal.data.Implementations
 {
     public class ServiceProvider: InfPortal.data.Interfaces.IServiceProvider
@@ -55,10 +57,14 @@ namespace InfPortal.data.Implementations
 
         public Article GetArticleById(int? id)
         {
-            Article article = new Article();
-            ArticleEntity articleEntity = articleClient.GetArticleById(id);
+            if(id==null)
+            {
+                throw new ArgumentNullException("parametr id is null...");
+            }
+            Article article = new Article();            
             try
             {
+                ArticleEntity articleEntity = articleClient.GetArticleById(id);
                 article.Id = articleEntity.Id;
                 article.Name = articleEntity.Name;
                 article.PictureLink = articleEntity.PictureLink;
@@ -72,12 +78,64 @@ namespace InfPortal.data.Implementations
                 };
                 
             }
-            catch(DataBaseConnectionException ex)
+            catch(FaultException<ServiceException> ex)
             {
-                throw new DataBaseConnectionException(ex.Message);
+                throw new DataBaseConnectionException("No connect to DB");
             }
             return article;
         }
+
+        public List<Article> GetArticlesByHeadingId(int? id)
+        {
+            if(id==null)
+            {
+                throw new ArgumentNullException("parametr id is null...");
+            }
+            List<Article> articleList = new List<Article>();
+            try
+            {
+                foreach (var item in articleClient.GetArticlesByHeadingId(id))
+                {
+                    articleList.Add(new Article()
+                    {
+
+                        Id = item.Id,
+                        Name = item.Name,
+                        PictureLink = item.PictureLink                       
+                    });
+
+                }
+            }
+            catch (DataBaseConnectionException ex)
+            {
+                throw new DataBaseConnectionException(ex.Message);
+            }
+            return articleList;
+
+        }
+
+        public List<Heading> GetHeadings()
+        {
+            List<Heading> headingList = new List<Heading>();
+            try
+            {
+                foreach (var item in headingClient.GetHeadings())
+                {
+                    headingList.Add(new Heading()
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        Description = item.Description
+                    });
+                }
+            }
+            catch (DataBaseConnectionException ex)
+            {
+                throw new DataBaseConnectionException(ex.Message);
+            }
+            return headingList;
+        }    
+
 
         public void AddArticle(Article item)
         {
@@ -100,19 +158,7 @@ namespace InfPortal.data.Implementations
         }
 
 
-        public List<Heading> GetHeadings()
-        {
-            List<Heading> headingList = new List<Heading>();
-            foreach(var item in headingClient.GetHeadings())
-            {
-                headingList.Add(new Heading()
-                {
-                    Id=item.Id,
-                    Name=item.Name,
-                    Description=item.Description
-                });
-            }
-            return headingList;
-        }
+           
+       
     }
 }

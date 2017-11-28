@@ -21,38 +21,31 @@ namespace InfPortal.business.Implementations
             this.serviceProvider = serviceProvider;
         }
         
-        public void AddArticle(ArticleDTO article)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateArticle(ArticleDTO article)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteArticle(int? id)
-        {
-            throw new NotImplementedException();
-        }
-
         public ArticleDTO GetArticle(int? id)
         {
             ArticleDTO articleDTO = new ArticleDTO();
-            Article article = serviceProvider.GetArticleById(id);
-            articleDTO.Id = article.Id;
-            articleDTO.Name = article.Name;
-            articleDTO.PictureLink = article.PictureLink;
-            articleDTO.Details = new InfoDTO()
+            try
             {
-                Id = article.Details.Id,
-                Text = article.Details.Text,
-                Date = article.Details.Date,
-                Language = article.Details.Language,
-                VideoLink = article.Details.VideoLink
-            };
+                Article article = serviceProvider.GetArticleById(id);
+                articleDTO.Id = article.Id;
+                articleDTO.Name = article.Name;
+                articleDTO.PictureLink = article.PictureLink;
+                articleDTO.Details = new InfoDTO()
+                {
+                    Id = article.Details.Id,
+                    Text = article.Details.Text,
+                    Date = article.Details.Date,
+                    Language = article.Details.Language,
+                    VideoLink = article.Details.VideoLink
+                };
+            }
+            catch(DataBaseConnectionException ex)
+            {
+                throw new DataBaseConnectionException(ex.Message);
+            }
             return articleDTO;
         }
+
 
         public List<ArticleDTO> GetArticles()
         {
@@ -84,31 +77,75 @@ namespace InfPortal.business.Implementations
             return articleDTOList;
         }
 
-        public void Dispose()
+
+        public List<ArticleDTO> GetArticlesByHeadingId(int? id)
         {
-            throw new NotImplementedException();
+            List<ArticleDTO> articleDTOList = new List<ArticleDTO>();
+            try
+            {
+                foreach (var item in serviceProvider.GetArticlesByHeadingId(id))
+                {
+                    articleDTOList.Add(new ArticleDTO()
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        PictureLink = item.PictureLink
+                    });
+                }
+            }
+            catch (DataBaseConnectionException ex)
+            {
+                throw new DataBaseConnectionException(ex.Message);
+            }
+            return articleDTOList;
         }
+
+        public List<HeadingDTO> GetHeadings()
+        {
+            List<HeadingDTO> headingDTOList = new List<HeadingDTO>();
+            try
+            {
+                foreach (var item in serviceProvider.GetHeadings())
+                {
+                    headingDTOList.Add(new HeadingDTO()
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        Description = item.Description
+                    });
+                }
+
+            }
+            catch(DataBaseConnectionException ex)
+            {
+                throw new DataBaseConnectionException(ex.Message);
+            }
+            return headingDTOList;
+        }
+
+              
 
         public int GetCountOfArticles()
         {
             throw new NotImplementedException();
         }
 
-
-        public List<HeadingDTO> GetHeadings()
+        public void AddArticle(ArticleDTO article)
         {
-            List<HeadingDTO> headingDTOList = new List<HeadingDTO>();
-            foreach(var item in serviceProvider.GetHeadings())
-            {
-                headingDTOList.Add(new HeadingDTO()
-                {
-                    Id=item.Id,
-                    Name=item.Name,
-                    Description=item.Description
-                });
-            }
-
-            return headingDTOList;
+            throw new NotImplementedException();
         }
+
+        public void UpdateArticle(ArticleDTO article)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteArticle(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        
     }
 }

@@ -215,27 +215,75 @@ namespace InfPortal.data.ArticleProxy {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations")]
+    [System.SerializableAttribute()]
+    public partial class ServiceException : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorMessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorMessage {
+            get {
+                return this.ErrorMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
+                    this.ErrorMessageField = value;
+                    this.RaisePropertyChanged("ErrorMessage");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ArticleProxy.IArticleService")]
     public interface IArticleService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticles", ReplyAction="http://tempuri.org/IArticleService/GetArticlesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticlesServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations")]
         InfPortal.data.ArticleProxy.ArticleEntity[] GetArticles();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticles", ReplyAction="http://tempuri.org/IArticleService/GetArticlesResponse")]
         System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticleById", ReplyAction="http://tempuri.org/IArticleService/GetArticleByIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticleByIdServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations")]
         InfPortal.data.ArticleProxy.ArticleEntity GetArticleById(System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticleById", ReplyAction="http://tempuri.org/IArticleService/GetArticleByIdResponse")]
         System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity> GetArticleByIdAsync(System.Nullable<int> id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesByHeadingName", ReplyAction="http://tempuri.org/IArticleService/GetArticlesByHeadingNameResponse")]
-        InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesByHeadingName(string HeadingName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesByHeadingId", ReplyAction="http://tempuri.org/IArticleService/GetArticlesByHeadingIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticlesByHeadingIdServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations")]
+        InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesByHeadingId(System.Nullable<int> Id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesByHeadingName", ReplyAction="http://tempuri.org/IArticleService/GetArticlesByHeadingNameResponse")]
-        System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesByHeadingNameAsync(string HeadingName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesByHeadingId", ReplyAction="http://tempuri.org/IArticleService/GetArticlesByHeadingIdResponse")]
+        System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesByHeadingIdAsync(System.Nullable<int> Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetCountOfArticles", ReplyAction="http://tempuri.org/IArticleService/GetCountOfArticlesResponse")]
         int GetCountOfArticles();
@@ -287,12 +335,12 @@ namespace InfPortal.data.ArticleProxy {
             return base.Channel.GetArticleByIdAsync(id);
         }
         
-        public InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesByHeadingName(string HeadingName) {
-            return base.Channel.GetArticlesByHeadingName(HeadingName);
+        public InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesByHeadingId(System.Nullable<int> Id) {
+            return base.Channel.GetArticlesByHeadingId(Id);
         }
         
-        public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesByHeadingNameAsync(string HeadingName) {
-            return base.Channel.GetArticlesByHeadingNameAsync(HeadingName);
+        public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesByHeadingIdAsync(System.Nullable<int> Id) {
+            return base.Channel.GetArticlesByHeadingIdAsync(Id);
         }
         
         public int GetCountOfArticles() {

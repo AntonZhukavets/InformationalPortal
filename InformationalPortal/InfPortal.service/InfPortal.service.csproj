@@ -78,6 +78,7 @@
       <DependentUpon>ArticleService.svc</DependentUpon>
     </Compile>
     <Compile Include="Contracts\IArticleService.cs" />
+    <Compile Include="Implementations\ServiceException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

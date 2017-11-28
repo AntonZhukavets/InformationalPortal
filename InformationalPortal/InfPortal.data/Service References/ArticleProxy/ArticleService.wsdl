@@ -3,6 +3,7 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" />
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" />
     </xsd:schema>
@@ -13,17 +14,26 @@
   <wsdl:message name="IArticleService_GetArticles_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetArticlesResponse" />
   </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticles_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q1:ServiceException" />
+  </wsdl:message>
   <wsdl:message name="IArticleService_GetArticleById_InputMessage">
     <wsdl:part name="parameters" element="tns:GetArticleById" />
   </wsdl:message>
   <wsdl:message name="IArticleService_GetArticleById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetArticleByIdResponse" />
   </wsdl:message>
-  <wsdl:message name="IArticleService_GetArticlesByHeadingName_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetArticlesByHeadingName" />
+  <wsdl:message name="IArticleService_GetArticleById_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q2:ServiceException" />
   </wsdl:message>
-  <wsdl:message name="IArticleService_GetArticlesByHeadingName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetArticlesByHeadingNameResponse" />
+  <wsdl:message name="IArticleService_GetArticlesByHeadingId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticlesByHeadingId" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticlesByHeadingId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticlesByHeadingIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticlesByHeadingId_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q3:ServiceException" />
   </wsdl:message>
   <wsdl:message name="IArticleService_GetCountOfArticles_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCountOfArticles" />
@@ -35,14 +45,17 @@
     <wsdl:operation name="GetArticles">
       <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetArticles" message="tns:IArticleService_GetArticles_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetArticlesResponse" message="tns:IArticleService_GetArticles_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticlesServiceExceptionFault" name="ServiceExceptionFault" message="tns:IArticleService_GetArticles_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetArticleById">
       <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetArticleById" message="tns:IArticleService_GetArticleById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetArticleByIdResponse" message="tns:IArticleService_GetArticleById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticleByIdServiceExceptionFault" name="ServiceExceptionFault" message="tns:IArticleService_GetArticleById_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetArticlesByHeadingName">
-      <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByHeadingName" message="tns:IArticleService_GetArticlesByHeadingName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByHeadingNameResponse" message="tns:IArticleService_GetArticlesByHeadingName_OutputMessage" />
+    <wsdl:operation name="GetArticlesByHeadingId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByHeadingId" message="tns:IArticleService_GetArticlesByHeadingId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByHeadingIdResponse" message="tns:IArticleService_GetArticlesByHeadingId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByHeadingIdServiceExceptionFault" name="ServiceExceptionFault" message="tns:IArticleService_GetArticlesByHeadingId_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCountOfArticles">
       <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetCountOfArticles" message="tns:IArticleService_GetCountOfArticles_InputMessage" />
@@ -59,6 +72,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetArticleById">
       <soap:operation soapAction="http://tempuri.org/IArticleService/GetArticleById" style="document" />
@@ -68,15 +84,21 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="GetArticlesByHeadingName">
-      <soap:operation soapAction="http://tempuri.org/IArticleService/GetArticlesByHeadingName" style="document" />
+    <wsdl:operation name="GetArticlesByHeadingId">
+      <soap:operation soapAction="http://tempuri.org/IArticleService/GetArticlesByHeadingId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetCountOfArticles">
       <soap:operation soapAction="http://tempuri.org/IArticleService/GetCountOfArticles" style="document" />

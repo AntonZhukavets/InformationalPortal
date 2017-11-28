@@ -11,6 +11,7 @@ using InfPortal.service.Contracts;
 using InfPortal.service.Entities;
 using InfPortal.common.Logs;
 using InfPortal.common.Exceptions;
+using InfPortal.service.Implementations;
 namespace InfPortal.service.Contracts
 {
     // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "ArticleService" в коде, SVC-файле и файле конфигурации.
@@ -56,7 +57,11 @@ namespace InfPortal.service.Contracts
                 }
                 catch(Exception ex)
                 {
-                    Logger.AddToLog("error", ex.Message);                    
+                    Logger.AddToLog("error", ex.Message);
+                    throw new FaultException<ServiceException>(new ServiceException()
+                    {
+                        ErrorMessage = "Can't connect to DataBase..."
+                    });
                 }
             }
             return articles;
@@ -66,7 +71,7 @@ namespace InfPortal.service.Contracts
         {
            if(id==null)
            {
-               throw new ArgumentNullException("id is null");
+               throw new ArgumentNullException("parametr id is null");
                
            }
             ArticleEntity article = new ArticleEntity();
@@ -98,41 +103,54 @@ namespace InfPortal.service.Contracts
                 }
                 catch(Exception ex)
                 {                    
-                    Logger.AddToLog("error", ex.Message);                    
+                    Logger.AddToLog("error", ex.Message);
+                    throw new FaultException<ServiceException>(new ServiceException() 
+                    { 
+                        ErrorMessage = "Can't connect to DataBase..." 
+                    });
                 }
 
             }
             return article;            
         }
 
-        public List<ArticleEntity> GetArticlesByHeadingName(string HeadingName)
+        public List<ArticleEntity> GetArticlesByHeadingId(int? id)
         {
-            List<ArticleEntity> articles = new List<ArticleEntity>();
-            var connection = new SqlConnection(connectionString);
-            connection.Open();
-            var command = new SqlCommand("GetArticlesByHeadingName", connection);
-            command.Parameters.AddWithValue("HeadingName", HeadingName);
-            command.CommandType = CommandType.StoredProcedure;
-            var reader = command.ExecuteReader();
-            while (reader.Read())
+            if(id==null)
             {
-                articles.Add(new ArticleEntity()
-                {
-                    Id = Convert.ToInt32(reader["id"]),
-                    Name = reader["name"].ToString(),
-                    PictureLink = reader["pictureLink"].ToString(),
-                    Details = new InfoEntity()
-                    {
-                        Id = Convert.ToInt32(reader["id"]),
-                        Text = reader["text"].ToString(),
-                        Date = Convert.ToDateTime(reader["date"]),
-                        Language = reader["language"].ToString(),
-                        VideoLink = reader["videoLink"].ToString()
-                    }
-
-                });
+                throw new FaultException<ArgumentNullException>(new ArgumentNullException("Id is null"));
             }
-            connection.Close();
+            List<ArticleEntity> articles = new List<ArticleEntity>();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    var command = new SqlCommand("GetArticlesByHeadingId", connection);
+                    command.Parameters.AddWithValue("HeadingId", id);
+                    command.CommandType = CommandType.StoredProcedure;
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        articles.Add(new ArticleEntity()
+                        {
+                            Id = Convert.ToInt32(reader["id"]),
+                            Name = reader["name"].ToString(),
+                            PictureLink = reader["pictureLink"].ToString()                          
+
+                        });
+                    }
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    Logger.AddToLog("error", ex.Message);
+                    throw new FaultException<ServiceException>(new ServiceException()
+                    {
+                        ErrorMessage = "Can't connect to DataBase..."
+                    });
+                }
+            }
             return articles;
         }
 

@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost/InfPortal.service/Implementations/ArticleService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ArticleService.disco" MetadataType="Disco" ID="6747f749-4847-47c1-a9ac-6a48f83c0d36" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?disco" />
-    <MetadataFile FileName="ArticleService.wsdl" MetadataType="Wsdl" ID="4a326187-47eb-4a2a-b389-ff5ff3f33c89" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?wsdl" />
-    <MetadataFile FileName="ArticleService.xsd" MetadataType="Schema" ID="eb8ebebf-dab6-4b01-9ed4-94a12df27ca8" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd2" />
     <MetadataFile FileName="ArticleService1.xsd" MetadataType="Schema" ID="24a2f35c-a7df-4461-a088-9869999e831e" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd0" />
     <MetadataFile FileName="ArticleService2.xsd" MetadataType="Schema" ID="dbfd578b-09ad-4fef-8e2a-f77b77a7b460" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ArticleService.xsd" MetadataType="Schema" ID="eb8ebebf-dab6-4b01-9ed4-94a12df27ca8" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ArticleService3.xsd" MetadataType="Schema" ID="1d9df751-aae3-4c58-a2de-274a9bb99f0f" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ArticleService.wsdl" MetadataType="Wsdl" ID="4a326187-47eb-4a2a-b389-ff5ff3f33c89" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?wsdl" />
+    <MetadataFile FileName="ArticleService.disco" MetadataType="Disco" ID="6747f749-4847-47c1-a9ac-6a48f83c0d36" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

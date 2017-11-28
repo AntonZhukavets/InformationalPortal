@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using InfPortal.service.Entities;
+using InfPortal.service.Implementations;
 
 namespace InfPortal.service.Contracts
 {
@@ -13,13 +14,16 @@ namespace InfPortal.service.Contracts
     public interface IArticleService
     {
         [OperationContract]
+        [FaultContract(typeof(ServiceException))]
         List<ArticleEntity> GetArticles();
 
         [OperationContract]
+        [FaultContract(typeof(ServiceException))]
         ArticleEntity GetArticleById(int? id);
 
         [OperationContract]
-        List<ArticleEntity> GetArticlesByHeadingName(string HeadingName);
+        [FaultContract(typeof(ServiceException))]
+        List<ArticleEntity> GetArticlesByHeadingId(int? Id);
 
         [OperationContract]
         int GetCountOfArticles();

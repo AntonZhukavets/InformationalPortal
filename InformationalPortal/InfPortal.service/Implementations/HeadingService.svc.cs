@@ -10,6 +10,7 @@ using System.Configuration;
 using System.Data;
 using InfPortal.common.Logs;
 using InfPortal.common.Exceptions;
+using InfPortal.service.Implementations;
 
 namespace InfPortal.service.Contracts
 {
@@ -23,7 +24,6 @@ namespace InfPortal.service.Contracts
         {
             connectionString = ConfigurationManager.ConnectionStrings["InfPortal"].ConnectionString;
         }
-
 
         public List<HeadingEntity> GetHeadings()
         {
@@ -51,6 +51,10 @@ namespace InfPortal.service.Contracts
                 catch (Exception ex)
                 {
                     Logger.AddToLog("error", ex.Message);
+                    throw new FaultException<ServiceException>(new ServiceException()
+                    {
+                        ErrorMessage = "Can't connect to DataBase..."
+                    });
                 }
             }
             return headings;
@@ -83,6 +87,10 @@ namespace InfPortal.service.Contracts
                 catch (Exception ex)
                 {
                     Logger.AddToLog("error", ex.Message);
+                    throw new FaultException<ServiceException>(new ServiceException()
+                    {
+                        ErrorMessage = "Can't connect to DataBase..."
+                    });
                 }
             }
             return headings;

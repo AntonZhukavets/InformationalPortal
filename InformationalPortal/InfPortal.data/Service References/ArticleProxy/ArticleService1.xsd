@@ -27,17 +27,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetArticlesByHeadingName">
+  <xs:element name="GetArticlesByHeadingId">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="HeadingName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetArticlesByHeadingNameResponse">
+  <xs:element name="GetArticlesByHeadingIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" minOccurs="0" name="GetArticlesByHeadingNameResult" nillable="true" type="q3:ArrayOfArticleEntity" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" minOccurs="0" name="GetArticlesByHeadingIdResult" nillable="true" type="q3:ArrayOfArticleEntity" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

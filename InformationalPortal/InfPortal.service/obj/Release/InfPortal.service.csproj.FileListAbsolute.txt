@@ -1,0 +1,10 @@
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\InfPortal.service.dll.config
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\InfPortal.service.dll
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\InfPortal.service.pdb
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\InfPortal.common.dll
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\log4net.dll
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\InfPortal.common.pdb
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\bin\log4net.xml
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\obj\Release\InfPortal.service.csprojResolveAssemblyReference.cache
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\obj\Release\InfPortal.service.dll
+D:\install\projects\InformationalPortal\InformationalPortal\InfPortal.service\obj\Release\InfPortal.service.pdb

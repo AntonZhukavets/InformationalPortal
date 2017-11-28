@@ -15,6 +15,7 @@ namespace InfPortal.data.Interfaces
         void UpdateArticle(Article item);
         void DeleteArticle(int? id);
         List<Heading> GetHeadings();
+        List<Article> GetArticlesByHeadingId(int? id);
         int GetCountOfArticles();
     }
 }

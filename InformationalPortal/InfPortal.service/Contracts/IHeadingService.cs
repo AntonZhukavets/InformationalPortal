@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using InfPortal.service.Entities;
+using InfPortal.service.Implementations;
 
 namespace InfPortal.service.Contracts
 {
@@ -16,6 +17,7 @@ namespace InfPortal.service.Contracts
         List<HeadingEntity> GetHeadings();
         
         [OperationContract]
+        [FaultContract(typeof(ServiceException))]
         List<HeadingEntity> GetHeadingsByArticleId(int? id);
     }
 }

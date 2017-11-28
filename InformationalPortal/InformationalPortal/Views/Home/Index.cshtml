@@ -13,22 +13,24 @@
 </head>
 <body>
     <div>
+        <div id="AjaxTestDiv"></div>
+        <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
         <h1>Informational portal</h1>       
         <table border="1">
             <tr>
                 <td valign="top" width="10%" align="center">
                     <h3>
-                        @foreach(string heading in ViewBag.HeadingsName)
+                        @foreach (InformationalPortal.Models.Heading heading in ViewBag.Headings)
                         {
-                            <br />@Ajax.ActionLink(heading, "GetArticlesByHeadingId", null);                           
+                            
+                            <br />@Ajax.ActionLink(heading.Name, "GetArticlesByHeadingId", "Home", new { id = heading.Id }, new AjaxOptions { UpdateTargetId = "articlesTable" }) ;          
                                                        
                         }
                     </h3>
                 </td>
-                <td align="center">
-                    <div id="articlesTable">
-                       @Html.Partial("ArticlesTable")
-                    </div>
+                <td align="center">                                         
+                    @Html.Partial("ArticlePreView", Model)                  
                 </td>
             </tr>
 
@@ -39,9 +41,8 @@
     
     </div>   
     
-    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script>        
+    
+    @*<script>        
         $(document).ready(function ()
         {
             
@@ -58,6 +59,6 @@
                 });
             }
         });
-    </script>
+    </script>*@
 </body>
 </html>

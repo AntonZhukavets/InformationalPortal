@@ -92,6 +92,9 @@
     <None Include="Service References\ArticleProxy\ArticleService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ArticleProxy\ArticleService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ArticleProxy\InfPortal.data.ArticleProxy.ArticleEntity.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

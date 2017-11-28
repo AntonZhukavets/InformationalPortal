@@ -20,9 +20,12 @@ namespace InformationalPortal.Controllers
         {
             this.dataProvider = dataProvider;
         }
+
+        [HttpGet]
         public ActionResult Index()
         {
             List<Article> articleList = new List<Article>();
+            List<Heading> headings = new List<Heading>();
             try
             {
                 foreach (var item in dataProvider.GetArticles())
@@ -47,43 +50,86 @@ namespace InformationalPortal.Controllers
             {
                 ViewBag.ConnectionError = ex.Message;
             }
-            List<string> headingsName = new List<string>();
+           
             foreach(var item in dataProvider.GetHeadings())
             {
-                headingsName.Add(item.Name);
+                headings.Add(new Heading() { 
+                    Id=item.Id,
+                    Name=item.Name,
+                    Description=item.Description
+                });
             }
-            ViewBag.HeadingsName = headingsName;
+            ViewBag.Headings = headings;
             return View(articleList);
         }
+
+
         [HttpGet]
         public ActionResult GetArticlePreView(int? id)
         {
             Article articlePreView = new Article();
-            ArticleDTO aricleDTO = dataProvider.GetArticle(id);
-            articlePreView.Id = aricleDTO.Id;
-            articlePreView.Name = aricleDTO.Name;
-            articlePreView.PictureLink = aricleDTO.PictureLink;
+            try
+            {
+                ArticleDTO aricleDTO = dataProvider.GetArticle(id);
+                articlePreView.Id = aricleDTO.Id;
+                articlePreView.Name = aricleDTO.Name;
+                articlePreView.PictureLink = aricleDTO.PictureLink;
+            }
+            catch (DataBaseConnectionException ex)
+            {
+                ViewBag.ConnectionError = ex.Message;
+            }
+
             return PartialView("ArticlePreView",articlePreView);
         }
         [HttpGet]
         public ActionResult GetArticle(int? id)
         {
             Article article = new Article();
-            ArticleDTO aricleDTO = dataProvider.GetArticle(id);
-            article.Id = aricleDTO.Id;
-            article.Name = aricleDTO.Name;
-            article.PictureLink = aricleDTO.PictureLink;
-            article.Details = new Info() 
+            try
             {
-                Id = article.Id,
-                Text = aricleDTO.Details.Text,
-                Language=aricleDTO.Details.Language,
-                Date=aricleDTO.Details.Date,
-                VideoLink=aricleDTO.Details.VideoLink
-            };
+                ArticleDTO aricleDTO = dataProvider.GetArticle(id);
+                article.Id = aricleDTO.Id;
+                article.Name = aricleDTO.Name;
+                article.PictureLink = aricleDTO.PictureLink;
+                article.Details = new Info()
+                {
+                    Id = article.Id,
+                    Text = aricleDTO.Details.Text,
+                    Language = aricleDTO.Details.Language,
+                    Date = aricleDTO.Details.Date,
+                    VideoLink = aricleDTO.Details.VideoLink
+                };
+            }
+            catch(DataBaseConnectionException ex)
+            {
+                ViewBag.ConnectionError = ex.Message;                
+            }
 
             return PartialView("Article", article);
+        }
 
+        [HttpGet]
+        public ActionResult GetArticlesByHeadingId(int? id)
+        {
+            List<Article> articleList = new List<Article>();
+            try
+            {
+                foreach (var item in dataProvider.GetArticlesByHeadingId(id))
+                {
+                    articleList.Add(new Article()
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        PictureLink = item.PictureLink                       
+                    });
+                }
+            }
+            catch (DataBaseConnectionException ex)
+            {
+                ViewBag.ConnectionError = ex.Message;
+            }           
+            return View("ArticlePreView",articleList);            
         }
 
     }
