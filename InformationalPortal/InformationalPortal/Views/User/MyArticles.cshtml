@@ -1,0 +1,20 @@
+﻿@model List<InformationalPortal.Models.Article>
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyArticles</title>
+</head>
+<body>
+    <h1>Personal area</h1>
+    <div id="addArticle" class="buttons">@Html.ActionLink("Add article","AddArticle","User")</div>
+    <div>
+        @Html.Partial("ArticlesTable", Model)
+    </div>    
+</body>
+</html>

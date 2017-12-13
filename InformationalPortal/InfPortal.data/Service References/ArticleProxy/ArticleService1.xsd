@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" />
+  <xs:import schemaLocation="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="GetArticles">
     <xs:complexType>
       <xs:sequence />
@@ -27,6 +28,34 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetArticleByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArticleByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" minOccurs="0" name="GetArticleByNameResult" nillable="true" type="q3:ArrayOfArticleEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArticleNamesByInput">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArticleNamesByInputResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetArticleNamesByInputResult" nillable="true" type="q4:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetArticlesByHeadingId">
     <xs:complexType>
       <xs:sequence>
@@ -37,7 +66,7 @@
   <xs:element name="GetArticlesByHeadingIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" minOccurs="0" name="GetArticlesByHeadingIdResult" nillable="true" type="q3:ArrayOfArticleEntity" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" minOccurs="0" name="GetArticlesByHeadingIdResult" nillable="true" type="q5:ArrayOfArticleEntity" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -50,6 +79,34 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetCountOfArticlesResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArticlesByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArticlesByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" minOccurs="0" name="GetArticlesByUserIdResult" nillable="true" type="q6:ArrayOfArticleEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddArticle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" minOccurs="0" name="article" nillable="true" type="q7:ArticleEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddArticleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddArticleResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

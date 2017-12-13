@@ -13,21 +13,20 @@ using InfPortal.common.Exceptions;
 using InfPortal.service.Implementations;
 
 namespace InfPortal.service.Contracts
-{
-    // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "HeadingService" в коде, SVC-файле и файле конфигурации.
-    // ПРИМЕЧАНИЕ. Чтобы запустить клиент проверки WCF для тестирования службы, выберите элементы HeadingService.svc или HeadingService.svc.cs в обозревателе решений и начните отладку.
-    public class HeadingService : IHeadingService
+{  public class HeadingService : IHeadingService
     {
         string connectionString = string.Empty;
 
+        const string errorArgument = "Parametr is invalid";
+        const string errorConnection = "Something wrong with database. Details:  ";
         public HeadingService()
         {
             connectionString = ConfigurationManager.ConnectionStrings["InfPortal"].ConnectionString;
         }
 
-        public List<HeadingEntity> GetHeadings()
+        public HeadingEntity[] GetHeadings()
         {
-            List<HeadingEntity> headings = new List<HeadingEntity>();
+           var headings = new List<HeadingEntity>();
             using (var connection = new SqlConnection(connectionString))
             {
                 try
@@ -53,16 +52,21 @@ namespace InfPortal.service.Contracts
                     Logger.AddToLog("error", ex.Message);
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = "Can't connect to DataBase..."
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
             }
-            return headings;
+            return headings.ToArray<HeadingEntity>();
         }
 
-        public List<HeadingEntity> GetHeadingsByArticleId(int? id)
+        public HeadingEntity[] GetHeadingsByArticleId(int? id)
         {
-            List<HeadingEntity> headings = new List<HeadingEntity>();
+            var headings = new List<HeadingEntity>();
+            int parsedId;
+            if (!int.TryParse(id.ToString().Trim(), out parsedId))
+            {
+                throw new ArgumentException(errorArgument);
+            }
             using (var connection = new SqlConnection(connectionString))
             {
                 try
@@ -70,7 +74,7 @@ namespace InfPortal.service.Contracts
                     connection.Open();
                     var command = new SqlCommand("GetHeadingsByArticleId", connection);
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("id", id);
+                    command.Parameters.AddWithValue("id", parsedId);
                     var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -89,11 +93,11 @@ namespace InfPortal.service.Contracts
                     Logger.AddToLog("error", ex.Message);
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = "Can't connect to DataBase..."
+                        ErrorMessage = errorConnection+ex.Message
                     });
                 }
             }
-            return headings;
+            return headings.ToArray<HeadingEntity>();
         }
     }
 }

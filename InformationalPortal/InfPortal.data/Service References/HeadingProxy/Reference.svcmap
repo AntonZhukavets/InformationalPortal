@@ -22,10 +22,12 @@
     <MetadataSource Address="http://localhost/InfPortal.service/Implementations/HeadingService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="HeadingService1.xsd" MetadataType="Schema" ID="4040f93c-457c-4557-b680-15c1c44a6770" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HeadingService2.xsd" MetadataType="Schema" ID="df4f000c-fc73-47cb-91e7-9e4da009454f" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd3" />
     <MetadataFile FileName="HeadingService11.xsd" MetadataType="Schema" ID="e8c72d4a-1481-42f3-a9f5-df8a05a64405" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd1" />
-    <MetadataFile FileName="HeadingService.disco" MetadataType="Disco" ID="867adfbc-d2e9-4c30-afd1-880eecf57633" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/HeadingService.svc?disco" />
     <MetadataFile FileName="HeadingService.xsd" MetadataType="Schema" ID="d70b4504-f50f-4aec-8f40-60beabee23cf" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HeadingService.disco" MetadataType="Disco" ID="867adfbc-d2e9-4c30-afd1-880eecf57633" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/HeadingService.svc?disco" />
+    <MetadataFile FileName="HeadingService1.xsd" MetadataType="Schema" ID="4040f93c-457c-4557-b680-15c1c44a6770" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HeadingService21.xsd" MetadataType="Schema" ID="63ac7455-e3e3-4785-801b-a30108161987" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd4" />
     <MetadataFile FileName="HeadingService.wsdl" MetadataType="Wsdl" ID="1a2d9c14-a7f4-4168-8e83-c89804fc540d" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/HeadingService.svc?wsdl" />
   </Metadata>
   <Extensions>

@@ -6,6 +6,8 @@
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" />
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IArticleService_GetArticles_InputMessage">
@@ -23,8 +25,35 @@
   <wsdl:message name="IArticleService_GetArticleById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetArticleByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticleById_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System" name="detail" element="q2:ArgumentException" />
+  </wsdl:message>
   <wsdl:message name="IArticleService_GetArticleById_ServiceExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q2:ServiceException" />
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q3:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticleByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticleByName" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticleByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticleByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticleByName_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/System" name="detail" element="q4:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticleByName_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q5:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticleNamesByInput_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticleNamesByInput" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticleNamesByInput_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticleNamesByInputResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticleNamesByInput_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q6:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticleNamesByInput_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/System" name="detail" element="q7:ArgumentException" />
   </wsdl:message>
   <wsdl:message name="IArticleService_GetArticlesByHeadingId_InputMessage">
     <wsdl:part name="parameters" element="tns:GetArticlesByHeadingId" />
@@ -33,13 +62,40 @@
     <wsdl:part name="parameters" element="tns:GetArticlesByHeadingIdResponse" />
   </wsdl:message>
   <wsdl:message name="IArticleService_GetArticlesByHeadingId_ServiceExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q3:ServiceException" />
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q8:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticlesByHeadingId_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/System" name="detail" element="q9:ArgumentException" />
   </wsdl:message>
   <wsdl:message name="IArticleService_GetCountOfArticles_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCountOfArticles" />
   </wsdl:message>
   <wsdl:message name="IArticleService_GetCountOfArticles_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCountOfArticlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticlesByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticlesByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticlesByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticlesByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticlesByUserId_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q10:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_GetArticlesByUserId_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/System" name="detail" element="q11:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_AddArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddArticle" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_AddArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_AddArticle_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q12:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IArticleService_AddArticle_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/System" name="detail" element="q13:ArgumentException" />
   </wsdl:message>
   <wsdl:portType name="IArticleService">
     <wsdl:operation name="GetArticles">
@@ -50,16 +106,42 @@
     <wsdl:operation name="GetArticleById">
       <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetArticleById" message="tns:IArticleService_GetArticleById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetArticleByIdResponse" message="tns:IArticleService_GetArticleById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticleByIdArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IArticleService_GetArticleById_ArgumentExceptionFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticleByIdServiceExceptionFault" name="ServiceExceptionFault" message="tns:IArticleService_GetArticleById_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetArticleByName" message="tns:IArticleService_GetArticleByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetArticleByNameResponse" message="tns:IArticleService_GetArticleByName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticleByNameArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IArticleService_GetArticleByName_ArgumentExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticleByNameServiceExceptionFault" name="ServiceExceptionFault" message="tns:IArticleService_GetArticleByName_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleNamesByInput">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetArticleNamesByInput" message="tns:IArticleService_GetArticleNamesByInput_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetArticleNamesByInputResponse" message="tns:IArticleService_GetArticleNamesByInput_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticleNamesByInputServiceExceptionFault" name="ServiceExceptionFault" message="tns:IArticleService_GetArticleNamesByInput_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticleNamesByInputArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IArticleService_GetArticleNamesByInput_ArgumentExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetArticlesByHeadingId">
       <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByHeadingId" message="tns:IArticleService_GetArticlesByHeadingId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByHeadingIdResponse" message="tns:IArticleService_GetArticlesByHeadingId_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByHeadingIdServiceExceptionFault" name="ServiceExceptionFault" message="tns:IArticleService_GetArticlesByHeadingId_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByHeadingIdArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IArticleService_GetArticlesByHeadingId_ArgumentExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCountOfArticles">
       <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetCountOfArticles" message="tns:IArticleService_GetCountOfArticles_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetCountOfArticlesResponse" message="tns:IArticleService_GetCountOfArticles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticlesByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByUserId" message="tns:IArticleService_GetArticlesByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByUserIdResponse" message="tns:IArticleService_GetArticlesByUserId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByUserIdServiceExceptionFault" name="ServiceExceptionFault" message="tns:IArticleService_GetArticlesByUserId_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/GetArticlesByUserIdArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IArticleService_GetArticlesByUserId_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArticleService/AddArticle" message="tns:IArticleService_AddArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArticleService/AddArticleResponse" message="tns:IArticleService_AddArticle_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/AddArticleServiceExceptionFault" name="ServiceExceptionFault" message="tns:IArticleService_AddArticle_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IArticleService/AddArticleArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IArticleService_AddArticle_ArgumentExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IArticleService" type="tns:IArticleService">
@@ -84,8 +166,41 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
       <wsdl:fault name="ServiceExceptionFault">
         <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleByName">
+      <soap:operation soapAction="http://tempuri.org/IArticleService/GetArticleByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleNamesByInput">
+      <soap:operation soapAction="http://tempuri.org/IArticleService/GetArticleNamesByInput" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetArticlesByHeadingId">
@@ -99,6 +214,9 @@
       <wsdl:fault name="ServiceExceptionFault">
         <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
       </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetCountOfArticles">
       <soap:operation soapAction="http://tempuri.org/IArticleService/GetCountOfArticles" style="document" />
@@ -108,6 +226,36 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticlesByUserId">
+      <soap:operation soapAction="http://tempuri.org/IArticleService/GetArticlesByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddArticle">
+      <soap:operation soapAction="http://tempuri.org/IArticleService/AddArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ArticleService">

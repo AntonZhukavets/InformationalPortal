@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ErrorView</title>
+</head>
+<body>
+    <div>
+        @ViewBag.ErrorMessage<br />
+        @Html.ActionLink("Back to main page","Index","Home")        
+    </div>
+</body>
+</html>

@@ -17,13 +17,12 @@
                         
                         <td width="33%">
                             <table align="center">
+                                <tr><td align="center">Author: @Model[counter].AutherName</td></tr>
                                 <tr><td align="center">@Model[counter].Id</td></tr>
-                                <tr><td align="center">@Html.ActionLink(Model[counter].Name, "GetArticle", new { id = Model[counter].Id })</td></tr>
+                                <tr><td align="center">@Html.ActionLink(Model[counter].Name, "GetFullArticle","Home", new { id = Model[counter].Id },null)</td></tr>
                                 <tr><td align="center">@Model[counter].PictureLink</td></tr>
                             </table>
                         </td>
-
-
                     }
                     else
                     {
@@ -42,15 +41,11 @@
         }
     </table>
         }
-    </div>
+    </div>    
 }
+
     
 
 
 
 
-        @*<br />@Model.Id
-        <br />@Html.ActionLink(@Model.Name, "GetArticle", new { id = @Model.Id })
-        <br />@Model.PictureLink*@
-    
- 

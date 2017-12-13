@@ -33,6 +33,7 @@ namespace InfPortal.business.DependencyResolution {
                     scan.WithDefaultConventions();
                 });
             For<IServiceProvider>().Use<ServiceProvider>();
+            For<IUserServiceProvider>().Use<UserServiceProvider>();
         }
 
         #endregion

@@ -15,29 +15,38 @@ namespace InfPortal.business.Implementations
     public class DataProvider : IDataProvider
     {
         readonly InfPortal.data.Interfaces.IServiceProvider serviceProvider;
-
+        const string errorArgument = "Parametr is invalid";
         public DataProvider(InfPortal.data.Interfaces.IServiceProvider serviceProvider)
         {
             this.serviceProvider = serviceProvider;
         }
-        
         public ArticleDTO GetArticle(int? id)
         {
-            ArticleDTO articleDTO = new ArticleDTO();
+            int parsedId;
+            if (!int.TryParse(id.ToString().Trim(), out parsedId))
+            {
+                throw new ArgumentException(errorArgument);
+            }
+            var articleDTO = new ArticleDTO();
             try
             {
-                Article article = serviceProvider.GetArticleById(id);
-                articleDTO.Id = article.Id;
-                articleDTO.Name = article.Name;
-                articleDTO.PictureLink = article.PictureLink;
-                articleDTO.Details = new InfoDTO()
+                var article = serviceProvider.GetArticleById(parsedId);
+                if (article.Id != 0)
                 {
-                    Id = article.Details.Id,
-                    Text = article.Details.Text,
-                    Date = article.Details.Date,
-                    Language = article.Details.Language,
-                    VideoLink = article.Details.VideoLink
-                };
+                    articleDTO.Id = article.Id;
+                    articleDTO.Name = article.Name;
+                    articleDTO.PictureLink = article.PictureLink;
+                    articleDTO.Details = new InfoDTO()
+                    {
+                        Id = article.Details.Id,
+                        Text = article.Details.Text,
+                        Date = article.Details.Date,
+                        Language = article.Details.Language,
+                        VideoLink = article.Details.VideoLink
+                    };
+                    articleDTO.AuthorId = article.AuthorId;
+                    articleDTO.AuthorName = article.AuthorName;
+                }
             }
             catch(DataBaseConnectionException ex)
             {
@@ -47,9 +56,9 @@ namespace InfPortal.business.Implementations
         }
 
 
-        public List<ArticleDTO> GetArticles()
+        public ArticleDTO[] GetArticles()
         {
-            List<ArticleDTO> articleDTOList = new List<ArticleDTO>();
+           var articleDTOList = new List<ArticleDTO>();
             try
             {
                 foreach (var item in serviceProvider.GetArticles())
@@ -66,7 +75,9 @@ namespace InfPortal.business.Implementations
                             Date = item.Details.Date,
                             Language = item.Details.Language,
                             VideoLink = item.Details.VideoLink
-                        }
+                        },
+                        AuthorId=item.AuthorId,
+                        AuthorName=item.AuthorName
                     });
                 }
             }
@@ -74,22 +85,29 @@ namespace InfPortal.business.Implementations
             {
                 throw new DataBaseConnectionException(ex.Message);
             }                
-            return articleDTOList;
+            return articleDTOList.ToArray<ArticleDTO>();
         }
 
 
-        public List<ArticleDTO> GetArticlesByHeadingId(int? id)
+        public ArticleDTO[] GetArticlesByHeadingId(int? id)
         {
-            List<ArticleDTO> articleDTOList = new List<ArticleDTO>();
+            int parsedId;
+            if (!int.TryParse(id.ToString().Trim(), out parsedId))
+            {
+                throw new ArgumentException(errorArgument);
+            }
+            var articleDTOList = new List<ArticleDTO>();
             try
             {
-                foreach (var item in serviceProvider.GetArticlesByHeadingId(id))
+                foreach (var item in serviceProvider.GetArticlesByHeadingId(parsedId))
                 {
                     articleDTOList.Add(new ArticleDTO()
                     {
                         Id = item.Id,
                         Name = item.Name,
-                        PictureLink = item.PictureLink
+                        PictureLink = item.PictureLink,
+                        AuthorId=item.AuthorId,
+                        AuthorName=item.AuthorName
                     });
                 }
             }
@@ -97,12 +115,12 @@ namespace InfPortal.business.Implementations
             {
                 throw new DataBaseConnectionException(ex.Message);
             }
-            return articleDTOList;
+            return articleDTOList.ToArray<ArticleDTO>();
         }
 
-        public List<HeadingDTO> GetHeadings()
+        public HeadingDTO[] GetHeadings()
         {
-            List<HeadingDTO> headingDTOList = new List<HeadingDTO>();
+            var headingDTOList = new List<HeadingDTO>();
             try
             {
                 foreach (var item in serviceProvider.GetHeadings())
@@ -120,7 +138,7 @@ namespace InfPortal.business.Implementations
             {
                 throw new DataBaseConnectionException(ex.Message);
             }
-            return headingDTOList;
+            return headingDTOList.ToArray<HeadingDTO>();
         }
 
               
@@ -146,6 +164,83 @@ namespace InfPortal.business.Implementations
         }
 
 
-        
+
+
+
+        public ArticleDTO[] GetArticlesByUserId(int? id)
+        {
+            int parsedId;
+            if (!int.TryParse(id.ToString().Trim(), out parsedId))
+            {
+                throw new ArgumentException(errorArgument);
+            }
+            var articleDTOList = new List<ArticleDTO>();
+            try
+            {
+                foreach (var item in serviceProvider.GetArticlesByUserId(parsedId))
+                {
+                    articleDTOList.Add(new ArticleDTO()
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        PictureLink = item.PictureLink,
+                        AuthorId = item.AuthorId,
+                        AuthorName = item.AuthorName
+                    });
+                }
+            }
+            catch (DataBaseConnectionException ex)
+            {
+                throw new DataBaseConnectionException(ex.Message);
+            }
+            return articleDTOList.ToArray<ArticleDTO>();
+        }
+
+
+        public ArticleDTO[] GetArticlesByName(string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                var articleDTOList = new List<ArticleDTO>();
+                try
+                {
+                    foreach (var item in serviceProvider.GetArticlesByName(name))
+                    {
+                        articleDTOList.Add(new ArticleDTO()
+                        {
+                            Id = item.Id,
+                            Name = item.Name,
+                            PictureLink = item.PictureLink,
+                            AuthorId = item.AuthorId,
+                            AuthorName = item.AuthorName
+                        });
+                    }
+                }
+                catch (DataBaseConnectionException ex)
+                {
+                    throw new DataBaseConnectionException(ex.Message);
+                }
+                return articleDTOList.ToArray<ArticleDTO>();
+            }
+            return null;
+        }
+
+        public string[] GetArticleNamesByInput(string name)
+        {            
+            if (!string.IsNullOrEmpty(name))
+            {                
+                try
+                {
+                    var names = serviceProvider.GetArticleNamesByInput(name);
+                    return names;
+                }
+                catch (DataBaseConnectionException ex)
+                {
+                    throw new DataBaseConnectionException(ex.Message);
+                }
+               
+            }
+            return null;
+        }
     }
 }

@@ -1,0 +1,95 @@
+﻿@model InformationalPortal.Models.Article
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddArticle</title>    
+</head>
+<body>
+    <link href="~/Content/CSS/Portal.css" rel="stylesheet" />
+    <h1>Add new article</h1>
+    <div>
+        <div id="DataAndAutor" class="line">
+           <div id="Autor">
+               @Html.Label("Author :")               
+               @HttpContext.Current.User.ToString()
+           </div>
+            <div id="PublicationDate">
+                @Html.Label("Publication Date: ")
+                @DateTime.Now.ToShortDateString()
+            </div>            
+        </div>
+        <div id="Headings">
+            <div id="AddHeading" class="buttons" >@Ajax.ActionLink("Add Heading", "GetHeadings", "Home", null, null, new { @id = "AddHeadingLink" })</div>  
+            <div id="HeadingsForCheck" class="HeadingsForCheck">s</div>         
+        </div>
+        
+        <div class="line"></div>
+        <div id="ArticleName" class="line">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div>
+            @Html.TextBoxFor(model => model.Name, new {@id="textName" })
+        </div>
+        <div class="line">
+            @Html.LabelFor(model=>model.Details.Text)           
+        </div>
+        <div>
+            @Html.TextAreaFor(model => model.Details.Text, new { @id = "textText" })
+        </div>
+        
+
+        @*<table class="articleAddTable">
+            <tr>
+                <td class="headings">@Html.Label("Headings: ")</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="namesOfRows">@Html.Label("Name: ")</td>
+                <td>@Html.TextArea("txt_Name", new { @class="nameTextArea" })</td>
+            </tr>
+            <tr>
+                <td class="namesOfRows">@Html.Label("Text: ")</td>
+                <td class="textOfArticle">@Html.TextArea("txt_text", new { @class = "textTextArea" })</td>
+            </tr>
+            <tr>
+                <td class="namesOfRows">@Html.Label("Picture: ")</td>
+                <td>@Html.TextBox("pictureLink",null, new { @class = "textLink" })<input id="btn_add_pict" type="file"/></td>
+            </tr>
+            <tr>
+                <td class="namesOfRows">@Html.Label("Video: ")</td>
+                <td>@Html.TextBox("videoLink",null, new { @class = "textLink" })<input id="btn_add_video" type="button" value="Browse"/></td>
+            </tr>
+            <tr>
+                <td class="buttons" colspan="2" align="right"><input type="submit" value="Add article" id="btn_add_art" /><input type="button" value="Cancel" id="btn_cancel" /></td>               
+            </tr>
+
+        </table>*@            
+    </div>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '@Url.Action("GetHeadings","Home")',
+                type: 'GET',
+                contentType: 'json',
+                async: false,
+                success: function (data) {
+                    var html = "";
+                    for (i = 0; i < data.length; i++) {
+                        html += '<div id="heading' + data[i].Id + '" class="headingButton" onmouseover=onMouseOver() onmouseout=onMouseOut()><a name="' + data[i].Name + '" href="/InfPortal.web/Home/GetArticlesByHeadingId/' + data[i].Id + '">' + data[i].Name + '</a></div>';
+                    }                    
+                    $("#HeadingsForCheck").html(html);
+                }
+            });
+        });
+            
+    </script>
+</body>
+</html>

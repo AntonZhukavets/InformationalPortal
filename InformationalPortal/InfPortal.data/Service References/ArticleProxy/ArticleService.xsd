@@ -8,6 +8,8 @@
   <xs:element name="ArrayOfArticleEntity" nillable="true" type="tns:ArrayOfArticleEntity" />
   <xs:complexType name="ArticleEntity">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AuthorId" type="xs:int" />
+      <xs:element minOccurs="0" name="AuthorName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Details" nillable="true" type="tns:InfoEntity" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />

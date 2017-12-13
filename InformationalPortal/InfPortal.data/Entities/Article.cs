@@ -14,5 +14,8 @@ namespace InfPortal.data.Entities
         public string PictureLink { get; set; }
 
         public Info Details { get; set; }
+
+        public int AuthorId { get; set; }
+        public string AuthorName { get; set; }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using InfPortal.business.DTO;
+﻿using InfPortal.business.DTO;
 
 namespace InfPortal.business.Interfaces
 {
@@ -13,10 +8,13 @@ namespace InfPortal.business.Interfaces
         void UpdateArticle(ArticleDTO article);
         void DeleteArticle(int? id);
         ArticleDTO GetArticle(int? id);
-        List<ArticleDTO> GetArticles();
+        ArticleDTO[] GetArticles();
+        ArticleDTO[] GetArticlesByHeadingId(int? id);
+        ArticleDTO[] GetArticlesByUserId(int? id);
+        HeadingDTO[] GetHeadings();
+        ArticleDTO[] GetArticlesByName(string name);
+        string[] GetArticleNamesByInput(string name);
 
-        List<ArticleDTO> GetArticlesByHeadingId(int? id);
-        List<HeadingDTO> GetHeadings();        
         int GetCountOfArticles();
     }
 }

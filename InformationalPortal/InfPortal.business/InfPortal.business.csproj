@@ -63,8 +63,12 @@
     <Compile Include="DTO\ArticleHeadingDTO.cs" />
     <Compile Include="DTO\HeadingDTO.cs" />
     <Compile Include="DTO\InfoDTO.cs" />
+    <Compile Include="DTO\RoleDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Implementations\DataProvider.cs" />
+    <Compile Include="Implementations\UserProvider.cs" />
     <Compile Include="Interfaces\IDataProvider.cs" />
+    <Compile Include="Interfaces\IUserProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,115 @@
+﻿@model InformationalPortal.Models.RegisterModel
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+    <span id="oldLogin" hidden="hidden"></span>
+<h1>Edit profile</h1>
+    <table>
+        <tr>
+            <td>@Html.LabelFor(model => model.FirstName)</td>
+            <td>@Html.TextBoxFor(model => model.FirstName)</td>
+            <td>@Html.ValidationMessageFor(model => model.FirstName)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.LastName)</td>
+            <td>@Html.TextBoxFor(model => model.LastName)</td>
+            <td>@Html.ValidationMessageFor(model => model.LastName)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Email)</td>
+            <td>@Html.TextBoxFor(model => model.Email)</td>
+            <td>@Html.ValidationMessageFor(model => model.Email)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Login)</td>
+            <td>@Html.TextBoxFor(model => model.Login)</td>
+            <td>@Html.ValidationMessageFor(model => model.Login)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Old password")</td>
+            <td>@Html.Password("txt_oldPassword")</td>
+            <td><span id="oldPassword_validation"></span></td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Password)</td>
+            <td>@Html.PasswordFor(model => model.Password)</td>
+            <td>@Html.ValidationMessageFor(model => model.Password)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Re password")</td>
+            <td>@Html.Password("txt_rePassword")</td>
+            <td><span id="rePassword_validation"></span></td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Age)</td>
+            <td>@Html.TextBoxFor(model => model.Age)</td>
+            <td>@Html.ValidationMessageFor(model => model.Age)</td>
+        </tr> 
+        <tr>
+            <td><div id="div_edit" class="buttons">@Ajax.ActionLink("Edit", "EditProfile", "User", null, null, new { @id = "editProfileLink" })</div></td>
+            <td></td>            
+        </tr> 
+        <tr>
+            <td><div id="div_cancelEdit" class="buttons">@Html.ActionLink("Chancel", "Index", "Home")</div></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><div id="div_removeProfile" class="buttons">@Html.ActionLink("Remove profile", "RemoveProfile", "User")</div></td>
+            <td></td>
+        </tr>  
+    </table>
+@*<div class="header">
+    <div id="div_edit">@Ajax.ActionLink("Edit", "EditProfile", "User", null, null, new { @id = "editProfileLink" })</div>
+    <div id="div_cancelEdit">@Html.ActionLink("Chancel", "Index", "Home")</div>  
+</div>*@
+     
+    
+    <label id="message"></label>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $("#editProfileLink").click(function () {
+            var firstName = $("#FirstName").val();
+            var lastName = $("#LastName").val();
+            var login = $("#Login").val();
+            var password = $("#Password").val();
+            var email = $("#Email").val();
+            var age = $("#Age").val();
+            var oldLogin = $("#oldLogin").text();
+            var oldPassword = $("#txt_oldPassword").val();
+            $.ajax({
+                type: 'POST',
+                async: false,
+                data: { Login: oldLogin, Password: oldPassword },
+                url: '@Url.Action("CheckPassword", "User")',
+                success: function (result) {
+                    var id = result;
+                    if (result != 0) {                        
+                        $.ajax({
+                            type: 'POST',
+                            data: {Id: id, FirstName: firstName, LastName: lastName, Email: email, Login: login, Password: password, Age: age },
+                            url: '@Url.Action("EditProfile", "User")',
+                            success: function (result) {
+                                $("#User").text(login);
+                                
+                                $("#message").text(result);
+                            },
+                            error: function (e) {
+                                $("#message").text(result);
+                            }
+                        });
+
+                    }
+                    else { $("#message").text("Incorrect old password"); }
+                }
+            });
+
+        });
+
+        $(document).ready(function () {
+            $("#oldLogin").text($("#Login").val());
+        });       
+    </script>
+
+

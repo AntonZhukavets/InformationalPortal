@@ -1,6 +1,6 @@
 ﻿@model InformationalPortal.Models.Article
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -12,36 +12,65 @@
 </head>
 <body>
     <div>
-        <table>
-            <tr>
-                <td>Id:</td>
-                <td>@Model.Id</td>
-            </tr>
-            <tr>
-                <td>Name:</td>
-                <td>@Model.Name</td>
-            </tr>
-            <tr>
-                <td>Text:</td>
-                <td>@Model.Details.Text</td>
-            </tr>
-            <tr>
-                <td>Picture:</td>
-                <td>@Model.PictureLink</td>
-            </tr>
-            <tr>
-                <td>Language:</td>
-                <td>@Model.Details.Language</td>
-            </tr>
-            <tr>
-                <td>Date:</td>
-                <td>@Model.Details.Date</td>
-            </tr>
-            <tr>
-                <td>Video:</td>
-                <td>@Model.Details.VideoLink</td>
-            </tr>
-        </table>
+        @if(Convert.ToInt32(HttpContext.Current.User.Identity.Name)==Model.AutherId)
+        {
+            <div id="editbutton" class="headingButton">
+               <input type="button" value="Edit this article"/>
+            </div>
+        }       
+        <div id="ArticleForRead">
+            <div id="DataAndAutor" class="line">
+                <div id="Autor">
+                    @Html.Label("Author :")
+                    @Model.AutherName
+                </div>
+                <div id="PublicationDate">
+                    @Html.Label("Publication Date: ")
+                    @Model.Details.Date
+                </div>
+            </div>            
+            <div id="articleName" class="line">
+                @Model.Name
+            </div> 
+            <div id="pictureHolder">
+                <img src=@Model.PictureLink>
+            </div>           
+            <div>
+                @Html.TextAreaFor(model => model.Details.Text, new { @id = "textText", @readonly=true })
+            </div>
+           
+
+            @*<table>
+                <tr>
+                    <td>Id:</td>
+                    <td>@Model.Id</td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td>Text:</td>
+                    <td>@Model.Details.Text</td>
+                </tr>
+                <tr>
+                    <td>Picture:</td>
+                    <td>@Model.PictureLink</td>
+                </tr>
+                <tr>
+                    <td>Language:</td>
+                    <td>@Model.Details.Language</td>
+                </tr>
+                <tr>
+                    <td>Date:</td>
+                    <td>@Model.Details.Date</td>
+                </tr>
+                <tr>
+                    <td>Video:</td>
+                    <td>@Model.Details.VideoLink</td>
+                </tr>
+            </table>*@
+        </div>
     </div>
 </body>
 </html>

@@ -3,8 +3,10 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" />
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IHeadingService_GetHeadings_InputMessage">
@@ -13,20 +15,32 @@
   <wsdl:message name="IHeadingService_GetHeadings_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetHeadingsResponse" />
   </wsdl:message>
+  <wsdl:message name="IHeadingService_GetHeadings_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q1:ServiceException" />
+  </wsdl:message>
   <wsdl:message name="IHeadingService_GetHeadingsByArticleId_InputMessage">
     <wsdl:part name="parameters" element="tns:GetHeadingsByArticleId" />
   </wsdl:message>
   <wsdl:message name="IHeadingService_GetHeadingsByArticleId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetHeadingsByArticleIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IHeadingService_GetHeadingsByArticleId_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System" name="detail" element="q2:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_GetHeadingsByArticleId_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/InfPortal.service.Implementations" name="detail" element="q3:ServiceException" />
+  </wsdl:message>
   <wsdl:portType name="IHeadingService">
     <wsdl:operation name="GetHeadings">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeadingService/GetHeadings" message="tns:IHeadingService_GetHeadings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsResponse" message="tns:IHeadingService_GetHeadings_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsServiceExceptionFault" name="ServiceExceptionFault" message="tns:IHeadingService_GetHeadings_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetHeadingsByArticleId">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsByArticleId" message="tns:IHeadingService_GetHeadingsByArticleId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsByArticleIdResponse" message="tns:IHeadingService_GetHeadingsByArticleId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsByArticleIdArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IHeadingService_GetHeadingsByArticleId_ArgumentExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsByArticleIdServiceExceptionFault" name="ServiceExceptionFault" message="tns:IHeadingService_GetHeadingsByArticleId_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IHeadingService" type="tns:IHeadingService">
@@ -39,6 +53,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetHeadingsByArticleId">
       <soap:operation soapAction="http://tempuri.org/IHeadingService/GetHeadingsByArticleId" style="document" />
@@ -48,6 +65,12 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="HeadingService">

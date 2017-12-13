@@ -32,6 +32,7 @@ namespace InformationalPortal.DependencyResolution {
 					scan.With(new ControllerConvention());
                 });
             For<IDataProvider>().Use<DataProvider>();
+            For<IUserProvider>().Use<UserProvider>();
         }
 
         #endregion

@@ -1,6 +1,6 @@
 ﻿@model List<InformationalPortal.Models.Article>
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -13,52 +13,54 @@
 </head>
 <body>
     <div>
-        <div id="AjaxTestDiv"></div>
-        <script src="~/Scripts/jquery-3.2.1.min.js"></script>
-        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-        <h1>Informational portal</h1>       
-        <table border="1">
-            <tr>
-                <td valign="top" width="10%" align="center">
-                    <h3>
-                        @foreach (InformationalPortal.Models.Heading heading in ViewBag.Headings)
+        @Html.ActionLink("Test","Test","Home")
+        @*<label id="defaultSearchHref"></label>*@
+        @*@{
+            int counter = 0;
+            bool exitFlag = false;
+            <div id="articlesTable">
+                @if (Model.Count != 0)
+                {
+                    <table width="100">
+                        @while (!exitFlag)
                         {
-                            
-                            <br />@Ajax.ActionLink(heading.Name, "GetArticlesByHeadingId", "Home", new { id = heading.Id }, new AjaxOptions { UpdateTargetId = "articlesTable" }) ;          
-                                                       
+                            <tr>
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    if (counter < Model.Count)
+                                    {
+
+                                        <td width="33%">
+                                            <table align="center">
+                                                <tr><td align="center">Author: @Model[counter].AutherName</td></tr>
+                                                <tr><td align="center">@Model[counter].Id</td></tr>
+                                                <tr><td align="center">@Html.ActionLink(Model[counter].Name, "GetFullArticle", "Home", new { id = Model[counter].Id },null)</td></tr>
+                                                <tr><td align="center">@Model[counter].PictureLink</td></tr>
+                                            </table>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td width="33%"></td>
+                                        exitFlag = true;
+                                    }
+
+                                    counter++;
+
+                                }
+                                @if (exitFlag)
+                                {
+                                    break;
+                                }
+                            </tr>
                         }
-                    </h3>
-                </td>
-                <td align="center">                                         
-                    @Html.Partial("ArticlePreView", Model)                  
-                </td>
-            </tr>
+                    </table>
+                }
+            </div>
+        }*@
 
-
-        </table>
-
+        @Html.Partial("ArticlesTable", Model)
        
-    
-    </div>   
-    
-    
-    @*<script>        
-        $(document).ready(function ()
-        {
-            
-            for(i=1;i<=5;i++)
-            {
-
-                $.ajax({
-                    type: 'GET',
-                    async:false,
-                    url: '@Url.Action("GetArticlePreView")/' + i,
-                    success: function (data) {
-                        $("#span_"+i).html(data);
-                    }
-                });
-            }
-        });
-    </script>*@
+    </div>    
 </body>
 </html>

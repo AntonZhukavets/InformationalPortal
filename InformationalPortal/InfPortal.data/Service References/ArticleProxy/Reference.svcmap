@@ -27,6 +27,8 @@
     <MetadataFile FileName="ArticleService.xsd" MetadataType="Schema" ID="eb8ebebf-dab6-4b01-9ed4-94a12df27ca8" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd2" />
     <MetadataFile FileName="ArticleService3.xsd" MetadataType="Schema" ID="1d9df751-aae3-4c58-a2de-274a9bb99f0f" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd3" />
     <MetadataFile FileName="ArticleService.wsdl" MetadataType="Wsdl" ID="4a326187-47eb-4a2a-b389-ff5ff3f33c89" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?wsdl" />
+    <MetadataFile FileName="ArticleService4.xsd" MetadataType="Schema" ID="56843cd3-e80c-4c28-adfe-031f0a6d2d8f" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ArticleService5.xsd" MetadataType="Schema" ID="091def4e-08b8-4b44-a3bc-473608fdbb41" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?xsd=xsd5" />
     <MetadataFile FileName="ArticleService.disco" MetadataType="Disco" ID="6747f749-4847-47c1-a9ac-6a48f83c0d36" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/ArticleService.svc?disco" />
   </Metadata>
   <Extensions>

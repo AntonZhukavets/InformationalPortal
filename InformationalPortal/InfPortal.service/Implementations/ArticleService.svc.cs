@@ -14,19 +14,19 @@ using InfPortal.common.Exceptions;
 using InfPortal.service.Implementations;
 namespace InfPortal.service.Contracts
 {
-    // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "ArticleService" в коде, SVC-файле и файле конфигурации.
-    // ПРИМЕЧАНИЕ. Чтобы запустить клиент проверки WCF для тестирования службы, выберите элементы ArticleService.svc или ArticleService.svc.cs в обозревателе решений и начните отладку.
     public class ArticleService : IArticleService
     {
         string connectionString = string.Empty;
+        const string errorConnection = "Something wrong with database. Details:  ";
+        const string errorArgument = "Parametr is invalid";
 
         public ArticleService()
         {
             connectionString = ConfigurationManager.ConnectionStrings["InfPortal"].ConnectionString;
         }
-        public List<ArticleEntity> GetArticles()
+        public ArticleEntity[] GetArticles()
         {
-            List<ArticleEntity> articles = new List<ArticleEntity>();
+            var articles = new List<ArticleEntity>();
             using (var connection = new SqlConnection(connectionString))
             {
                 try
@@ -49,32 +49,33 @@ namespace InfPortal.service.Contracts
                                 Date = Convert.ToDateTime(reader["date"]),
                                 Language = reader["language"].ToString(),
                                 VideoLink = reader["videoLink"].ToString()
-                            }
-
+                            },
+                            AuthorId = Convert.ToInt32(reader["userId"]),
+                            AuthorName = reader["login"].ToString()
                         });
                     }
                     connection.Close();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Logger.AddToLog("error", ex.Message);
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = "Can't connect to DataBase..."
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
             }
-            return articles;
+            return articles.ToArray<ArticleEntity>();
         }
 
         public ArticleEntity GetArticleById(int? id)
         {
-           if(id==null)
-           {
-               throw new ArgumentNullException("parametr id is null");
-               
-           }
-            ArticleEntity article = new ArticleEntity();
+            int parsedId;
+            if (!int.TryParse(id.ToString().Trim(), out parsedId))
+            {
+                throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
+            }
+            var article = new ArticleEntity();
             using (var connection = new SqlConnection(connectionString))
             {
                 try
@@ -82,7 +83,7 @@ namespace InfPortal.service.Contracts
                     connection.Open();
                     var command = new SqlCommand("GetArticleById", connection);
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("articleId", id);                    
+                    command.Parameters.AddWithValue("articleId", parsedId);
                     var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -96,38 +97,40 @@ namespace InfPortal.service.Contracts
                             Language = reader["language"].ToString(),
                             Date = Convert.ToDateTime(reader["date"]),
                             VideoLink = reader["videoLink"].ToString()
-                        };                        
-
+                        };
+                        article.AuthorId = Convert.ToInt32(reader["userId"]);
+                        article.AuthorName = reader["login"].ToString();
                     }
                     connection.Close();
                 }
-                catch(Exception ex)
-                {                    
+                catch (Exception ex)
+                {
                     Logger.AddToLog("error", ex.Message);
-                    throw new FaultException<ServiceException>(new ServiceException() 
-                    { 
-                        ErrorMessage = "Can't connect to DataBase..." 
+                    throw new FaultException<ServiceException>(new ServiceException()
+                    {
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
 
             }
-            return article;            
+            return article;
         }
 
-        public List<ArticleEntity> GetArticlesByHeadingId(int? id)
+        public ArticleEntity[] GetArticlesByHeadingId(int? id)
         {
-            if(id==null)
+            int parsedId;
+            if (!int.TryParse(id.ToString().Trim(), out parsedId))
             {
-                throw new FaultException<ArgumentNullException>(new ArgumentNullException("Id is null"));
+                throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
-            List<ArticleEntity> articles = new List<ArticleEntity>();
+            var articles = new List<ArticleEntity>();
             using (var connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
                     var command = new SqlCommand("GetArticlesByHeadingId", connection);
-                    command.Parameters.AddWithValue("HeadingId", id);
+                    command.Parameters.AddWithValue("HeadingId", parsedId);
                     command.CommandType = CommandType.StoredProcedure;
                     var reader = command.ExecuteReader();
                     while (reader.Read())
@@ -136,7 +139,9 @@ namespace InfPortal.service.Contracts
                         {
                             Id = Convert.ToInt32(reader["id"]),
                             Name = reader["name"].ToString(),
-                            PictureLink = reader["pictureLink"].ToString()                          
+                            PictureLink = reader["pictureLink"].ToString(),
+                            AuthorId = Convert.ToInt32(reader["userId"]),
+                            AuthorName = reader["login"].ToString()
 
                         });
                     }
@@ -147,16 +152,184 @@ namespace InfPortal.service.Contracts
                     Logger.AddToLog("error", ex.Message);
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = "Can't connect to DataBase..."
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
             }
-            return articles;
+            return articles.ToArray<ArticleEntity>();
         }
 
         public int GetCountOfArticles()
         {
             throw new NotImplementedException();
+        }
+
+
+        public ArticleEntity[] GetArticlesByUserId(int? id)
+        {
+            int parsedId;
+            if (!int.TryParse(id.ToString().Trim(), out parsedId))
+            {
+                throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
+            }
+            var articles = new List<ArticleEntity>();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    var command = new SqlCommand("GetArticlesByUserId", connection);
+                    command.Parameters.AddWithValue("userId", parsedId);
+                    command.CommandType = CommandType.StoredProcedure;
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        articles.Add(new ArticleEntity()
+                        {
+                            Id = Convert.ToInt32(reader["id"]),
+                            Name = reader["name"].ToString(),
+                            PictureLink = reader["pictureLink"].ToString(),
+                            AuthorId = Convert.ToInt32(reader["userId"]),
+                            AuthorName = reader["login"].ToString()
+                        });
+                    }
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    Logger.AddToLog("error", ex.Message);
+                    throw new FaultException<ServiceException>(new ServiceException()
+                    {
+                        ErrorMessage = errorConnection + ex.Message
+                    });
+                }
+            }
+            return articles.ToArray<ArticleEntity>();
+
+        }
+
+
+        public ArticleEntity[] GetArticleByName(string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                var articles = new List<ArticleEntity>();
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        var command = new SqlCommand("GetArticleByName", connection);
+                        command.Parameters.AddWithValue("articleName", name);
+                        command.CommandType = CommandType.StoredProcedure;
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            articles.Add(new ArticleEntity()
+                            {
+                                Id = Convert.ToInt32(reader["id"]),
+                                Name = reader["name"].ToString(),
+                                PictureLink = reader["pictureLink"].ToString(),
+                                Details = new InfoEntity()
+                                {
+                                    Id = Convert.ToInt32(reader["id"]),
+                                    Text = reader["text"].ToString(),
+                                    Date = Convert.ToDateTime(reader["date"]),
+                                    Language = reader["language"].ToString(),
+                                    VideoLink = reader["videoLink"].ToString()
+                                },
+                                AuthorId = Convert.ToInt32(reader["userId"]),
+                                AuthorName = reader["login"].ToString()
+                            });
+                        }
+                        connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.AddToLog("error", ex.Message);
+                        throw new FaultException<ServiceException>(new ServiceException()
+                        {
+                            ErrorMessage = errorConnection + ex.Message
+                        });
+                    }
+                    return articles.ToArray<ArticleEntity>();
+                }
+            }
+            return null;
+        }
+
+        public string[] GetArticleNamesByInput(string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                var names = new List<string>();
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        var command = new SqlCommand("GetArticleNamesByInput", connection);
+                        command.Parameters.AddWithValue("articleName", name);
+                        command.CommandType = CommandType.StoredProcedure;
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            names.Add(reader["name"].ToString());
+
+                        }
+                        connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.AddToLog("error", ex.Message);
+                        throw new FaultException<ServiceException>(new ServiceException()
+                        {
+                            ErrorMessage = errorConnection + ex.Message
+                        });
+                    }
+                    return names.ToArray();
+                }
+            }
+            return null;
+        }
+
+
+        public bool AddArticle(ArticleEntity article)
+        {
+            bool resultOfOperation = false;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    int lastId = 0;
+                    connection.Open();
+                    var command = new SqlCommand("AddArticle", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("name", article.Name);
+                    command.Parameters.AddWithValue("pictureLink", article.PictureLink);
+                    command.Parameters.AddWithValue("userId", article.AuthorId);
+                    command.Parameters.AddWithValue("language", article.Details.Language);
+                    command.Parameters.AddWithValue("date", article.Details.Date);
+                    command.Parameters.AddWithValue("text", article.Details.Text);
+                    command.Parameters.AddWithValue("videoLink", article.Details.VideoLink);
+                    lastId = Convert.ToInt32(command.ExecuteScalar());
+                    connection.Close();
+                    if (lastId != 0)
+                    {
+                        resultOfOperation = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //Logger.AddToLog("error", ex.Message);
+                    connection.Close();
+                    throw new FaultException<ServiceException>(new ServiceException()
+                    {
+                        ErrorMessage = errorConnection + ex.Message
+                    });
+                }
+                return resultOfOperation;
+            }
         }
     }
 }

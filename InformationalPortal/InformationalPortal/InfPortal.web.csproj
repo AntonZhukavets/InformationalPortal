@@ -125,7 +125,15 @@
   <ItemGroup>
     <Compile Include="App_Start\LoggerConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="business\Enums\AuthenticationResult.cs" />
+    <Compile Include="business\Implementations\AuthenticationService.cs" />
+    <Compile Include="business\Implementations\JsonAttribute.cs" />
+    <Compile Include="business\Implementations\UserPrincipal.cs" />
+    <Compile Include="business\Interfaces\IAuthenticationService.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -136,8 +144,12 @@
     </Compile>
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\ArticleHeading.cs" />
+    <Compile Include="Models\ArticlePreView.cs" />
     <Compile Include="Models\Heading.cs" />
     <Compile Include="Models\Info.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\SimpleUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +157,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\CSS\Portal.css" />
+    <Content Include="Content\CSS\test.css" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
@@ -163,9 +176,19 @@
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
-    <Content Include="Views\Home\ArticlesTable.cshtml" />
-    <Content Include="Views\Home\ArticlePreView.cshtml" />
+    <Content Include="Views\Shared\ArticlesTable.cshtml" />
     <Content Include="Views\Home\Article.cshtml" />
+    <Content Include="Views\Login\Registration.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\ErrorView.cshtml" />
+    <Content Include="Views\User\AddArticle.cshtml" />
+    <Content Include="Views\Home\Usercapabilities.cshtml" />
+    <Content Include="Views\User\EditProfile.cshtml" />
+    <Content Include="Views\User\MyArticles.cshtml" />
+    <Content Include="Views\User\EditArticle.cshtml" />
+    <Content Include="Views\Shared\AccessDenied.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

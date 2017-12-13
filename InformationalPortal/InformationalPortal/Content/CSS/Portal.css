@@ -1,5 +1,160 @@
-﻿body {
+﻿a{
+    text-decoration:none;  
+    color:black;  
+    display:block;
 }
-table {
-    width:100%
+table {    
+   
+   border:none;
 }
+
+.buttons{
+    display:inline; 
+    float:left;    
+    line-height:40px; 
+    background-color:lightgrey;
+    font-family:fantasy;
+    text-align:center; 
+    z-index:1; 
+                    
+}
+
+
+.test{
+    width:20%;
+    height:200px;
+    background-color:aqua;
+    font-family:'Buxton Sketch';
+    font-size:large;
+}.line{
+    font-family:fantasy;
+    display:inline-block;
+    width:100%;
+    line-height:40px; 
+    background-color:lightgrey;
+    margin-left:-5px;  
+    z-index:2;   
+}#HomePage{
+    width:25%;
+    font-size:x-large;
+    z-index:1;
+}#SearchTxt{
+    width:50%;
+    z-index:1;
+}#SearchTxt .SearchTxt{
+    width:90%;
+    z-index:1;
+}#SearchBtn{
+    width:5%;
+    z-index:1;
+    cursor:pointer;
+}#User{
+  width:10%;
+  z-index:1;
+}#LoginHeader{
+     width:10%;
+     z-index:1;
+}#Registration{
+     width:10%;
+     z-index:1;
+}#Logout{
+     width:10%;
+     z-index:1;
+}#FreeSpace{
+    height:50px;    
+    text-align:center;    
+    z-index:1;  
+}#UserCapability{
+    display:inline-block;
+    background-color:lightgray; 
+    width:10%;   
+    height:80px;
+    margin-left:80%;
+    margin-right:10%;
+    line-height:40px;
+    z-index:1;   
+}#EditProfile{
+    width:100%;
+    z-index:1;
+}#PersonalArea{
+    width:100%;
+    z-index:1;
+}#div_edit{
+    width:100%;
+    z-index:1;
+}#div_cancelEdit{
+    width:100%;
+    z-index:1;
+}#div_removeProfile{
+    width:100%;
+    z-index:1;
+}#addArticle{
+    width:100px;
+    z-index:1;
+}#AddHeading{
+    width:100px;
+    z-index:1;
+}#Autor{
+    width:50%;   
+    float:left;
+    text-align:center;
+    z-index:1;
+}#PublicationDate{
+    width:50%;    
+    float:left;
+    text-align:center;
+    z-index:1;
+}
+
+#HeadingsList { 
+    float:left;   
+    width: 10%;
+    height: 1600px;     
+    display:inline-block;
+    z-index:1;
+} .headingButton{
+    
+    width:100%;
+    line-height:40px; 
+    background-color:lightgray;
+    font-family:fantasy;
+    text-align:center;    
+    border:1px solid black; 
+    margin-bottom:1px;
+    z-index:1; 
+}  #content{    
+    float:left;
+    margin-left:20px;
+    width:88%; 
+    z-index:1;   
+}#textName{
+    width:99%; 
+    z-index:1;  
+}#textText{
+    width:99%;
+    height:500px; 
+    z-index:1;
+     
+}#Headings{
+    z-index:1;
+}#HeadingsForCheck{
+    float:left;
+    width:100px;
+    height:300px;
+    z-index:2;
+    background-color:lightgray;
+    border:double;
+}#editbutton{
+    width:100px;
+}#ArticleForRead{    
+    margin-top:25px;
+}#lifeSearch{
+    display:inline-block;
+    width:45%;
+    height:50px;
+    background-color:aquamarine;     
+    z-index:2;
+}
+
+
+   

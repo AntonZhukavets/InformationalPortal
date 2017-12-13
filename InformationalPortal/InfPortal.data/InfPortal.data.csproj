@@ -65,7 +65,11 @@
     <Compile Include="Entities\ArticleHeading.cs" />
     <Compile Include="Entities\Heading.cs" />
     <Compile Include="Entities\Info.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Implementations\ServiceProvider.cs" />
+    <Compile Include="Implementations\UserServiceProvider.cs" />
+    <Compile Include="Interfaces\IUserServiceProvider.cs" />
     <Compile Include="Interfaces\IServiceProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ArticleProxy\Reference.cs">
@@ -74,6 +78,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\HeadingProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UserProxy\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -95,6 +104,12 @@
     <None Include="Service References\ArticleProxy\ArticleService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ArticleProxy\ArticleService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ArticleProxy\ArticleService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ArticleProxy\InfPortal.data.ArticleProxy.ArticleEntity.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -108,8 +123,33 @@
     <None Include="Service References\HeadingProxy\HeadingService11.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\HeadingProxy\HeadingService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeadingProxy\HeadingService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\HeadingProxy\InfPortal.data.HeadingProxy.HeadingEntity.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserProxy\InfPortal.data.UserProxy.UserEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserProxy\UserService.wsdl" />
+    <None Include="Service References\UserProxy\UserService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserProxy\UserService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserProxy\UserService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserProxy\UserService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserProxy\UserService4.xsd">
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +158,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ArticleProxy\" />
     <WCFMetadataStorage Include="Service References\HeadingProxy\" />
+    <WCFMetadataStorage Include="Service References\UserProxy\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ArticleProxy\ArticleService.disco" />
@@ -151,6 +192,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\HeadingProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserProxy\UserService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserProxy\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserProxy\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserProxy\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

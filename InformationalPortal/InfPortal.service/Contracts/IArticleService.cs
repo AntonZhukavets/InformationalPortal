@@ -9,23 +9,44 @@ using InfPortal.service.Implementations;
 
 namespace InfPortal.service.Contracts
 {
-    // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени интерфейса "IArticleEntityService" в коде и файле конфигурации.
     [ServiceContract]
     public interface IArticleService
     {
         [OperationContract]
         [FaultContract(typeof(ServiceException))]
-        List<ArticleEntity> GetArticles();
+        ArticleEntity[] GetArticles();
 
         [OperationContract]
         [FaultContract(typeof(ServiceException))]
+        [FaultContract(typeof(ArgumentException))]
         ArticleEntity GetArticleById(int? id);
 
         [OperationContract]
         [FaultContract(typeof(ServiceException))]
-        List<ArticleEntity> GetArticlesByHeadingId(int? Id);
+        [FaultContract(typeof(ArgumentException))]
+        ArticleEntity[] GetArticleByName(string name);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceException))]
+        [FaultContract(typeof(ArgumentException))]
+        string[] GetArticleNamesByInput(string name);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceException))]
+        [FaultContract(typeof(ArgumentException))]
+        ArticleEntity[] GetArticlesByHeadingId(int? Id);
 
         [OperationContract]
         int GetCountOfArticles();
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceException))]
+        [FaultContract(typeof(ArgumentException))]
+        ArticleEntity[] GetArticlesByUserId(int? id);
+        
+        [OperationContract]
+        [FaultContract(typeof(ServiceException))]
+        [FaultContract(typeof(ArgumentException))]
+        bool AddArticle(ArticleEntity article);
     }
 }

@@ -1,7 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [InfPortal]    Script Date: 11/25/2017 16:30:20 ******/
+/****** Object:  Database [InfPortal]    Script Date: 12/12/2017 22:30:37 ******/
 CREATE DATABASE [InfPortal] ON  PRIMARY 
 ( NAME = N'InfPortal', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA\InfPortal.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 

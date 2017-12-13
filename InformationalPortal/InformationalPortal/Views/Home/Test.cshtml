@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+    <link href="~/Content/CSS/test.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h1>Test</h1>
+        <div id="dd" class="wrapper-dropdown-1" tabindex="1">
+            <span>Пол</span>
+            <ul class="dropdown">
+                <li><a href="#">Мужской</a></li>
+                <li><a href="#">Женский</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function DropDown(el) {
+            this.dd = el;
+            this.placeholder = this.dd.children('span');
+            this.opts = this.dd.find('ul.dropdown > li');
+            this.val = '';
+            this.index = -1;
+            this.initEvents();
+        }
+        DropDown.prototype = {
+            initEvents : function() {
+                var obj = this;
+ 
+                obj.dd.on('click', function(event){
+                    $(this).toggleClass('active');
+                    return false;
+                });
+ 
+                obj.opts.on('click',function(){
+                    var opt = $(this);
+                    obj.val = opt.text();
+                    obj.index = opt.index();
+                    obj.placeholder.text('Gender: ' + obj.val);
+                });
+            },
+            getValue : function() {
+                return this.val;
+            },
+            getIndex : function() {
+                return this.index;
+            }
+        }
+    </script>
+</body>
+</html>

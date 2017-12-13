@@ -13,5 +13,8 @@ namespace InfPortal.service.Entities
         public string PictureLink { get; set; }
 
         public InfoEntity Details { get; set; }
+
+        public int AuthorId { get; set; }
+        public string AuthorName { get; set; }
     }
 }
