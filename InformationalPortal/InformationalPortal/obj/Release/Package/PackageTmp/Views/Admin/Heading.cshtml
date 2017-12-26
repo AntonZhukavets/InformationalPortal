@@ -1,0 +1,19 @@
+﻿@model InformationalPortal.Models.Heading
+<div id="headingRow">
+    <div class="buttons">        
+        @Ajax.ActionLink("Edit", "EditHeading", "Admin", null, new AjaxOptions { UpdateTargetId = "userCapabilities" }, new { @class = "editHeadingButton", @id=@Model.Id})
+    </div>
+    <div id="User" class="buttons">
+        @Ajax.ActionLink("Delete", "DeleteHeading", "Admin", new { @id = @Model.Id }, new AjaxOptions { UpdateTargetId = "workWithHeadingsResult" + @Model.Id.ToString() })
+    </div>   
+        @Html.TextBoxFor(model => model.Name, new { @class = "HeadingName", @id="headingName"+Model.Id })
+
+        @Html.TextAreaFor(model => model.Description, new { @class = "HeadingDesc", @id="headingDesc"+Model.Id })    
+</div>
+<div>
+    status:@Html.Label("Active", new { @id = "workWithHeadingsResult" + @Model.Id.ToString() })
+</div>
+
+
+           
+   

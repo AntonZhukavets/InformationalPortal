@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using InfPortal.business.DTO;
+﻿using InfPortal.business.DTO;
 
 namespace InfPortal.business.Interfaces
 {
     public interface IDataProvider
     {
-        void AddArticle(ArticleDTO article);
-        void UpdateArticle(ArticleDTO article);
-        void DeleteArticle(int? id);
-        ArticleDTO GetArticle(int? id);
-        List<ArticleDTO> GetArticles();
-        List<HeadingDTO> GetHeadings();
-        void Dispose();
+        bool AddArticle(ArticleDTO article);
+        bool EditArticle(ArticleDTO article);
+        bool DeleteArticle(int? id);
+        bool AddHeading(HeadingDTO heading);
+        bool EditHeading(HeadingDTO heading);
+        bool DeleteHeading(int? id);
+        ArticleDTO GetFullArticleById(int? id);
+        ArticleDTO[] GetArticlesPreView();
+        ArticleDTO[] GetArticlesPreViewByHeadingId(int? id);
+        ArticleDTO[] GetArticlesPreViewByUserId(int? id);
+        HeadingDTO[] GetHeadings();
+        ArticleDTO[] GetArticlesPreViewByName(string name);
+        string[] GetArticleNamesByInput(string name);
         int GetCountOfArticles();
     }
 }

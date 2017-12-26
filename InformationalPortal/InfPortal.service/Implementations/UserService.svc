@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="InfPortal.service.Contracts.UserService" CodeBehind="UserService.svc.cs" %>

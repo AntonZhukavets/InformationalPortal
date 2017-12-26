@@ -1,5 +1,287 @@
-﻿body {
+﻿a{
+    text-decoration:none;  
+    color:black;  
+    display:block;
 }
-table {
-    width:100%
+table {    
+   
+   border:none;
 }
+
+.buttons{
+    display:inline; 
+    float:left;    
+    line-height:40px; 
+    background-color:lightgrey;
+    font-family:fantasy;
+    text-align:center; 
+    z-index:1;                       
+}
+
+
+.test{
+    width:20%;
+    height:200px;
+    background-color:aqua;
+    font-family:'Buxton Sketch';
+    font-size:large;
+}.line{
+    font-family:fantasy;
+    display:inline-block;
+    width:100%;
+    line-height:40px; 
+    background-color:lightgrey;
+    margin-left:-5px;  
+    z-index:2;   
+}#Headings{
+display:inline-block;
+}.Headings{
+    width:200px;
+}.Heading{
+    width:80px;
+    background-color:lightgray;
+    font-family:fantasy;
+    float:left;
+    text-align:center;
+    padding-right:2px;
+    border:1px solid black;
+    cursor:pointer;
+}#HomePage{
+    width:25%;
+    font-size:x-large;
+    z-index:1;
+}#SearchTxt{
+    width:45%;
+    z-index:1;
+}#SearchTxt .SearchTxt{
+    width:90%;
+    z-index:1;
+}#SearchBtn{
+    width:10%;
+    z-index:1;
+    cursor:pointer;
+}#User{
+  width:10%;
+  z-index:1;
+}.UserRow{    
+  width:100%;
+  z-index:1;
+  display:inline-block;
+  font-family:fantasy;
+  background-color:lightgray
+}.UserInfo{
+    float:left;
+    width:15%;
+    text-align:center;
+    
+}#LoginHeader{
+     width:10%;
+     z-index:1;
+}#Registration{
+     width:10%;
+     z-index:1;
+}#Logout{
+     width:10%;
+     z-index:1;
+}#FreeSpace{
+    height:50px;    
+    text-align:center;    
+    z-index:1;  
+}#UserCapability{
+    display:inline-block;
+    background-color:lightgray; 
+    width:10%;    
+    margin-left:80%;
+    margin-right:10%;
+    line-height:40px;
+    z-index:1;   
+}#EditProfile{
+    width:100%;
+    z-index:1;
+}#AdminArea{
+    width:100%;
+    z-index:1;
+}#PersonalArea{
+    width:100%;
+    z-index:1;
+}#div_edit{
+    width:100%;
+    z-index:1;
+}#div_cancelEdit{
+    width:100%;
+    z-index:1;
+}#div_stopProfile{
+    width:100%;
+    z-index:1;
+}#div_startProfile{
+    width:100%;
+    z-index:1;
+}#addArticle{
+    width:100px;
+    z-index:1;
+}#editArticleButton{
+    display:inline;
+    vertical-align:central;    
+    z-index:2;    
+    cursor:pointer;
+    font-family:fantasy;
+    background-color:lightgray;
+
+}#deleteArticleButton{
+    display:inline;
+    vertical-align:central;   
+    z-index:2;    
+    cursor:pointer;
+    font-family:fantasy;
+    background-color:lightgray;
+
+}#AddHeading{
+    width:100px;
+    z-index:1;
+}#Autor{
+    width:50%;   
+    float:left;
+    text-align:center;
+    z-index:1;
+}#PublicationDate{
+    width:50%;    
+    float:left;
+    text-align:center;
+    z-index:1;
+}
+
+#HeadingsList { 
+    float:left;   
+    width: 10%;
+    height: 1600px;     
+    display:inline-block;
+    z-index:1;
+} .headingButton{
+    
+    width:100%;
+    line-height:40px; 
+    background-color:lightgray;
+    font-family:fantasy;
+    text-align:center;    
+    border:1px solid black; 
+    margin-bottom:1px;
+    z-index:1;     
+}  #content{    
+    float:left;
+    margin-left:20px;
+    width:88%; 
+    z-index:1;   
+}#articleName{
+    width:99%; 
+    z-index:1;  
+}#articleText{
+    width:99%;
+    height:500px; 
+    z-index:1;
+     
+}#articleVideo{
+    width:99%;    
+    z-index:1;
+     
+}#Headings{
+    z-index:1;
+}#HeadingsForCheck{
+    float:left;
+    width:100px;
+    height:300px;
+    z-index:2;
+    background-color:lightgray;
+    border:double;
+}#editbutton{
+    width:100px;
+}#ArticleForRead{    
+    margin-top:25px;
+}#lifeSearch{
+    display:inline-block;
+    width:45%;
+    height:50px;
+    background-color:aquamarine;     
+    z-index:2;
+}.selected{
+    background-color:gray;
+}.unselected{
+    background-color:lightgrey;
+}#saveEdit{
+    width:100px;
+    cursor:pointer;
+}#articlesTable{
+    height:15%;
+    width:15%;
+}
+#headingRow {
+    width: 100%;
+    display: inline-block;
+    float: left;
+    background-color: lightgray;    
+}.HeadingName{
+    width:15%;
+    vertical-align: top;
+}.HeadingDesc{
+    width:60%;
+    height:100px;
+}.HeadingId{
+    vertical-align: top;
+}.editHeadingButton{
+    
+    cursor:pointer;
+    width:100%;
+    
+}.deleteHeadingButton{
+    float:left;
+    background-color:lightgray;
+    font-family:fantasy;
+    width:70px;
+    height:30px;
+    text-align:center;
+    vertical-align:middle;
+    cursor:pointer;
+    line-height:30px;
+}#editHeadingDesc{
+    width:100%;
+    height:200px;
+}#editHeadingName{
+        width:100%;    
+}.AddHeadingButtons{
+    display:inline;
+}#AddHeadingButtonsAdd{
+    float:left;
+    text-align:center;
+    font-family:fantasy;
+    background-color:lightgray;
+    width:100px;
+    line-height:40px;
+    cursor:pointer;
+}#AddHeadingButtonsCancel{
+    float:left;
+    text-align:center;
+    font-family:fantasy;
+    background-color:lightgray;
+    width:100px;
+    line-height:40px;
+    margin-left:10px;
+    cursor:pointer;
+}#LanguageList{
+    font-family:fantasy;
+    background-color:lightgray;
+}#AdvancedSearch{
+    display:inline-block;    
+    background-color:lightgray; 
+    width:10%;       
+    margin-left:70%;
+    margin-right:20%;
+    line-height:40px;
+    z-index:1;   
+}#AdvancedSearchBtn{
+    width:100%;
+}#AdvancedSearchButton{
+    width:100px;
+    cursor:pointer;
+}
+
+
+   

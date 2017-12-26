@@ -1,27 +1,12 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DefaultRegistry.cs" company="Web Advanced">
-// Copyright 2012 Web Advanced (www.webadvanced.com)
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-// http://www.apache.org/licenses/LICENSE-2.0
-
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace InfPortal.business.DependencyResolution {
+namespace InfPortal.business.DependencyResolution
+{
     using StructureMap.Configuration.DSL;
-    using StructureMap.Graph;
-    using InfPortal.data.Interfaces;
-    using InfPortal.data.Implementations;
+    using StructureMap.Graph;   
+    using InfPortal.business.Interfaces;
+    using InfPortal.business.Providers;
 	
-    public class BusinessRegistry : Registry {
+    public class BusinessRegistry : Registry
+    {
         #region Constructors and Destructors
 
         public BusinessRegistry()
@@ -32,7 +17,11 @@ namespace InfPortal.business.DependencyResolution {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
                 });
-            For<IServiceProvider>().Use<ServiceProvider>();
+            For<IArticleProvider>().Use<ArticleProvider>();
+            For<IUserProvider>().Use<UserProvider>();
+            For<IHeadingProvider>().Use<HeadingProvider>();
+            For<ILanguageProvider>().Use<LanguageProvider>();
+           
         }
 
         #endregion

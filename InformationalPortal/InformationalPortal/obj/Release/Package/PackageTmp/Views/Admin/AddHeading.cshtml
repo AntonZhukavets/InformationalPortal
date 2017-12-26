@@ -1,0 +1,58 @@
+﻿@model InformationalPortal.Models.Heading
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddHeading</title>
+</head>
+<body>
+    <h1>Add new heading</h1>
+    <div>
+        <div class="line">Name</div>
+        <div>
+            @Html.TextBoxFor(model => model.Name, new { @id = "editHeadingName" })
+        </div>
+        <div class="line">Description</div>
+        @Html.TextAreaFor(model => model.Description, new { @id = "editHeadingDesc" })               
+     <div class="AddHeadingButtons" >
+         <div id="AddHeadingButtonsAdd" class="buttons">Add</div>
+         <div id="AddHeadingButtonsCancel" class="buttons">Cancel</div>
+     </div> 
+        <div id="addHeadingResult"></div>
+     </div>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+
+        $(".buttons").mouseover(function () {
+            $(this).css("background", "gray");
+
+        });
+        $(".buttons").mouseout(function () {
+            $(this).css("background", "lightgray");
+            
+        });
+
+        $("#AddHeadingButtonsAdd").click(function ()
+        { 
+            var name = $("#editHeadingName").val();
+            var description = $("#editHeadingDesc").val();
+            $.ajax({
+                type: 'POST',
+                data: {Name: name, Description: description },
+                url: '@Url.Action("AddHeading", "Admin")',
+                traditional: true,
+                success: function (result) {
+                    $("#addHeadingResult").text(result);
+                }
+            });            
+        });
+    </script>
+</body>
+</html>

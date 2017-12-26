@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminsArea</title>
+</head>
+<body>
+    <h1>Admins area</h1>
+    <div>
+        @Html.ActionLink("Edit headings", "WorkWithHeadings", "Admin", null, new { @class = "buttons" })
+        @Html.ActionLink("Edit users", "WorkWithUsers", "Admin", null, new { @class = "buttons" })
+    </div>
+</body>
+</html>

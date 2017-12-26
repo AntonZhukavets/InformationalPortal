@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />    
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <link href="~/Content/CSS/Portal.css" rel="stylesheet" />   
+    <div class="header">
+       
+        <div id="HomePage" class="buttons">@Html.ActionLink("Informational portal", "Index", "Home")</div>
+        @*<div id="SearchTxt" class="buttons">@Html.DropDownList("search", new List<SelectListItem>(), new { @class = "SearchTxt" })</div>*@
+        <div id="SearchTxt" class="buttons">@Html.TextBox("search", null, new { @class = "SearchTxt" })</div>
+        <div id="SearchBtn" class="buttons">@Html.ActionLink("Search", "Search", "Home", null, new { @id="SearchBtnLnk"})</div>
+        @if (HttpContext.Current.User.ToString() != string.Empty)
+        {
+            <div id="User" class="buttons">
+                @Ajax.ActionLink(HttpContext.Current.User.ToString(), "ShowUsercapabilities", "Home", null, new AjaxOptions { UpdateTargetId = "userCapabilities" })
+            </div> 
+             <div id="Logout" class="buttons">
+            @Html.ActionLink("Logout", "Logout", "Login")
+            </div>
+        }
+        else
+        {
+            <div id="LoginHeader" class="buttons">
+                @Html.ActionLink("Login", "Login", "Login")
+            </div>
+            <div id="Registration" class="buttons">
+                @Html.ActionLink("Registration", "Registration", "Login")
+            </div>
+        }                    
+    </div>
+    @if (Convert.ToInt32(HttpContext.Current.User.Identity.Name)!=0)
+    { 
+    <div id="FreeSpace">
+        @*<div id="lifeSearch">sss</div>*@
+        <div id="UserCapability">
+            <div id="EditProfile" class="buttons">@Html.ActionLink("Edit profile", "EditProfile", "User", new { @id = HttpContext.Current.User.Identity.Name }, null)</div>
+            <div id="PersonalArea" class="buttons">@Html.ActionLink("Personal area", "GetArticlesByUserId", "User", new { @id = HttpContext.Current.User.Identity.Name }, null)</div>
+            @if(HttpContext.Current.User.IsInRole("Administrator"))
+            {
+                <div id="AdminArea" class="buttons">@Html.ActionLink("Admins area", "AdminsArea", "Admin")</div>
+            }
+        </div>
+    </div>
+    }
+    <div id="HeadingsList"></div>    
+    <div id="content">
+        @RenderBody()
+    </div>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script>
+    $("#User").mouseover(function () {
+        $("#UserCapability").show();
+    });
+    $("#User").mouseout(function () {
+        $("#UserCapability").hide();
+    });
+    $("#UserCapability").mouseover(function () {
+        $("#UserCapability").show();
+    });
+    $("#UserCapability").mouseout(function () {
+        $("#UserCapability").hide();
+    });
+    $(document).ready(function () {
+        $("#lifeSearch").hide();
+        $("#UserCapability").hide();
+        $("#HeadingsForCheck").hide();
+        $("#defaultSearchHref").text($("#SearchBtnLnk").attr("href"));
+
+    });
+    $(".buttons").mouseover(function () {
+        $(this).css("background", "gray");
+    });
+    $(".buttons").mouseout(function () {
+        $(this).css("background", "lightgray");
+    });
+    $(".headingButton").mouseover(function () {
+        $(this).css("background", "gray");
+    });
+    $(".headingButton").mouseout(function () {
+        $(this).css("background", "lightgray");
+    });
+    $("#AddHeading").mouseover(function () {
+        $("#HeadingsForCheck").show();
+    });
+    $("#AddHeading").mouseout(function () {
+        $("#HeadingsForCheck").hide();
+    });
+    $(document).ready(function () {
+        $.ajax({
+            url: '@Url.Action("GetHeadings","Home")',
+            type: 'GET',
+            contentType: 'json',
+            async: false,
+            success: function (data) {
+                var html = "";
+                for (i = 0; i < data.length; i++) {
+                    //<a data-ajax="true" data-ajax-mode="replace" data-ajax-update="#userCapabilities" href="/InfPortal.web/Home/ShowUsercapabilities">NatashaKingsman</a>
+                    //html += '<div id="button' + data[i].Id + '" class="headingButton" onmouseover=onMouseOver() onmouseout=onMouseOut()><a  data-ajax="true" data-ajax-mode="replace" data-ajax-update="#content" name="' + data[i].Name + '" href="/InfPortal.web/Home/GetArticlesByHeadingId/' + data[i].Id + '">' + data[i].Name + '</a></div>';
+                    html += '<div id="button' + data[i].Id + '" class="headingButton" onmouseover=onMouseOver() onmouseout=onMouseOut()><a name="' + data[i].Name + '" href="/InfPortal.web/Home/GetArticlesByHeadingId/' + data[i].Id + '">' + data[i].Name + '</a></div>';
+                }
+                $("#HeadingsList").html(html);
+            }
+        });
+    });
+
+    function onMouseOver() {
+        event.target.style.background = 'gray';
+    };
+    function onMouseOut() {
+        event.target.style.background = 'lightgray';
+    };
+    
+    $("#SearchTxt").on('input', (function () {
+        var link = '/InfPortal.web/Home/Search/';
+        $("#SearchBtnLnk").attr("href", link + $("#search").val());
+        //alert($("#defaultSearchHref").val());
+    }));
+
+
+    </script>
+</body>
+</html>
+

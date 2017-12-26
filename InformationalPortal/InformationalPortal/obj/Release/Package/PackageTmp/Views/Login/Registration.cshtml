@@ -1,0 +1,66 @@
+﻿@model InformationalPortal.Models.RegisterModel
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+    <script src="~/Scripts/jquery-3.2.1.slim.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+</head>
+<body>
+    <div>
+       <h1>Registration</h1> 
+        @using(Html.BeginForm("Registration","Login",FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(model=>model.FirstName)</td>
+                    <td>@Html.TextBoxFor(model => model.FirstName)</td>
+                    <td>@Html.ValidationMessageFor(model => model.FirstName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.LastName)</td>
+                    <td>@Html.TextBoxFor(model => model.LastName)</td>
+                    <td>@Html.ValidationMessageFor(model => model.LastName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Email)</td>
+                    <td>@Html.TextBoxFor(model => model.Email)</td>
+                    <td>@Html.ValidationMessageFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Login)</td>
+                    <td>@Html.TextBoxFor(model => model.Login)</td>
+                    <td>@Html.ValidationMessageFor(model => model.Login)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Password)</td>
+                    <td>@Html.PasswordFor(model => model.Password)</td>
+                    <td>@Html.ValidationMessageFor(model => model.Password)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Re password")</td>
+                    <td>@Html.TextBox("txt_rePassword")</td>
+                    <td><span id="rePassword_validation"></span></td>
+                </tr>                
+                <tr>
+                    <td><input id="btn_reg" type="submit" value="Register" /></td>
+                    <td><input id="cancelReg" type="button" value="Cancel" /></td>
+                </tr>
+            </table>
+        } 
+        <label>@ViewBag.RegistrationMessage</label>
+    </div>
+    <script>
+        $("#cancelReg").click(function ()
+        {
+            window.location.href = "http://localhost/InfPortal.web/home/index";
+        });
+    </script>
+</body>
+</html>

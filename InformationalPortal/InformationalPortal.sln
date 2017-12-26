@@ -16,6 +16,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfPortal.business", "InfPo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfPortal.common", "InfPortal.common\InfPortal.common.csproj", "{0A8446C7-B8F4-4836-AF53-CED5A41EF942}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A9640A6B-A9A5-4530-B54F-290D45C97DDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "business", "business", "{256D3ADA-D20D-403D-95F9-3E8752A9A3F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfPortal.business.Tests", "InfPortal.business.Tests\InfPortal.business.Tests.csproj", "{BDCCACF0-B294-4516-860B-A3A97A94F155}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,8 +48,16 @@ Global
 		{0A8446C7-B8F4-4836-AF53-CED5A41EF942}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A8446C7-B8F4-4836-AF53-CED5A41EF942}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A8446C7-B8F4-4836-AF53-CED5A41EF942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDCCACF0-B294-4516-860B-A3A97A94F155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDCCACF0-B294-4516-860B-A3A97A94F155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDCCACF0-B294-4516-860B-A3A97A94F155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDCCACF0-B294-4516-860B-A3A97A94F155}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{256D3ADA-D20D-403D-95F9-3E8752A9A3F4} = {A9640A6B-A9A5-4530-B54F-290D45C97DDC}
+		{BDCCACF0-B294-4516-860B-A3A97A94F155} = {256D3ADA-D20D-403D-95F9-3E8752A9A3F4}
 	EndGlobalSection
 EndGlobal

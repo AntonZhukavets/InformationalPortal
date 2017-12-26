@@ -3,8 +3,10 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" />
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/HeadingService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IHeadingService_GetHeadings_InputMessage">
@@ -13,20 +15,86 @@
   <wsdl:message name="IHeadingService_GetHeadings_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetHeadingsResponse" />
   </wsdl:message>
+  <wsdl:message name="IHeadingService_GetHeadings_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q1:ServiceException" />
+  </wsdl:message>
   <wsdl:message name="IHeadingService_GetHeadingsByArticleId_InputMessage">
     <wsdl:part name="parameters" element="tns:GetHeadingsByArticleId" />
   </wsdl:message>
   <wsdl:message name="IHeadingService_GetHeadingsByArticleId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetHeadingsByArticleIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IHeadingService_GetHeadingsByArticleId_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System" name="detail" element="q2:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_GetHeadingsByArticleId_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q3:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_AddHeading_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddHeading" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_AddHeading_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddHeadingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_AddHeading_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q4:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_AddHeading_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/System" name="detail" element="q5:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_EditHeading_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditHeading" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_EditHeading_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditHeadingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_EditHeading_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/System" name="detail" element="q6:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_EditHeading_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q7:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_DeleteHeading_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHeading" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_DeleteHeading_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHeadingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_DeleteHeading_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/System" name="detail" element="q8:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IHeadingService_DeleteHeading_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q9:ServiceException" />
+  </wsdl:message>
   <wsdl:portType name="IHeadingService">
     <wsdl:operation name="GetHeadings">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeadingService/GetHeadings" message="tns:IHeadingService_GetHeadings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsResponse" message="tns:IHeadingService_GetHeadings_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsServiceExceptionFault" name="ServiceExceptionFault" message="tns:IHeadingService_GetHeadings_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetHeadingsByArticleId">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsByArticleId" message="tns:IHeadingService_GetHeadingsByArticleId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsByArticleIdResponse" message="tns:IHeadingService_GetHeadingsByArticleId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsByArticleIdArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IHeadingService_GetHeadingsByArticleId_ArgumentExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/GetHeadingsByArticleIdServiceExceptionFault" name="ServiceExceptionFault" message="tns:IHeadingService_GetHeadingsByArticleId_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHeading">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeadingService/AddHeading" message="tns:IHeadingService_AddHeading_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeadingService/AddHeadingResponse" message="tns:IHeadingService_AddHeading_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/AddHeadingServiceExceptionFault" name="ServiceExceptionFault" message="tns:IHeadingService_AddHeading_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/AddHeadingArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IHeadingService_AddHeading_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditHeading">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeadingService/EditHeading" message="tns:IHeadingService_EditHeading_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeadingService/EditHeadingResponse" message="tns:IHeadingService_EditHeading_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/EditHeadingArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IHeadingService_EditHeading_ArgumentExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/EditHeadingServiceExceptionFault" name="ServiceExceptionFault" message="tns:IHeadingService_EditHeading_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHeading">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeadingService/DeleteHeading" message="tns:IHeadingService_DeleteHeading_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeadingService/DeleteHeadingResponse" message="tns:IHeadingService_DeleteHeading_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/DeleteHeadingArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IHeadingService_DeleteHeading_ArgumentExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHeadingService/DeleteHeadingServiceExceptionFault" name="ServiceExceptionFault" message="tns:IHeadingService_DeleteHeading_ServiceExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IHeadingService" type="tns:IHeadingService">
@@ -39,6 +107,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetHeadingsByArticleId">
       <soap:operation soapAction="http://tempuri.org/IHeadingService/GetHeadingsByArticleId" style="document" />
@@ -48,6 +119,57 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddHeading">
+      <soap:operation soapAction="http://tempuri.org/IHeadingService/AddHeading" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditHeading">
+      <soap:operation soapAction="http://tempuri.org/IHeadingService/EditHeading" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHeading">
+      <soap:operation soapAction="http://tempuri.org/IHeadingService/DeleteHeading" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="HeadingService">

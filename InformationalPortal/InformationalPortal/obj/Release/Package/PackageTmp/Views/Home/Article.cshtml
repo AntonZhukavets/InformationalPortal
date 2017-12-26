@@ -1,0 +1,151 @@
+﻿@model InformationalPortal.Models.Article
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Article</title>
+</head>
+<body>
+    <div>
+        @if(Convert.ToInt32(HttpContext.Current.User.Identity.Name)==Model.AutherId || HttpContext.Current.User.IsInRole("Administrator"))
+        {
+            <div id="editArticleButton"> 
+                Edit this article              
+            </div>
+            <div id="deleteArticleButton">
+                Delete this article
+            </div>
+        }
+        <span id="articleId" hidden="hidden">@Model.Id</span>      
+        <div id="ArticleForRead">
+            <div id="DataAndAutor" class="line">
+                <div id="Autor">
+                    @Html.Label("Author :")
+                    @Model.AutherName
+                </div>
+                <div id="PublicationDate">
+                    @Html.Label("Publication Date: ")
+                    @Model.Details.Date.ToShortDateString()
+                </div>
+            </div>  
+            <div id="ArticleName" class="line">
+                @Html.LabelFor(model=>model.Name)
+            </div>          
+            <div>
+                @Html.TextBoxFor(model => model.Name, new { @id = "articleName", @readonly = "true" })
+            </div>
+            @Html.Label("Headings :", new { @class = "line" })
+            
+            <div id="Headings">
+
+                @foreach (var item in Model.Headings)
+                {
+                    <span class="headingId" hidden="hidden">@item.Id</span>@Html.ActionLink(item.Name, "GetArticlesByHeadingId", "Home", new { @id = item.Id }, new { @class = "Heading" });
+                }
+            </div>
+           
+            <div id="pictureHolder">
+                <img src=@Model.PictureLink>
+            </div>           
+            <div>
+                @Html.TextAreaFor(model => model.Details.Text, new { @id = "articleText", @readonly = true })
+            </div>
+            <div id="ArticleVideo" class="line">
+                @Html.LabelFor(model => model.Details.VideoLink)
+            </div>
+            <div>
+                @Html.TextBoxFor(model => model.Details.VideoLink, new { @id = "articleVideo", @readonly = true })
+            </div>            
+            <div id="saveEdit" class="buttons" hidden="hidden">
+                Save
+            </div>
+            <div id="ResultOfEdition"></div>
+                              
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $("#editArticleButton").click(function () {
+            $("#articleText").removeAttr("readonly");
+            $("#articleVideo").removeAttr("readonly");
+            $("#articleName").removeAttr("readonly");            
+            $("#saveEdit").show();
+            var selectedHeadings = $(".headingId");     
+
+            $.ajax({
+                url: '@Url.Action("GetHeadings","Home")',
+                type: 'GET',
+                contentType: 'json',
+                async: false,
+                success: function (data) {
+                    var html = "";                    
+                    for (i = 0; i < data.length; i++) {
+                       html += '<span id="span' + data[i].Id + '" hidden="hidden" class="spans">notSelected</span><div id="' + data[i].Id + '" class="Heading"  onclick=btnClick(event) >' + data[i].Name + ' </div>';
+                    }
+                    $("#Headings").html(html);
+                }
+            });
+            
+        });
+
+        function btnClick(event) {
+            if (event.target.style.background != 'gray') {
+                event.target.style.background = 'gray';
+                $('#span' + event.target.id).html("selected");
+            }
+            else {
+                event.target.style.background = 'lightgray';
+                $('#span' + event.target.id).html("notSelected");
+            }
+        }
+
+        $(document).ready(function () {
+            $("#saveEdit").hide();
+        });
+
+        $("#saveEdit").click(function () {
+            var buttons = $(".spans");
+            var j = 0;
+            var headings = new Array();
+            for (i = 1; i < buttons.length + 1; i++) {
+                if ($("#span" + i).html() == "selected") {
+                    headings[j] = i;                    
+                    j++;
+                }
+
+            }
+            var name = $("#articleName").val();    
+            var text = $("#articleText").val();
+            var videoLink = $("#articleVideo").val();            
+            var pictureLink = "~pictureLink";
+            var id = $("#articleId").html();
+            var language = "English";
+            $.ajax({
+                type: 'POST',
+                data: {Id: id, Name: name, PictureLink: pictureLink, Text: text, Language: language, VideoLink: videoLink, Headings: headings },
+                url: '@Url.Action("EditArticle", "User")',
+                traditional: true,
+                success: function (result) {
+                    $("#ResultOfEdition").text(result);
+                    alert(result);
+                }
+            });
+        });
+
+        $("#deleteArticleButton").click(function ()
+        {
+            var id = $("#articleId").html();
+            if(confirm("Do you really want to delete this article?"))
+            {
+                window.location.href = '@Url.Content("~/User/DeleteArticle/"+Model.Id+"")';
+            }
+        });
+    </script>
+</body>
+</html>

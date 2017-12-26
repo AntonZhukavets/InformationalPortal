@@ -1,0 +1,69 @@
+﻿@model InformationalPortal.Models.User[]
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WorkWithUsers</title>
+</head>
+<body>
+    <h1>Work with users</h1>
+    @Html.ActionLink("Add user","Registration","Login")
+    <div class="UserRow">
+        <div class="UserInfo">
+            Login
+        </div>
+        <div class="UserInfo">
+            First name
+        </div>
+        <div class="UserInfo">
+            Last name
+        </div>
+        <div class="UserInfo">
+           Email
+        </div>
+        <div class="UserInfo">
+            Role
+        </div>
+        <div class="UserInfo">
+            Status
+        </div>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="UserRow">
+            <div class="UserInfo">
+                @Html.ActionLink(item.Login, "EditProfile", "User", new { @id = item.Id }, null)
+            </div>
+            <div class="UserInfo">
+                @item.FirstName
+            </div>
+            <div class="UserInfo">
+                @item.LastName
+            </div>
+            <div class="UserInfo">
+                @item.Email
+            </div>
+            <div class="UserInfo">
+                @item.RoleName
+            </div>
+            <div class="UserInfo">
+                @if(@item.IsBlocked==false)
+                {
+                    @Html.Label("Active");
+                }
+                else
+                { 
+                    @Html.Label("Blocked");
+                }
+            </div>
+        </div>
+    }
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+﻿@model InformationalPortal.Models.LoginModel
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        <h1>Login Page</h1>
+        @using(Html.BeginForm("Login","Login",FormMethod.Post))
+        {
+            <table >
+                <tr>
+                    <td>@Html.LabelFor(model=>model.Login)</td>
+                    <td>@Html.TextBoxFor(model => model.Login)</td>
+                    <td>@Html.ValidationMessageFor(model=>model.Login)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Password)</td>
+                    <td>@Html.TextBoxFor(model => model.Password)</td>
+                    <td>@Html.ValidationMessageFor(model => model.Password)
+                </tr>
+                <tr>
+                    <td><input id="btn_login" type="submit" value="Login" /></td>
+                    <td><input id="btn_cancelLogin" type="button" value="Cancel" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">@ViewBag.Message</td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>

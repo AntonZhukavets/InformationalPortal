@@ -1,21 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
+using InfPortal.service.Business.Exceptions;
 using InfPortal.service.Entities;
+
 
 namespace InfPortal.service.Contracts
 {
-    // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени интерфейса "IHeadingService" в коде и файле конфигурации.
+  
     [ServiceContract]
     public interface IHeadingService
     {
         [OperationContract]
-        List<HeadingEntity> GetHeadings();
+        [FaultContract(typeof(ServiceException))]
+        HeadingEntity[] GetHeadings();
         
         [OperationContract]
-        List<HeadingEntity> GetHeadingsByArticleId(int? id);
+        [FaultContract(typeof(ServiceException))]
+        [FaultContract(typeof(ArgumentException))]
+        HeadingEntity[] GetHeadingsByArticleId(int? id);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceException))]
+        [FaultContract(typeof(ArgumentException))]
+        bool AddHeading(HeadingEntity heading);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceException))]
+        [FaultContract(typeof(ArgumentException))]
+        bool EditHeading(HeadingEntity heading);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceException))]
+        [FaultContract(typeof(ArgumentException))]
+        bool DeleteHeading(int? id);
     }
 }

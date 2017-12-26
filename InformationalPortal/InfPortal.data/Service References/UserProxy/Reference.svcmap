@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="735103c5-df31-4599-8b83-e5f3ec489e8c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/InfPortal.service/Implementations/UserService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UserService1.xsd" MetadataType="Schema" ID="a6b3cda5-3822-4c63-99e3-da412ef6b54e" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/UserService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserService.xsd" MetadataType="Schema" ID="98384a01-2963-436e-8e4e-d32583ac9042" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/UserService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserService2.xsd" MetadataType="Schema" ID="6c04365a-7973-4f1d-8b3c-8b76349417a8" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/UserService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserService4.xsd" MetadataType="Schema" ID="15b6d850-0d81-4873-ad61-3703248b82ae" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/UserService.svc?xsd=xsd4" />
+    <MetadataFile FileName="UserService3.xsd" MetadataType="Schema" ID="71e0b154-5dab-40e7-92b6-e73f47d71916" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/UserService.svc?xsd=xsd3" />
+    <MetadataFile FileName="UserService.disco" MetadataType="Disco" ID="c4c42dae-ba60-47df-8f27-48605e57d656" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/UserService.svc?disco" />
+    <MetadataFile FileName="UserService.wsdl" MetadataType="Wsdl" ID="46b9541e-dd16-42dd-9634-8162a15c689d" SourceId="1" SourceUrl="http://localhost/InfPortal.service/Implementations/UserService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

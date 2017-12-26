@@ -23,7 +23,19 @@ namespace InfPortal.data.ArticleProxy {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private InfPortal.data.ArticleProxy.ArticleLinkEntity[] ArticleLinksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AuthorIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AuthorNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private InfPortal.data.ArticleProxy.InfoEntity DetailsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private InfPortal.data.ArticleProxy.HeadingEntity[] HeadingsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -45,6 +57,45 @@ namespace InfPortal.data.ArticleProxy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public InfPortal.data.ArticleProxy.ArticleLinkEntity[] ArticleLinks {
+            get {
+                return this.ArticleLinksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArticleLinksField, value) != true)) {
+                    this.ArticleLinksField = value;
+                    this.RaisePropertyChanged("ArticleLinks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AuthorId {
+            get {
+                return this.AuthorIdField;
+            }
+            set {
+                if ((this.AuthorIdField.Equals(value) != true)) {
+                    this.AuthorIdField = value;
+                    this.RaisePropertyChanged("AuthorId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AuthorName {
+            get {
+                return this.AuthorNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuthorNameField, value) != true)) {
+                    this.AuthorNameField = value;
+                    this.RaisePropertyChanged("AuthorName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public InfPortal.data.ArticleProxy.InfoEntity Details {
             get {
                 return this.DetailsField;
@@ -53,6 +104,19 @@ namespace InfPortal.data.ArticleProxy {
                 if ((object.ReferenceEquals(this.DetailsField, value) != true)) {
                     this.DetailsField = value;
                     this.RaisePropertyChanged("Details");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public InfPortal.data.ArticleProxy.HeadingEntity[] Headings {
+            get {
+                return this.HeadingsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HeadingsField, value) != true)) {
+                    this.HeadingsField = value;
+                    this.RaisePropertyChanged("Headings");
                 }
             }
         }
@@ -122,7 +186,7 @@ namespace InfPortal.data.ArticleProxy {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LanguageField;
+        private InfPortal.data.ArticleProxy.LanguageEntity LanguageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TextField;
@@ -167,7 +231,7 @@ namespace InfPortal.data.ArticleProxy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Language {
+        public InfPortal.data.ArticleProxy.LanguageEntity Language {
             get {
                 return this.LanguageField;
             }
@@ -215,33 +279,347 @@ namespace InfPortal.data.ArticleProxy {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ArticleLinkEntity", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities")]
+    [System.SerializableAttribute()]
+    public partial class ArticleLinkEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="HeadingEntity", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities")]
+    [System.SerializableAttribute()]
+    public partial class HeadingEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LanguageEntity", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities")]
+    [System.SerializableAttribute()]
+    public partial class LanguageEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LanguageIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LanguageNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LanguageId {
+            get {
+                return this.LanguageIdField;
+            }
+            set {
+                if ((this.LanguageIdField.Equals(value) != true)) {
+                    this.LanguageIdField = value;
+                    this.RaisePropertyChanged("LanguageId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LanguageName {
+            get {
+                return this.LanguageNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LanguageNameField, value) != true)) {
+                    this.LanguageNameField = value;
+                    this.RaisePropertyChanged("LanguageName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+    [System.SerializableAttribute()]
+    public partial class ServiceException : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorMessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorMessage {
+            get {
+                return this.ErrorMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
+                    this.ErrorMessageField = value;
+                    this.RaisePropertyChanged("ErrorMessage");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ArticleProxy.IArticleService")]
     public interface IArticleService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticles", ReplyAction="http://tempuri.org/IArticleService/GetArticlesResponse")]
-        InfPortal.data.ArticleProxy.ArticleEntity[] GetArticles();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreView", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreView();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticles", ReplyAction="http://tempuri.org/IArticleService/GetArticlesResponse")]
-        System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreView", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewResponse")]
+        System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticleById", ReplyAction="http://tempuri.org/IArticleService/GetArticleByIdResponse")]
-        InfPortal.data.ArticleProxy.ArticleEntity GetArticleById(System.Nullable<int> id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetFullArticleById", ReplyAction="http://tempuri.org/IArticleService/GetFullArticleByIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/GetFullArticleByIdArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetFullArticleByIdServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        InfPortal.data.ArticleProxy.ArticleEntity GetFullArticleById(System.Nullable<int> id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticleById", ReplyAction="http://tempuri.org/IArticleService/GetArticleByIdResponse")]
-        System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity> GetArticleByIdAsync(System.Nullable<int> id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetFullArticleById", ReplyAction="http://tempuri.org/IArticleService/GetFullArticleByIdResponse")]
+        System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity> GetFullArticleByIdAsync(System.Nullable<int> id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesByHeadingName", ReplyAction="http://tempuri.org/IArticleService/GetArticlesByHeadingNameResponse")]
-        InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesByHeadingName(string HeadingName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByName", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByNameResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByNameArgumentExceptionFault" +
+            "", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByNameServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreViewByName(string name);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesByHeadingName", ReplyAction="http://tempuri.org/IArticleService/GetArticlesByHeadingNameResponse")]
-        System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesByHeadingNameAsync(string HeadingName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByName", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByNameResponse")]
+        System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByNameAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticleNamesByInput", ReplyAction="http://tempuri.org/IArticleService/GetArticleNamesByInputResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/GetArticleNamesByInputArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticleNamesByInputServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        string[] GetArticleNamesByInput(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticleNamesByInput", ReplyAction="http://tempuri.org/IArticleService/GetArticleNamesByInputResponse")]
+        System.Threading.Tasks.Task<string[]> GetArticleNamesByInputAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingId", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdServiceExceptionF" +
+            "ault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdArgumentException" +
+            "Fault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreViewByHeadingId(System.Nullable<int> Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingId", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdResponse")]
+        System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByHeadingIdAsync(System.Nullable<int> Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetCountOfArticles", ReplyAction="http://tempuri.org/IArticleService/GetCountOfArticlesResponse")]
         int GetCountOfArticles();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetCountOfArticles", ReplyAction="http://tempuri.org/IArticleService/GetCountOfArticlesResponse")]
         System.Threading.Tasks.Task<int> GetCountOfArticlesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdAndDatePeriod", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdAndDatePeriodResp" +
+            "onse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdAndDatePeriodServ" +
+            "iceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdAndDatePeriodArgu" +
+            "mentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreViewByHeadingIdAndDatePeriod(System.DateTime dateFrom, System.DateTime dateTo, System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdAndDatePeriod", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdAndDatePeriodResp" +
+            "onse")]
+        System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByHeadingIdAndDatePeriodAsync(System.DateTime dateFrom, System.DateTime dateTo, System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByUserId", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByUserIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByUserIdArgumentExceptionFau" +
+            "lt", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByUserIdServiceExceptionFaul" +
+            "t", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreViewByUserId(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByUserId", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByUserIdResponse")]
+        System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByUserIdAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/AddArticle", ReplyAction="http://tempuri.org/IArticleService/AddArticleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/AddArticleServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/AddArticleArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        bool AddArticle(InfPortal.data.ArticleProxy.ArticleEntity article);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/AddArticle", ReplyAction="http://tempuri.org/IArticleService/AddArticleResponse")]
+        System.Threading.Tasks.Task<bool> AddArticleAsync(InfPortal.data.ArticleProxy.ArticleEntity article);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/EditArticle", ReplyAction="http://tempuri.org/IArticleService/EditArticleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/EditArticleServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/EditArticleArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        bool EditArticle(InfPortal.data.ArticleProxy.ArticleEntity article);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/EditArticle", ReplyAction="http://tempuri.org/IArticleService/EditArticleResponse")]
+        System.Threading.Tasks.Task<bool> EditArticleAsync(InfPortal.data.ArticleProxy.ArticleEntity article);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/DeleteArticle", ReplyAction="http://tempuri.org/IArticleService/DeleteArticleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/DeleteArticleArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/DeleteArticleServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        bool DeleteArticle(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/DeleteArticle", ReplyAction="http://tempuri.org/IArticleService/DeleteArticleResponse")]
+        System.Threading.Tasks.Task<bool> DeleteArticleAsync(System.Nullable<int> id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -271,28 +649,44 @@ namespace InfPortal.data.ArticleProxy {
                 base(binding, remoteAddress) {
         }
         
-        public InfPortal.data.ArticleProxy.ArticleEntity[] GetArticles() {
-            return base.Channel.GetArticles();
+        public InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreView() {
+            return base.Channel.GetArticlesPreView();
         }
         
-        public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesAsync() {
-            return base.Channel.GetArticlesAsync();
+        public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewAsync() {
+            return base.Channel.GetArticlesPreViewAsync();
         }
         
-        public InfPortal.data.ArticleProxy.ArticleEntity GetArticleById(System.Nullable<int> id) {
-            return base.Channel.GetArticleById(id);
+        public InfPortal.data.ArticleProxy.ArticleEntity GetFullArticleById(System.Nullable<int> id) {
+            return base.Channel.GetFullArticleById(id);
         }
         
-        public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity> GetArticleByIdAsync(System.Nullable<int> id) {
-            return base.Channel.GetArticleByIdAsync(id);
+        public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity> GetFullArticleByIdAsync(System.Nullable<int> id) {
+            return base.Channel.GetFullArticleByIdAsync(id);
         }
         
-        public InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesByHeadingName(string HeadingName) {
-            return base.Channel.GetArticlesByHeadingName(HeadingName);
+        public InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreViewByName(string name) {
+            return base.Channel.GetArticlesPreViewByName(name);
         }
         
-        public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesByHeadingNameAsync(string HeadingName) {
-            return base.Channel.GetArticlesByHeadingNameAsync(HeadingName);
+        public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByNameAsync(string name) {
+            return base.Channel.GetArticlesPreViewByNameAsync(name);
+        }
+        
+        public string[] GetArticleNamesByInput(string name) {
+            return base.Channel.GetArticleNamesByInput(name);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetArticleNamesByInputAsync(string name) {
+            return base.Channel.GetArticleNamesByInputAsync(name);
+        }
+        
+        public InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreViewByHeadingId(System.Nullable<int> Id) {
+            return base.Channel.GetArticlesPreViewByHeadingId(Id);
+        }
+        
+        public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByHeadingIdAsync(System.Nullable<int> Id) {
+            return base.Channel.GetArticlesPreViewByHeadingIdAsync(Id);
         }
         
         public int GetCountOfArticles() {
@@ -301,6 +695,46 @@ namespace InfPortal.data.ArticleProxy {
         
         public System.Threading.Tasks.Task<int> GetCountOfArticlesAsync() {
             return base.Channel.GetCountOfArticlesAsync();
+        }
+        
+        public InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreViewByHeadingIdAndDatePeriod(System.DateTime dateFrom, System.DateTime dateTo, System.Nullable<int> id) {
+            return base.Channel.GetArticlesPreViewByHeadingIdAndDatePeriod(dateFrom, dateTo, id);
+        }
+        
+        public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByHeadingIdAndDatePeriodAsync(System.DateTime dateFrom, System.DateTime dateTo, System.Nullable<int> id) {
+            return base.Channel.GetArticlesPreViewByHeadingIdAndDatePeriodAsync(dateFrom, dateTo, id);
+        }
+        
+        public InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreViewByUserId(System.Nullable<int> id) {
+            return base.Channel.GetArticlesPreViewByUserId(id);
+        }
+        
+        public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByUserIdAsync(System.Nullable<int> id) {
+            return base.Channel.GetArticlesPreViewByUserIdAsync(id);
+        }
+        
+        public bool AddArticle(InfPortal.data.ArticleProxy.ArticleEntity article) {
+            return base.Channel.AddArticle(article);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddArticleAsync(InfPortal.data.ArticleProxy.ArticleEntity article) {
+            return base.Channel.AddArticleAsync(article);
+        }
+        
+        public bool EditArticle(InfPortal.data.ArticleProxy.ArticleEntity article) {
+            return base.Channel.EditArticle(article);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EditArticleAsync(InfPortal.data.ArticleProxy.ArticleEntity article) {
+            return base.Channel.EditArticleAsync(article);
+        }
+        
+        public bool DeleteArticle(System.Nullable<int> id) {
+            return base.Channel.DeleteArticle(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteArticleAsync(System.Nullable<int> id) {
+            return base.Channel.DeleteArticleAsync(id);
         }
     }
 }

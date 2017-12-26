@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InfPortal.business.DTO
+﻿namespace InfPortal.business.DTO
 {
     public class ArticleDTO
     {
@@ -14,5 +8,10 @@ namespace InfPortal.business.DTO
         public string PictureLink { get; set; }
 
         public InfoDTO Details { get; set; }
+
+        public HeadingDTO[] Headings { get; set; }
+        public int AuthorId { get; set; }
+        public string AuthorName { get; set; }
+        public ArticleLinkDTO[] ArticleLinks { get; set; } 
     }
 }

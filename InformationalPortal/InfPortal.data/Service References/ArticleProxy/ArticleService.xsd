@@ -8,21 +8,59 @@
   <xs:element name="ArrayOfArticleEntity" nillable="true" type="tns:ArrayOfArticleEntity" />
   <xs:complexType name="ArticleEntity">
     <xs:sequence>
+      <xs:element minOccurs="0" name="ArticleLinks" nillable="true" type="tns:ArrayOfArticleLinkEntity" />
+      <xs:element minOccurs="0" name="AuthorId" type="xs:int" />
+      <xs:element minOccurs="0" name="AuthorName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Details" nillable="true" type="tns:InfoEntity" />
+      <xs:element minOccurs="0" name="Headings" nillable="true" type="tns:ArrayOfHeadingEntity" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PictureLink" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArticleEntity" nillable="true" type="tns:ArticleEntity" />
+  <xs:complexType name="ArrayOfArticleLinkEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArticleLinkEntity" nillable="true" type="tns:ArticleLinkEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArticleLinkEntity" nillable="true" type="tns:ArrayOfArticleLinkEntity" />
+  <xs:complexType name="ArticleLinkEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArticleLinkEntity" nillable="true" type="tns:ArticleLinkEntity" />
   <xs:complexType name="InfoEntity">
     <xs:sequence>
       <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="tns:LanguageEntity" />
       <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="VideoLink" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="InfoEntity" nillable="true" type="tns:InfoEntity" />
+  <xs:complexType name="LanguageEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LanguageId" type="xs:int" />
+      <xs:element minOccurs="0" name="LanguageName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LanguageEntity" nillable="true" type="tns:LanguageEntity" />
+  <xs:complexType name="ArrayOfHeadingEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HeadingEntity" nillable="true" type="tns:HeadingEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHeadingEntity" nillable="true" type="tns:ArrayOfHeadingEntity" />
+  <xs:complexType name="HeadingEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HeadingEntity" nillable="true" type="tns:HeadingEntity" />
 </xs:schema>

@@ -1,0 +1,50 @@
+﻿@model InformationalPortal.Models.Heading[]
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WorkWithHeadings</title>
+</head>
+<body>
+    <h1>Work with headings</h1>        
+    <div>
+        @Html.ActionLink("Add new heading", "AddHeading", "Admin")
+    </div>
+
+    <div>
+            @foreach(var item in Model)
+            {
+                @Html.Partial("Heading", item)            
+            }       
+    </div>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $(".editHeadingButton").click(function () {
+            var id = this.id;
+            var name = $("#headingName" + id).val();
+            var description = $("#headingDesc" + id).val();
+            $.ajax({
+                type: 'POST',
+                data: { Id: id, Name: name, Description: description },
+                url: '@Url.Action("EditHeading", "Admin")',
+                traditional: true,
+                success: function (result) {
+                    $("#workWithHeadingsResult"+id).text(result);                    
+                }
+            });
+           
+        });
+        
+
+
+    </script>  
+</body>
+
+
+</html>

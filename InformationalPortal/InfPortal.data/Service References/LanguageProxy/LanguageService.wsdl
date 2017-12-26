@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LanguageService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/LanguageService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/LanguageService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/LanguageService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/LanguageService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/LanguageService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILanguageService_GetLanguages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguages" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_GetLanguages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_GetLanguages_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q1:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_AddLanguage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLanguage" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_AddLanguage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_AddLanguage_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System" name="detail" element="q2:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_AddLanguage_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q3:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_RestoreLanguage_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestoreLanguage" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_RestoreLanguage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestoreLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_RestoreLanguage_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q4:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_RestoreLanguage_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/System" name="detail" element="q5:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_DeleteLanguage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLanguage" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_DeleteLanguage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_DeleteLanguage_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/System" name="detail" element="q6:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_DeleteLanguage_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q7:ServiceException" />
+  </wsdl:message>
+  <wsdl:portType name="ILanguageService">
+    <wsdl:operation name="GetLanguages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILanguageService/GetLanguages" message="tns:ILanguageService_GetLanguages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILanguageService/GetLanguagesResponse" message="tns:ILanguageService_GetLanguages_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILanguageService/GetLanguagesServiceExceptionFault" name="ServiceExceptionFault" message="tns:ILanguageService_GetLanguages_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLanguage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILanguageService/AddLanguage" message="tns:ILanguageService_AddLanguage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILanguageService/AddLanguageResponse" message="tns:ILanguageService_AddLanguage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILanguageService/AddLanguageArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:ILanguageService_AddLanguage_ArgumentExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILanguageService/AddLanguageServiceExceptionFault" name="ServiceExceptionFault" message="tns:ILanguageService_AddLanguage_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreLanguage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILanguageService/RestoreLanguage" message="tns:ILanguageService_RestoreLanguage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILanguageService/RestoreLanguageResponse" message="tns:ILanguageService_RestoreLanguage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILanguageService/RestoreLanguageServiceExceptionFault" name="ServiceExceptionFault" message="tns:ILanguageService_RestoreLanguage_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILanguageService/RestoreLanguageArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:ILanguageService_RestoreLanguage_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLanguage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILanguageService/DeleteLanguage" message="tns:ILanguageService_DeleteLanguage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILanguageService/DeleteLanguageResponse" message="tns:ILanguageService_DeleteLanguage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILanguageService/DeleteLanguageArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:ILanguageService_DeleteLanguage_ArgumentExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILanguageService/DeleteLanguageServiceExceptionFault" name="ServiceExceptionFault" message="tns:ILanguageService_DeleteLanguage_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILanguageService" type="tns:ILanguageService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLanguages">
+      <soap:operation soapAction="http://tempuri.org/ILanguageService/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddLanguage">
+      <soap:operation soapAction="http://tempuri.org/ILanguageService/AddLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreLanguage">
+      <soap:operation soapAction="http://tempuri.org/ILanguageService/RestoreLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLanguage">
+      <soap:operation soapAction="http://tempuri.org/ILanguageService/DeleteLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LanguageService">
+    <wsdl:port name="BasicHttpBinding_ILanguageService" binding="tns:BasicHttpBinding_ILanguageService">
+      <soap:address location="http://localhost/InfPortal.service/Implementations/LanguageService.svc/LanguageService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

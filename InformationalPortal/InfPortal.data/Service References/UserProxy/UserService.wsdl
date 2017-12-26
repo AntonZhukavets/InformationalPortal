@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/UserService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/UserService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/UserService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/InfPortal.service/Implementations/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserService_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Register_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q1:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Register_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System" name="detail" element="q2:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsValidUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsValidUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsValidUser_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q3:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsValidUser_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/System" name="detail" element="q4:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByLoginAndPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByLoginAndPassword" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByLoginAndPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByLoginAndPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByLoginAndPassword_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q5:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByLoginAndPassword_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/System" name="detail" element="q6:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUser_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q7:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUser_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/System" name="detail" element="q8:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserById" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserById_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q9:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserById_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/System" name="detail" element="q10:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUser_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/System" name="detail" element="q11:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUser_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q12:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResumeUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResumeUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResumeUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResumeUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResumeUser_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q13:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResumeUser_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/System" name="detail" element="q14:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_MakeAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_MakeAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_MakeAdmin_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/System" name="detail" element="q15:ArgumentException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_MakeAdmin_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q16:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllUsers_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions" name="detail" element="q17:ServiceException" />
+  </wsdl:message>
+  <wsdl:portType name="IUserService">
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Register" message="tns:IUserService_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/RegisterResponse" message="tns:IUserService_Register_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/RegisterServiceExceptionFault" name="ServiceExceptionFault" message="tns:IUserService_Register_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/RegisterArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IUserService_Register_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IsValidUser" message="tns:IUserService_IsValidUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IsValidUserResponse" message="tns:IUserService_IsValidUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/IsValidUserServiceExceptionFault" name="ServiceExceptionFault" message="tns:IUserService_IsValidUser_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/IsValidUserArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IUserService_IsValidUser_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByLoginAndPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByLoginAndPassword" message="tns:IUserService_GetUserByLoginAndPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByLoginAndPasswordResponse" message="tns:IUserService_GetUserByLoginAndPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/GetUserByLoginAndPasswordServiceExceptionFault" name="ServiceExceptionFault" message="tns:IUserService_GetUserByLoginAndPassword_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/GetUserByLoginAndPasswordArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IUserService_GetUserByLoginAndPassword_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateUser" message="tns:IUserService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateUserResponse" message="tns:IUserService_UpdateUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/UpdateUserServiceExceptionFault" name="ServiceExceptionFault" message="tns:IUserService_UpdateUser_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/UpdateUserArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IUserService_UpdateUser_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserById" message="tns:IUserService_GetUserById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByIdResponse" message="tns:IUserService_GetUserById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/GetUserByIdServiceExceptionFault" name="ServiceExceptionFault" message="tns:IUserService_GetUserById_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/GetUserByIdArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IUserService_GetUserById_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteUser" message="tns:IUserService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/DeleteUserResponse" message="tns:IUserService_DeleteUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/DeleteUserArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IUserService_DeleteUser_ArgumentExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/DeleteUserServiceExceptionFault" name="ServiceExceptionFault" message="tns:IUserService_DeleteUser_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResumeUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ResumeUser" message="tns:IUserService_ResumeUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ResumeUserResponse" message="tns:IUserService_ResumeUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/ResumeUserServiceExceptionFault" name="ServiceExceptionFault" message="tns:IUserService_ResumeUser_ServiceExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/ResumeUserArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IUserService_ResumeUser_ArgumentExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/MakeAdmin" message="tns:IUserService_MakeAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/MakeAdminResponse" message="tns:IUserService_MakeAdmin_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/MakeAdminArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IUserService_MakeAdmin_ArgumentExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/MakeAdminServiceExceptionFault" name="ServiceExceptionFault" message="tns:IUserService_MakeAdmin_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAllUsers" message="tns:IUserService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAllUsersResponse" message="tns:IUserService_GetAllUsers_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUserService/GetAllUsersServiceExceptionFault" name="ServiceExceptionFault" message="tns:IUserService_GetAllUsers_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/IUserService/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/IsValidUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByLoginAndPassword">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserByLoginAndPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResumeUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ResumeUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MakeAdmin">
+      <soap:operation soapAction="http://tempuri.org/IUserService/MakeAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserService">
+    <wsdl:port name="BasicHttpBinding_IUserService" binding="tns:BasicHttpBinding_IUserService">
+      <soap:address location="http://localhost/InfPortal.service/Implementations/UserService.svc/UserService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

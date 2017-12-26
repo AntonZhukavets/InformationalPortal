@@ -1,0 +1,143 @@
+﻿@model InformationalPortal.Models.Article
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddArticle</title>    
+</head>
+<body>
+    <link href="~/Content/CSS/Portal.css" rel="stylesheet" />
+    <h1>Add new article</h1>
+    <div>
+        <span id="articleUserId">@HttpContext.Current.User.Identity.Name</span>
+        <div id="DataAndAutor" class="line">
+           <div id="Autor">
+               @Html.Label("Author :")               
+               @Html.Label(HttpContext.Current.User.ToString() , new { @id="articleAuthor" })
+           </div>
+            <div id="PublicationDate">
+                @Html.Label("Publication Date: ") 
+                <div id="articleDate">@DateTime.Now.ToString()</div>              
+            </div>   
+                              
+        </div>
+        <div id="Headings">
+        </div>
+        
+        <div class="line"></div>
+        <div id="ArticleName" class="line">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div>
+            @Html.TextBoxFor(model => model.Name, new {@id="articleName" })
+        </div>
+        <div class="line">
+            @Html.LabelFor(model=>model.Details.Text)           
+        </div>
+        <div>
+            @Html.TextAreaFor(model => model.Details.Text, new { @id = "articleText" })
+        </div>
+        <div id="ArticleVideo" class="line">
+            @Html.LabelFor(model => model.Details.VideoLink)
+        </div>
+        <div>
+            @Html.TextBoxFor(model => model.Details.VideoLink, new { @id = "articleVideo" })
+        </div>
+        <div id="ArticlePicture" class="line">
+            @Html.LabelFor(model => model.PictureLink)
+        </div>
+        <div>
+            <input type="file" />
+        </div>        
+        <input id="btnShow" type="button" value="Text" />
+        <div id="btnAdd" class="Heading">Add</div>     
+        <div id="ResultOfAdding"></div> 
+    </div>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '@Url.Action("GetHeadings","Home")',
+                type: 'GET',
+                contentType: 'json',
+                async: false,
+                success: function (data) {
+                    var html = "";
+                    var html1 = "";
+                    for (i = 0; i < data.length; i++) {
+                        html += '<div id="heading' + data[i].Id + '" class="headingButton" onmouseover=onMouseOver() onmouseout=onMouseOut()><a name="' + data[i].Name + '" href="/InfPortal.web/Home/GetArticlesByHeadingId/' + data[i].Id + '">' + data[i].Name + '</a></div>';
+                        //html1 += '<span id="span_' + data[i].Id + '"><input type="button" id="btn_' + data[i].Id + '" class="Heading" onclick=btnClick() value="' + data[i].Name + '"/></span>';
+                        html1 += '<span id="span' + data[i].Id + '" hidden="hidden" class="spans">notSelected</span><div id="' + data[i].Id + '" class="Heading"  onclick=btnClick(event) >' + data[i].Name + ' </div>';
+                    }                   
+                    $("#Headings").html(html1);
+                }
+            });
+        });
+        function btnClick(event)
+        {            
+            if (event.target.style.background != 'gray')
+            {
+                event.target.style.background = 'gray';
+                $('#span' + event.target.id).html("selected");               
+            }
+            else
+            {
+                event.target.style.background = 'lightgray';
+                $('#span' + event.target.id).html("notSelected");
+            }
+        }
+
+        $("#btnAdd").mouseover(function () {
+            $(this).css("background", "gray");
+        });
+        $("#btnAdd").mouseout(function () {
+            $(this).css("background", "lightgray");
+        });
+
+        $("#btnAdd").click(function () {
+            var buttons = $(".spans");
+            var j = 0;
+            var headings = new Array();            
+            for (i = 1; i < buttons.length + 1; i++)
+            {
+                if ($("#span" + i).html() == "selected")
+                {
+                    headings[j] = i;                    
+                    j++;                    
+                }
+                
+            }            
+            var name = $("#articleName").val();
+            var authorId = $("#articleUserId").html();
+            var date = $("#articleDate").val();
+            var text = $("#articleText").val();
+            var videoLink = $("#articleVideo").val();
+            alert($("#articleVideo").val());
+            var pictureLink = "~pictureLink";
+            var language="English";            
+            $.ajax({
+                type: 'POST',
+                //data: { Headings: headings },
+                
+                data: { Name: name, PictureLink: pictureLink, AuthorId: authorId, Text: text, Date: date, Language: language, VideoLink: videoLink, Headings: headings },                              
+                
+                url: '@Url.Action("AddArticle", "User")',
+                traditional: true,
+                success: function (result) {                   
+                    $("#ResultOfAdding").text(result);
+                    alert(result);
+                }                
+            });
+        });
+
+
+
+    </script>
+</body>
+</html>
