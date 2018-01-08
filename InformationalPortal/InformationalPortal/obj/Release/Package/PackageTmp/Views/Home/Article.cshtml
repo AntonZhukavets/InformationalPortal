@@ -3,9 +3,7 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Article</title>
@@ -48,10 +46,19 @@
                     <span class="headingId" hidden="hidden">@item.Id</span>@Html.ActionLink(item.Name, "GetArticlesByHeadingId", "Home", new { @id = item.Id }, new { @class = "Heading" });
                 }
             </div>
-           
+            <div id="Languages" class="line">
+                <div id="LanguageNotEditable" >@Html.LabelFor(model => model.Details.Language.LanguageName, "Language: " + Model.Details.Language.LanguageName)</div>
+                <div id="LanguageEditable" hidden="hidden">
+                    @Html.Label("Select language: ")
+                    @Html.DropDownList("LanguageList", ViewBag.LanguageList as SelectList)
+                </div>             
+            </div>
             <div id="pictureHolder">
-                <img src=@Model.PictureLink>
-            </div>           
+                <img src="data:image;base64,@System.Convert.ToBase64String(Model.Picture)" width="200" height="200">
+            </div> 
+            <div id="editPicture" hidden="hidden">
+                <input type="file" id="editPictureBtn" />
+            </div>          
             <div>
                 @Html.TextAreaFor(model => model.Details.Text, new { @id = "articleText", @readonly = true })
             </div>
@@ -65,7 +72,12 @@
                 Save
             </div>
             <div id="ResultOfEdition"></div>
-                              
+            <div id="ArticleLinks">
+                @foreach(var item in Model.ArticleLinks)
+                {
+                    @Html.ActionLink(item.Name, "GetFullArticle", "Home", new { id=item.Id}, null)
+                }
+            </div>                         
         </div>
     </div>
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
@@ -76,6 +88,9 @@
             $("#articleVideo").removeAttr("readonly");
             $("#articleName").removeAttr("readonly");            
             $("#saveEdit").show();
+            $("#LanguageEditable").show();
+            $("#LanguageNotEditable").hide();
+            $("#editPicture").show();            
             var selectedHeadings = $(".headingId");     
 
             $.ajax({
@@ -109,7 +124,8 @@
             $("#saveEdit").hide();
         });
 
-        $("#saveEdit").click(function () {
+        $("#saveEdit").click(function (e) {
+            e.preventDefault();
             var buttons = $(".spans");
             var j = 0;
             var headings = new Array();
@@ -118,17 +134,32 @@
                     headings[j] = i;                    
                     j++;
                 }
-
             }
             var name = $("#articleName").val();    
             var text = $("#articleText").val();
             var videoLink = $("#articleVideo").val();            
             var pictureLink = "~pictureLink";
             var id = $("#articleId").html();
-            var language = "English";
+            var languageId = $("#LanguageList").val();
+            var data = new FormData();
+            data.append("Name", name);            
+            data.append("Text", text);
+            data.append("LanguageId", languageId);
+            data.append("Headings", headings);
+            data.append("VideoLink", videoLink);
+            data.append("PictureLink", pictureLink);
+            data.append("Id", id);
+            var files = $("#editPictureBtn").prop('files');
+            if (files.length > 0)
+            {
+                data.append("file", files[0]);
+            }
             $.ajax({
                 type: 'POST',
-                data: {Id: id, Name: name, PictureLink: pictureLink, Text: text, Language: language, VideoLink: videoLink, Headings: headings },
+                contentType: false,
+                processData: false,
+                //data: {Id: id, Name: name, PictureLink: pictureLink, Text: text, LanguageId: languageId, VideoLink: videoLink, Headings: headings },
+                data: data,
                 url: '@Url.Action("EditArticle", "User")',
                 traditional: true,
                 success: function (result) {
@@ -143,9 +174,17 @@
             var id = $("#articleId").html();
             if(confirm("Do you really want to delete this article?"))
             {
-                window.location.href = '@Url.Content("~/User/DeleteArticle/"+Model.Id+"")';
+                $.ajax({
+                    type: 'POST',
+                    data: { id: id },
+                    url: '@Url.Action("DeleteArticle", "User")',
+                    traditional: true,
+                    success: function (result) {
+                        alert(result);
+
+                    }
+                });
             }
         });
     </script>
 </body>
-</html>

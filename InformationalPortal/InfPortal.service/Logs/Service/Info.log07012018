@@ -1,0 +1,247 @@
+2018-01-07 12:52:21,647 [3] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Недопустимый параметр.
+2018-01-07 12:55:07,171 [3] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Недопустимый параметр.
+2018-01-07 12:56:36,246 [3] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Недопустимый параметр.
+2018-01-07 13:39:20,211 [1] INFO  SERVICELOGGER Info  - Successfully updated article with id 4
+2018-01-07 13:41:27,632 [24] ERROR SERVICELOGGER Error - Exception in metod GetFullArticleById. Details: Недопустимый параметр.
+2018-01-07 13:41:33,262 [24] ERROR SERVICELOGGER Error - Exception in metod GetFullArticleById. Details: Недопустимый параметр.
+2018-01-07 13:42:25,309 [24] ERROR SERVICELOGGER Error - Exception in metod GetFullArticleById. Details: Недопустимый параметр.
+2018-01-07 13:42:35,722 [24] ERROR SERVICELOGGER Error - Exception in metod GetFullArticleById. Details: Недопустимый параметр.
+2018-01-07 13:44:36,829 [27] ERROR SERVICELOGGER Error - Exception in metod GetFullArticleById. Details: Недопустимый параметр.
+2018-01-07 13:48:15,231 [27] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:48:16,874 [27] ERROR SERVICELOGGER Error - Exception in metod GetFullArticleById. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:48:42,588 [27] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:48:42,678 [27] ERROR SERVICELOGGER Error - Exception in metod GetFullArticleById. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:49:16,301 [27] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:49:16,483 [27] ERROR SERVICELOGGER Error - Exception in metod GetFullArticleById. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:49:22,753 [27] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:49:22,835 [27] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:49:32,905 [26] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:49:33,180 [26] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:49:40,141 [27] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:49:40,223 [27] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:01,962 [27] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:02,043 [27] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:14,713 [22] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:14,796 [22] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:25,803 [7] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:25,806 [7] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:27,013 [7] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:27,015 [7] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:30,190 [7] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:30,193 [7] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:32,655 [7] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:32,657 [7] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:34,345 [7] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:34,347 [7] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:35,544 [7] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:35,546 [7] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:37,060 [7] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:37,062 [7] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:38,347 [7] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:38,349 [7] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:39,543 [7] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:39,545 [7] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:41,186 [7] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:41,188 [7] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:42,779 [26] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:42,781 [26] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:48,648 [26] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:48,650 [26] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:50,162 [26] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:50,165 [26] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:54,162 [26] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:54,163 [26] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:55,519 [26] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:55,521 [26] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:56,616 [26] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:56,618 [26] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:57,847 [26] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:50:57,849 [26] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:54:26,287 [21] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:54:47,220 [21] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:56:55,598 [10] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:56:55,660 [10] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 13:57:46,095 [10] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: Недопустимый параметр.
+2018-01-07 13:57:59,885 [10] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Создатель этой ошибки не указал Reason.
+2018-01-07 14:04:49,542 [37] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Something wrong with file storage. File not found. Details:  Недопустимый параметр.
+2018-01-07 14:38:14,758 [11] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: Something wrong with file storage. File not found. Details:  Недопустимый параметр.
+2018-01-07 14:38:28,813 [11] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: Something wrong with file storage. File not found. Details:  Недопустимый параметр.
+2018-01-07 14:38:30,404 [11] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: Something wrong with file storage. File not found. Details:  Недопустимый параметр.
+2018-01-07 14:38:37,933 [11] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Something wrong with file storage. File not found. Details:  Недопустимый параметр.
+2018-01-07 14:39:13,094 [11] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: Something wrong with file storage. File not found. Details:  Недопустимый параметр.
+2018-01-07 14:40:11,848 [11] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: Something wrong with file storage. File not found. Details:  Недопустимый параметр.
+2018-01-07 14:41:55,483 [11] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: Something wrong with file storage. File not found. Details:  Недопустимый параметр.
+2018-01-07 15:04:37,416 [83] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:04:37,465 [83] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:04:37,466 [83] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:04:37,468 [83] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:04:37,469 [83] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:04:37,470 [83] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:04:37,471 [83] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,906 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,912 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,914 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,915 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,917 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,918 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,920 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,921 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,922 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,924 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,925 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,927 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,928 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,930 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,931 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,933 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:09:29,934 [66] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:12:11,296 [60] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:12:11,299 [60] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:12:14,597 [60] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,840 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,890 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,894 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,897 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,899 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,903 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,905 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,907 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,908 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,910 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,912 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,915 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,917 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,918 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,920 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,922 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:08,923 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:17:45,075 [3] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:51,841 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:51,843 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:51,845 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:51,846 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:51,848 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:51,849 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:51,851 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:53,840 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:53,842 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:53,844 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:53,845 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:53,847 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:56,509 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:56,511 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:57,794 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:57,797 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:57,798 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:59,069 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:59,070 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:59,072 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:19:59,073 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:00,318 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:00,320 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:00,321 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:00,323 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:00,324 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:00,325 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:00,327 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:00,329 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:00,330 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:03,132 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:03,134 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:03,136 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:03,137 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:03,138 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:03,140 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:20:03,141 [16] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:22:09,905 [11] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:22:09,908 [11] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:22:09,909 [11] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:22:09,911 [11] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:22:09,912 [11] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:22:09,913 [11] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:22:09,915 [11] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:22:38,415 [17] ERROR SERVICELOGGER Error - Exception in metod AddArticle. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:22:55,676 [11] ERROR SERVICELOGGER Error - Exception in metod AddArticle. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:24:28,896 [21] ERROR SERVICELOGGER Error - Exception in metod AddArticle. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:01,107 [17] ERROR SERVICELOGGER Error - Exception in metod AddArticle. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,584 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,586 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,588 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,589 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,591 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,592 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,594 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,595 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,596 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,599 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,600 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,602 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,603 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,605 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,606 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,608 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:27:39,609 [32] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:28:27,196 [1] ERROR SERVICELOGGER Error - Exception in metod AddArticle. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:29:02,351 [11] ERROR SERVICELOGGER Error - Exception in metod AddArticle. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:31:40,544 [17] ERROR SERVICELOGGER Error - Exception in metod AddArticle. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures is unreachable 
+2018-01-07 15:43:05,946 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:08,375 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:08,377 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:08,379 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:08,382 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:08,383 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:08,385 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:08,386 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:09,798 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:09,800 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:09,802 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:12,197 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:12,199 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:12,200 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:12,202 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:13,368 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:13,370 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:13,372 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:14,356 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:14,357 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:15,560 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:15,562 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:43:15,564 [9] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 15:47:35,863 [25] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:39,487 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,843 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,847 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,849 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,850 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,852 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,853 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,856 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,857 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,859 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,860 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,861 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,863 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,865 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,866 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,868 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,870 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:55,872 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:15:58,567 [12] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:16:30,501 [1] ERROR SERVICELOGGER Error - Exception in metod EditArticle. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:19:59,522 [31] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:19:59,526 [31] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:19:59,528 [31] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:19:59,530 [31] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:19:59,532 [31] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:20:01,363 [31] ERROR SERVICELOGGER Error - Exception in metod GetPictureFromStore. Details: File storage not found. d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\ is unreachable 
+2018-01-07 16:27:51,801 [21] INFO  SERVICELOGGER Info  - Successfully deleted article with id 24
+2018-01-07 16:35:48,695 [40] INFO  SERVICELOGGER Info  - Successfully deleted article with id 20
+2018-01-07 16:46:38,709 [31] INFO  SERVICELOGGER Info  - Successfully deleted article with id 16
+2018-01-07 17:31:48,394 [48] INFO  SERVICELOGGER Info  - Successfully deleted article with id 21
+2018-01-07 17:36:35,514 [37] INFO  SERVICELOGGER Info  - Successfully deleted article with id 10
+2018-01-07 17:37:28,912 [37] INFO  SERVICELOGGER Info  - Successfully deleted article with id 11
+2018-01-07 17:38:16,031 [37] INFO  SERVICELOGGER Info  - Successfully deleted article with id 12
+2018-01-07 17:39:00,431 [37] INFO  SERVICELOGGER Info  - Successfully deleted article with id 15
+2018-01-07 18:35:06,786 [20] INFO  SERVICELOGGER Info  - Successfully added new article with id 25
+2018-01-07 18:46:50,560 [1] INFO  SERVICELOGGER Info  - Successfully added new article with id 26
+2018-01-07 19:04:07,294 [24] INFO  SERVICELOGGER Info  - Successfully updated article with id 25

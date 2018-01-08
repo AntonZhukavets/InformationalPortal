@@ -1,15 +1,13 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />    
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <link href="~/Content/CSS/Portal.css" rel="stylesheet" />   
-    <div class="header">
-       
-        <div id="HomePage" class="buttons">@Html.ActionLink("Informational portal", "Index", "Home")</div>
-        @*<div id="SearchTxt" class="buttons">@Html.DropDownList("search", new List<SelectListItem>(), new { @class = "SearchTxt" })</div>*@
+    <div class="header">       
+        <div id="HomePage" class="buttons">@Html.ActionLink("Informational portal", "Index", "Home")</div>        
         <div id="SearchTxt" class="buttons">@Html.TextBox("search", null, new { @class = "SearchTxt" })</div>
         <div id="SearchBtn" class="buttons">@Html.ActionLink("Search", "Search", "Home", null, new { @id="SearchBtnLnk"})</div>
         @if (HttpContext.Current.User.ToString() != string.Empty)
@@ -31,10 +29,15 @@
             </div>
         }                    
     </div>
-    @if (Convert.ToInt32(HttpContext.Current.User.Identity.Name)!=0)
-    { 
-    <div id="FreeSpace">
-        @*<div id="lifeSearch">sss</div>*@
+     
+    <div id="FreeSpace"> 
+        <div id="AdvancedSearch">
+            <div id="AdvancedSearchBtn" class="buttons">
+                @Html.ActionLink("Advanced search", "AdvancedSearch", "Home")
+            </div> 
+        </div>     
+         @if (Convert.ToInt32(HttpContext.Current.User.Identity.Name)!=0)
+         {
         <div id="UserCapability">
             <div id="EditProfile" class="buttons">@Html.ActionLink("Edit profile", "EditProfile", "User", new { @id = HttpContext.Current.User.Identity.Name }, null)</div>
             <div id="PersonalArea" class="buttons">@Html.ActionLink("Personal area", "GetArticlesByUserId", "User", new { @id = HttpContext.Current.User.Identity.Name }, null)</div>
@@ -43,8 +46,9 @@
                 <div id="AdminArea" class="buttons">@Html.ActionLink("Admins area", "AdminsArea", "Admin")</div>
             }
         </div>
+         }
     </div>
-    }
+    
     <div id="HeadingsList"></div>    
     <div id="content">
         @RenderBody()
@@ -64,7 +68,20 @@
     $("#UserCapability").mouseout(function () {
         $("#UserCapability").hide();
     });
+    $("#SearchBtn").mouseover(function () {
+        $("#AdvancedSearch").show();
+    });
+    $("#SearchBtn").mouseout(function () {
+        $("#AdvancedSearch").hide();
+    });
+    $("#AdvancedSearch").mouseover(function () {
+        $("#AdvancedSearch").show();
+    });
+    $("#AdvancedSearch").mouseout(function () {
+        $("#AdvancedSearch").hide();
+    });
     $(document).ready(function () {
+        $("#AdvancedSearch").hide();
         $("#lifeSearch").hide();
         $("#UserCapability").hide();
         $("#HeadingsForCheck").hide();

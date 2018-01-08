@@ -222,7 +222,7 @@ namespace InfPortal.data.Repository
         public bool DeleteUser(int? id)
         {
             bool resultOfOperation = false;
-            if (!id.HasValue)
+            if (id.HasValue)
             {
                 try
                 {
@@ -243,7 +243,7 @@ namespace InfPortal.data.Repository
         public bool ResumeUser(int? id)
         {
             bool resultOfOperation = false;
-            if (!id.HasValue)
+            if (id.HasValue)
             {
                 try
                 {

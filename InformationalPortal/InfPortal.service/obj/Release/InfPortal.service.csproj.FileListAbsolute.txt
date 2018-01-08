@@ -18,3 +18,9 @@ D:\install\projects8\InformationalPortal\InfPortal.service\bin\log4net.xml
 D:\install\projects8\InformationalPortal\InfPortal.service\obj\Release\InfPortal.service.csprojResolveAssemblyReference.cache
 D:\install\projects8\InformationalPortal\InfPortal.service\obj\Release\InfPortal.service.dll
 D:\install\projects8\InformationalPortal\InfPortal.service\obj\Release\InfPortal.service.pdb
+D:\install\projects8\InformationalPortal\InfPortal.service\bin\Microsoft.Web.Infrastructure.dll
+D:\install\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.dll
+D:\install\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.Net4.dll
+D:\install\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.pdb
+D:\install\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.xml
+D:\install\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.Net4.pdb

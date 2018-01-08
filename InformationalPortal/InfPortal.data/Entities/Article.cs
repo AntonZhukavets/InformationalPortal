@@ -6,7 +6,7 @@
         public string Name { get; set; }
 
         public string PictureLink { get; set; }
-
+        public byte[] Picture { get; set; }
         public Info Details { get; set; }
         public Heading[] Headings { get; set; }
 

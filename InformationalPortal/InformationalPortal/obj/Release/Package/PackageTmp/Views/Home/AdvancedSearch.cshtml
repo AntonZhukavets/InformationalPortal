@@ -1,0 +1,33 @@
+﻿@model InformationalPortal.Models.AdvancedSearchModel
+@{
+    ViewBag.Title = "AdvancedSearch";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h1>Advanced Search</h1>
+@using (Html.BeginForm("AdvancedSearch", "Home", FormMethod.Post))
+{ 
+    @Html.TextBoxFor(model => model.SearchFrom, new {@id="txtSearchFrom", @hidden="hidden" })
+    @Html.TextBoxFor(model => model.SearchTo, new { @id = "txtSearchTo", @hidden = "hidden" })
+    <div>
+        @Html.Label("From: ") <input type="date" lang="en-us" id="dateFrom" />
+        @Html.Label(" To: ") <input type="date" lang="en-us" id="dateTo" />       
+    </div>
+    <div>
+        @Html.Label("With heading :")
+        @Html.DropDownListFor(model=>model.HeadingId, ViewBag.HeadingList as SelectList)
+    </div>
+    <input type="submit" value="Search"/>
+}
+
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script>   
+    $("#dateFrom").change(function ()
+    {
+        $("#txtSearchFrom").val($("#dateFrom").val());
+    });
+    $("#dateTo").change(function () {
+        $("#txtSearchTo").val($("#dateTo").val());
+    });
+</script>

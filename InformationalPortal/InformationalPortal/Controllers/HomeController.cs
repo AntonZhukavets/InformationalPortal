@@ -8,6 +8,7 @@ using InfPortal.business.DTO;
 using InfPortal.business.Providers;
 using InfPortal.business.Interfaces;
 using InfPortal.common.Exceptions;
+using InfPortal.common.Logs;
 
 
 namespace InformationalPortal.Controllers
@@ -16,19 +17,21 @@ namespace InformationalPortal.Controllers
     {
         private readonly IArticleProvider articleProvider;
         private readonly IHeadingProvider headingProvider;
-        private readonly ILanguageProvider languageProvider; 
+        private readonly ILanguageProvider languageProvider;
+        private readonly ILoger loger;
         private const string errorMessage = "Parametr is invalid";
-        public HomeController(IArticleProvider articleProvider, IHeadingProvider headingProvider, ILanguageProvider languageProvider)
+        public HomeController(IArticleProvider articleProvider, IHeadingProvider headingProvider, ILanguageProvider languageProvider, ILoger loger)
         {           
             this.articleProvider = articleProvider;
             this.headingProvider = headingProvider;
             this.languageProvider = languageProvider;
-
+            this.loger = loger;            
         }
 
         [HttpGet]
         public ActionResult Index()
         {
+            var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             var articleList = new List<Article>();           
             try
             {
@@ -40,31 +43,35 @@ namespace InformationalPortal.Controllers
                         Name = item.Name,
                         PictureLink = item.PictureLink,                       
                         AutherId=item.AuthorId,
-                        AutherName=item.AuthorName                        
+                        AutherName=item.AuthorName, 
+                        Picture=item.Picture
                     });
-                }
+                }                 
             }
             catch (DataBaseConnectionException ex)
             {
-                ViewBag.ConnectionError = ex.Message;
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
+                ViewBag.ErrorMessage = ex.Message;
                 return View("ErrorView");
             }          
-            return View("Index",articleList);
+            return View("Index",articleList.ToArray());
         }
        
 
         [HttpGet]
         public ActionResult GetArticlesByHeadingId(int? id)
-        {            
+        {
+            var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (!id.HasValue)
             {
+                loger.Error(string.Format(StringsToLogger.invalidParametrToLogger, currentMethodName));
                 ViewBag.ErrorMessage = errorMessage;
                 return View("ErrorView");
             }
             var articleList = new List<Article>();
             try
             {
-                ArticleDTO[] articlesDTO = articleProvider.GetArticlesPreViewByHeadingId(id);
+                var articlesDTO = articleProvider.GetArticlesPreViewByHeadingId(id);
                 if (articlesDTO != null)
                 {
                     foreach (var item in articlesDTO)
@@ -75,21 +82,25 @@ namespace InformationalPortal.Controllers
                             Name = item.Name,
                             PictureLink = item.PictureLink,
                             AutherId = item.AuthorId,
-                            AutherName = item.AuthorName
+                            AutherName = item.AuthorName,
+                            Picture=item.Picture
+
                         });
                     }
                 }
             }
             catch (DataBaseConnectionException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 ViewBag.ConnectionError = ex.Message;
             }
             catch (ArgumentException ex)
             {
-                ViewBag.ConnectionError = ex.Message;
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
+                ViewBag.ErrorMessage = ex.Message;
                 return View("ErrorView");
             } 
-            return View("Index",articleList);            
+            return View("Index",articleList.ToArray());            
         }
 
         public ActionResult ShowUsercapabilities()
@@ -101,6 +112,7 @@ namespace InformationalPortal.Controllers
         [HttpGet]
         public JsonResult GetHeadings()
         {
+            var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             var headingList = new List<Heading>();
             try
             {
@@ -115,16 +127,19 @@ namespace InformationalPortal.Controllers
                 }
                 return Json(headingList, JsonRequestBehavior.AllowGet);
             }
-            catch(DataBaseConnectionException)
+            catch(DataBaseConnectionException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 return null;
             }            
         }
         [HttpGet]
         public ActionResult GetFullArticle(int? id)
         {
+            var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (!id.HasValue)
             {
+                loger.Error(string.Format(StringsToLogger.invalidParametrToLogger, currentMethodName));
                 ViewBag.ErrorMessage = errorMessage;
                 return View("ErrorView");
             }
@@ -177,6 +192,7 @@ namespace InformationalPortal.Controllers
                 article.Id = articleDTO.Id;
                 article.Name = articleDTO.Name;
                 article.PictureLink = articleDTO.PictureLink;
+                article.Picture = articleDTO.Picture;
                 article.AutherId = articleDTO.AuthorId;
                 article.AutherName = articleDTO.AuthorName;
                 article.Details = new Info()
@@ -196,12 +212,14 @@ namespace InformationalPortal.Controllers
             }
             catch(DataBaseConnectionException ex)
             {
-                ViewBag.ErrorMessage = ex.Message;
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
+                ViewBag.ErrorMessage = errorMessage;
                 return View("ErrorView");
             }
             catch (ArgumentException ex)
             {
-                ViewBag.ConnectionError = ex.Message;
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
+                ViewBag.ErrorMessage = errorMessage;
                 return View("ErrorView");
             } 
 
@@ -211,13 +229,14 @@ namespace InformationalPortal.Controllers
         [HttpGet]
         public ActionResult Search(string id)
         {
+            var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             var articleList = new List<Article>();
             try
             {
                 var articles = articleProvider.GetArticlesPreViewByName(id);
                 if(articles==null)
                 {
-                    return View("Index", articleList);
+                    return View("Index", articleList.ToArray());
                 }
                 foreach (var item in articles)
                 {  
@@ -227,32 +246,30 @@ namespace InformationalPortal.Controllers
                         Name = item.Name,
                         PictureLink = item.PictureLink, 
                         AutherId = item.AuthorId,
-                        AutherName = item.AuthorName
+                        AutherName = item.AuthorName,
+                        Picture=item.Picture
                     });
                 }
             }
             catch (DataBaseConnectionException ex)
             {
-                ViewBag.ConnectionError = ex.Message;
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
+                ViewBag.ErrorMessage = errorMessage;
                 return View("ErrorView");
             }
-            return View("Index", articleList);
+            return View("Index", articleList.ToArray());
         }
-        [HttpGet]
-        public ActionResult Error(string id)
-        {
-            ViewBag.ErrorMessage = id;
-            return View("ErrorView");
-        }
-
+     
         [HttpGet]
         public ActionResult AdvancedSearch()
         {
+            var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             try
             {
                 var headingsDTO = headingProvider.GetHeadings();
                 if (headingsDTO == null)
                 {
+                    ViewBag.ErrorMessage = "There are no headings";
                     return View("ErrorView");
                 }
                 var headings = new List<Heading>();
@@ -269,6 +286,7 @@ namespace InformationalPortal.Controllers
             }
             catch(DataBaseConnectionException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 ViewBag.ErrorMessage = ex.Message;
                 return View("ErrorView");
             }
@@ -278,12 +296,14 @@ namespace InformationalPortal.Controllers
 
         [HttpPost]
         public ActionResult AdvancedSearch(AdvancedSearchModel model)
-        { 
+        {
+            var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (!model.HeadingId.HasValue)
             {
+                loger.Error(string.Format(StringsToLogger.invalidParametrToLogger, currentMethodName));
                 ViewBag.ErrorMessage = errorMessage;
                 return View("ErrorView");
-            }
+            }            
             DateTime dateFrom = model.SearchFrom;
             DateTime dateTo = model.SearchTo;
             if(dateFrom.Year==1)
@@ -308,21 +328,25 @@ namespace InformationalPortal.Controllers
                             Name = item.Name,
                             PictureLink = item.PictureLink,
                             AutherId = item.AuthorId,
-                            AutherName = item.AuthorName
+                            AutherName = item.AuthorName,
+                            Picture=item.Picture
                         });
                     }
                 }
             }
             catch (DataBaseConnectionException ex)
             {
-                ViewBag.ConnectionError = ex.Message;
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
+                ViewBag.ErrorMessage = errorMessage;
+                return View("ErrorView");
             }
             catch (ArgumentException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 ViewBag.ConnectionError = ex.Message;
                 return View("ErrorView");
             }
-            return View("Index", articleList);   
+            return View("Index", articleList.ToArray());   
         }
     }
 }

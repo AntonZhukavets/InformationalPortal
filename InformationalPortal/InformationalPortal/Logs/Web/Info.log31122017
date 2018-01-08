@@ -1,0 +1,19 @@
+2017-12-31 15:25:18,237 [6] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Истекло время ожидания соединения. Время ожидания истекло при попытке обработки подтверждения предварительного согласования. Возможно, произошел сбой во время предварительного согласования, или сервер не смог ответить вовремя.  Время, затраченное на попытки подключиться к этому серверу, составило: [Pre-Login] initialization=140; handshake=10991; 
+2017-12-31 15:29:47,097 [9] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2017-12-31 15:55:05,133 [7] INFO  LOGGER Info  - Succesfully logout for user with login AntonZhukavets
+2017-12-31 16:05:36,072 [9] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2017-12-31 16:09:33,738 [9] INFO  LOGGER Info  - User AntonZhukavets succesfully uodated article with id 12
+2017-12-31 16:24:27,343 [10] INFO  LOGGER Info  - User AntonZhukavets succesfully uodated article with id 12
+2017-12-31 16:26:12,865 [9] ERROR LOGGER Error - Exception in metod EditArticle. Details: Something wrong with database. Details:  В GDI+ возникла ошибка общего вида.
+2017-12-31 16:26:45,608 [13] ERROR LOGGER Error - Exception in metod EditArticle. Details: Something wrong with database. Details:  В GDI+ возникла ошибка общего вида.
+2017-12-31 16:27:05,270 [12] ERROR LOGGER Error - Exception in metod EditArticle. Details: Something wrong with database. Details:  В GDI+ возникла ошибка общего вида.
+2017-12-31 16:28:18,125 [19] ERROR LOGGER Error - Exception in metod EditArticle. Details: Something wrong with database. Details:  В GDI+ возникла ошибка общего вида.
+2017-12-31 16:44:23,641 [27] INFO  LOGGER Info  - User AntonZhukavets succesfully uodated article with id 2
+2017-12-31 17:04:54,917 [20] INFO  LOGGER Info  - User AntonZhukavets succesfully uodated article with id 2
+2017-12-31 17:11:52,299 [44] INFO  LOGGER Info  - User AntonZhukavets succesfully uodated article with id 2
+2017-12-31 17:15:00,508 [50] INFO  LOGGER Info  - Succesfully add new heading with name History
+2017-12-31 17:58:19,726 [44] ERROR LOGGER Error - Exception in metod AddArticle. Details: Something wrong with database. Details:  Буфер не может быть неопределенным.
+Имя параметра: buffer
+2017-12-31 18:30:26,778 [72] INFO  LOGGER Info  - User AntonZhukavets succesfully added article with id 
+2017-12-31 18:30:55,087 [66] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 18
+2017-12-31 18:31:57,526 [62] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 17

@@ -8,5 +8,6 @@ namespace InfPortal.service.Business.Exceptions
     {
         [DataMember]
         public string ErrorMessage { get; set; }
+        
     }
 }

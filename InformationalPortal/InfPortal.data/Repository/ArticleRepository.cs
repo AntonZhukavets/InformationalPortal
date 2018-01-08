@@ -38,7 +38,8 @@ namespace InfPortal.data.Repository
                         Name = item.Name,
                         PictureLink = item.PictureLink,
                         AuthorId = item.AuthorId,
-                        AuthorName = item.AuthorName
+                        AuthorName = item.AuthorName,
+                        Picture = item.Picture
                     });
 
                 }
@@ -90,6 +91,7 @@ namespace InfPortal.data.Repository
                 article.Id = articleEntity.Id;
                 article.Name = articleEntity.Name;
                 article.PictureLink = articleEntity.PictureLink;
+                article.Picture = articleEntity.Picture;
                 article.Details = new Info()
                 {
                     Id = articleEntity.Id,
@@ -136,12 +138,12 @@ namespace InfPortal.data.Repository
                 {
                     articleList.Add(new Article()
                     {
-
                         Id = item.Id,
                         Name = item.Name,
                         PictureLink = item.PictureLink,
                         AuthorId = item.AuthorId,
-                        AuthorName = item.AuthorName
+                        AuthorName = item.AuthorName,
+                        Picture=item.Picture
                     });
 
                 }
@@ -175,12 +177,12 @@ namespace InfPortal.data.Repository
                 {
                     articleList.Add(new Article()
                     {
-
                         Id = item.Id,
                         Name = item.Name,
                         PictureLink = item.PictureLink,
                         AuthorId = item.AuthorId,
-                        AuthorName = item.AuthorName
+                        AuthorName = item.AuthorName,
+                        Picture = item.Picture
                     });
 
                 }
@@ -225,7 +227,8 @@ namespace InfPortal.data.Repository
                             },
                             VideoLink = article.Details.VideoLink
                         },
-                        Headings = headings.ToArray<ArticleProxy.HeadingEntity>()
+                        Headings = headings.ToArray<ArticleProxy.HeadingEntity>(),
+                        Picture=article.Picture
                     });
                 }
                 catch (FaultException<ArticleProxy.ServiceException> ex)
@@ -270,7 +273,8 @@ namespace InfPortal.data.Repository
                             },
                             VideoLink = article.Details.VideoLink
                         },
-                        Headings = headings.ToArray<ArticleProxy.HeadingEntity>()
+                        Headings = headings.ToArray<ArticleProxy.HeadingEntity>(),
+                        Picture = article.Picture
                     });
                 }
                 catch (FaultException<ArticleProxy.ServiceException> ex)
@@ -327,7 +331,8 @@ namespace InfPortal.data.Repository
                         Name = item.Name,
                         PictureLink = item.PictureLink,
                         AuthorId = item.AuthorId,
-                        AuthorName = item.AuthorName
+                        AuthorName = item.AuthorName,
+                        Picture = item.Picture
                     });
 
                 }
@@ -365,7 +370,8 @@ namespace InfPortal.data.Repository
                             Name = item.Name,
                             PictureLink = item.PictureLink,
                             AuthorId = item.AuthorId,
-                            AuthorName = item.AuthorName
+                            AuthorName = item.AuthorName,
+                            Picture=item.Picture
                         });
 
                     }

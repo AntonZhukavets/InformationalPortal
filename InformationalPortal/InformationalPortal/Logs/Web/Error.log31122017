@@ -1,0 +1,7 @@
+2017-12-31 15:25:18,237 [6] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Истекло время ожидания соединения. Время ожидания истекло при попытке обработки подтверждения предварительного согласования. Возможно, произошел сбой во время предварительного согласования, или сервер не смог ответить вовремя.  Время, затраченное на попытки подключиться к этому серверу, составило: [Pre-Login] initialization=140; handshake=10991; 
+2017-12-31 16:26:12,865 [9] ERROR LOGGER Error - Exception in metod EditArticle. Details: Something wrong with database. Details:  В GDI+ возникла ошибка общего вида.
+2017-12-31 16:26:45,608 [13] ERROR LOGGER Error - Exception in metod EditArticle. Details: Something wrong with database. Details:  В GDI+ возникла ошибка общего вида.
+2017-12-31 16:27:05,270 [12] ERROR LOGGER Error - Exception in metod EditArticle. Details: Something wrong with database. Details:  В GDI+ возникла ошибка общего вида.
+2017-12-31 16:28:18,125 [19] ERROR LOGGER Error - Exception in metod EditArticle. Details: Something wrong with database. Details:  В GDI+ возникла ошибка общего вида.
+2017-12-31 17:58:19,726 [44] ERROR LOGGER Error - Exception in metod AddArticle. Details: Something wrong with database. Details:  Буфер не может быть неопределенным.
+Имя параметра: buffer

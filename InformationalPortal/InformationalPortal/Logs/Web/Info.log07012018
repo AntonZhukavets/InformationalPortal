@@ -1,0 +1,44 @@
+2018-01-07 12:52:33,986 [8] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-07 13:38:23,927 [17] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2018-01-07 13:39:20,329 [35] INFO  LOGGER Info  - User AntonZhukavets succesfully uodated article with id 4
+2018-01-07 13:41:27,671 [11] ERROR LOGGER Error - Exception in metod GetFullArticle. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-07 13:41:33,270 [35] ERROR LOGGER Error - Exception in metod GetFullArticle. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-07 13:42:25,316 [22] ERROR LOGGER Error - Exception in metod GetFullArticle. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-07 13:42:35,729 [10] ERROR LOGGER Error - Exception in metod GetFullArticle. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-07 13:48:44,172 [31] ERROR LOGGER Error - Exception in metod GetFullArticle. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:49:18,215 [29] ERROR LOGGER Error - Exception in metod GetFullArticle. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:49:24,454 [29] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:49:35,030 [29] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:49:42,313 [10] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:30,199 [17] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:32,663 [17] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:34,353 [6] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:35,551 [33] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:37,081 [33] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:38,356 [6] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:39,552 [33] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:41,193 [29] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:42,786 [6] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:48,658 [29] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:50,171 [17] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:54,169 [33] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:55,527 [17] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:56,623 [6] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:50:57,855 [17] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:56:55,707 [6] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 13:57:59,928 [11] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Создатель этой ошибки не указал Reason.
+2018-01-07 14:04:49,617 [33] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with file storage. File not found. Details:  Недопустимый параметр.
+2018-01-07 14:38:37,943 [9] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with file storage. File not found. Details:  Недопустимый параметр.
+2018-01-07 16:27:09,823 [33] INFO  LOGGER Info  - Succesfully logout for user with login AntonZhukavets
+2018-01-07 16:27:22,052 [37] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2018-01-07 16:27:51,810 [37] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 24
+2018-01-07 16:35:48,698 [19] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 20
+2018-01-07 16:46:38,718 [34] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 16
+2018-01-07 17:31:48,455 [44] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 21
+2018-01-07 17:36:35,519 [17] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 10
+2018-01-07 17:37:28,917 [7] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 11
+2018-01-07 17:38:16,036 [17] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 12
+2018-01-07 17:39:00,441 [7] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 15
+2018-01-07 18:35:07,108 [25] INFO  LOGGER Info  - User AntonZhukavets succesfully added article with id 
+2018-01-07 18:46:50,629 [28] INFO  LOGGER Info  - User AntonZhukavets succesfully added article with id 
+2018-01-07 19:04:07,307 [14] INFO  LOGGER Info  - User AntonZhukavets succesfully uodated article with id 25

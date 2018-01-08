@@ -1,12 +1,49 @@
-﻿@model List<InformationalPortal.Models.Article>     
+﻿@model InformationalPortal.Models.Article[]     
  
 @{
     int counter = 0;
     bool exitFlag = false;
-    <div class="articlesTable"> 
+    if(Model.Length>0)
+    {
+        while(!exitFlag)
+        {
+            <div class="ArticleRow">
+                @for(int i=0;i<3;i++)
+                {
+                    if(counter<Model.Length)
+                    {
+                        <div class="ArticlePreView">
+                            @Html.Label("Author:")
+                            @Html.Label(Model[counter].AutherName)
+                            <br />                                                        
+                            @Html.ActionLink(Model[counter].Name, "GetFullArticle", "Home", new { id = Model[counter].Id }, new { @class = "Title" })
+                            <br />
+                            @if(Model[counter].Picture!=null)
+                            {
+                                <a href="@Url.Action("GetFullArticle", "Home", new { id = Model[counter].Id }, null)">
+                                    <img src="data:image;base64,@System.Convert.ToBase64String(Model[counter].Picture)" width="200" height="200">
+                                </a>     
+                            }                       
+                        </div>                    
+                        
+                            
+                        
+                    }
+                    else
+                    {
+                        exitFlag = true;
+                    }
+                    counter++;
+                }
+            </div>
+        }
+    }
+    
+    
+    @*<div class="articlesTable"> 
         @if(Model.Count!=0)
         { 
-    <table width="100">
+    <table>
         @while (!exitFlag)
         {
             <tr>
@@ -19,8 +56,8 @@
                             <table align="center">
                                 <tr><td align="center">Author: @Model[counter].AutherName</td></tr>
                                 <tr><td align="center">@Model[counter].Id</td></tr>
-                                <tr><td align="center">@Html.ActionLink(Model[counter].Name, "GetFullArticle","Home", new { id = Model[counter].Id },null)</td></tr>
-                                <tr><td align="center">@Model[counter].PictureLink</td></tr>
+                                <tr><td align="center">@Html.ActionLink(Model[counter].Name, "GetFullArticle","Home", new { id = Model[counter].Id },null)</td></tr>                                
+                                <tr><td><img src="data:image;base64,@System.Convert.ToBase64String(Model[counter].Picture)" width="80" height="80"></td></tr>
                             </table>
                         </td>
                     }
@@ -41,7 +78,7 @@
         }
     </table>
         }
-    </div>  
+    </div>*@  
     
     
     

@@ -15,6 +15,7 @@
       <xs:element minOccurs="0" name="Headings" nillable="true" type="tns:ArrayOfHeadingEntity" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Picture" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="PictureLink" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

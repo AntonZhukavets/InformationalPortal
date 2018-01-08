@@ -55,6 +55,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -62,7 +63,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
@@ -129,9 +129,12 @@
     <Compile Include="business\Implementations\AuthenticationService.cs" />
     <Compile Include="business\Implementations\AuthenticationUser.cs" />
     <Compile Include="business\Implementations\JsonAttribute.cs" />
+    <Compile Include="business\Implementations\OperationResult.cs" />
+    <Compile Include="business\Implementations\StringsToLogger.cs" />
     <Compile Include="business\Implementations\UserPrincipal.cs" />
     <Compile Include="business\Interfaces\IAuthenticationService.cs" />
     <Compile Include="business\Interfaces\IAuthenticationUser.cs" />
+    <Compile Include="business\Interfaces\IOperationResult.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -162,7 +165,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\CSS\Portal.css" />
-    <Content Include="Content\CSS\test.css" />
     <Content Include="Global.asax" />
     <None Include="Properties\PublishProfiles\web_serv.pubxml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
@@ -203,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Pictures\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

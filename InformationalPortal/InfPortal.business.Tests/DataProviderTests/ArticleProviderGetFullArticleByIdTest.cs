@@ -96,7 +96,7 @@ namespace InfPortal.business.Tests
         {
             int id = 1;
             var result = articleProvider.GetFullArticleById(id);
-            Assert.IsTrue(result.Id == 1);
+            Assert.IsTrue(result.Id == id);
         }
         [TestMethod]
         public void ArticleProvider_GetFullArticleById_PassId_InsertDataInCache()

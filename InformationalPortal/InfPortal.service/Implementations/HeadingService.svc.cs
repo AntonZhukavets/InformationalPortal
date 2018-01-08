@@ -7,9 +7,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using InfPortal.common.Logs;
-using InfPortal.common.Exceptions;
 using InfPortal.service.Business.Exceptions;
+using InfPortal.service.Business.Logs;
 using InfPortal.service.Entities;
 
 
@@ -17,18 +16,35 @@ namespace InfPortal.service.Contracts
 {  
     internal class HeadingService : IHeadingService
     {
-        string connectionString = string.Empty;
-
+        private readonly string connectionString = string.Empty;
         const string errorArgument = "Parametr is invalid";
         const string errorConnection = "Something wrong with database. Details:  ";
-        public HeadingService()
+        private readonly IServiceLoger serviceLoger;
+        public HeadingService():this(new ServiceLoger())
         {
-            connectionString = ConfigurationManager.ConnectionStrings["InfPortal"].ConnectionString;
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["InfPortal"].ConnectionString;
+            }
+            catch (Exception ex)
+            {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
+                throw new FaultException<ServiceException>(new ServiceException()
+                {
+                    ErrorMessage = errorConnection + ex.Message
+                });
+            }
+        }
+        public HeadingService(IServiceLoger serviceLoger)
+        {
+            this.serviceLoger = serviceLoger;
         }
 
         public HeadingEntity[] GetHeadings()
         {
-           var headings = new List<HeadingEntity>();
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
+            var headings = new List<HeadingEntity>();
             using (var connection = new SqlConnection(connectionString))
             {
                 try
@@ -56,7 +72,7 @@ namespace InfPortal.service.Contracts
                 }
                 catch (Exception ex)
                 {
-                    Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
                         ErrorMessage = errorConnection + ex.Message
@@ -67,9 +83,11 @@ namespace InfPortal.service.Contracts
         }
 
         public HeadingEntity[] GetHeadingsByArticleId(int? id)
-        {                      
+        {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;     
             if (!id.HasValue)
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new ArgumentException(errorArgument);
             }
             var headings = new List<HeadingEntity>(); 
@@ -101,7 +119,7 @@ namespace InfPortal.service.Contracts
                 }
                 catch (Exception ex)
                 {
-                    Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
                         ErrorMessage = errorConnection+ex.Message
@@ -114,8 +132,10 @@ namespace InfPortal.service.Contracts
 
         public bool AddHeading(HeadingEntity heading)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (heading == null || string.IsNullOrEmpty(heading.Name))
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             bool resultOfOperation = false;
@@ -134,7 +154,7 @@ namespace InfPortal.service.Contracts
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
@@ -147,8 +167,10 @@ namespace InfPortal.service.Contracts
 
         public bool EditHeading(HeadingEntity heading)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (heading == null || string.IsNullOrEmpty(heading.Name))
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             bool resultOfOperation = false;
@@ -168,7 +190,7 @@ namespace InfPortal.service.Contracts
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
@@ -181,8 +203,10 @@ namespace InfPortal.service.Contracts
 
         public bool DeleteHeading(int? id)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (!id.HasValue)
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             bool resultOfOperation = false;
@@ -200,7 +224,7 @@ namespace InfPortal.service.Contracts
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {

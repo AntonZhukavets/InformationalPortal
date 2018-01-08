@@ -72,22 +72,22 @@ namespace InfPortal.business.Providers
             try
             {
                 var user = userRepository.GetUserByLoginAndPassword(login, password);
-                if (user != null)
-                {
-
-                    userDTO.Id = user.Id;
-                    userDTO.FirstName = user.FirstName;
-                    userDTO.LastName = user.LastName;
-                    userDTO.Email = user.Email;
-                    userDTO.Password = user.Password;
-                    userDTO.Login = user.Login;
-                    userDTO.role = new RoleDTO()
-                    {
-                        Id = user.role.Id,
-                        Name = user.role.Name,
-                        Description = user.role.Description
-                    };
+                if (user == null)
+                { 
+                    return null;
                 }
+                userDTO.Id = user.Id;
+                userDTO.FirstName = user.FirstName;
+                userDTO.LastName = user.LastName;
+                userDTO.Email = user.Email;
+                userDTO.Password = user.Password;
+                userDTO.Login = user.Login;
+                userDTO.role = new RoleDTO()
+                {
+                    Id = user.role.Id,
+                    Name = user.role.Name,
+                    Description = user.role.Description
+                };            
             }
             catch (DataBaseConnectionException ex)
             {
@@ -132,30 +132,30 @@ namespace InfPortal.business.Providers
             try
             {
                 var user = userRepository.GetUserById(id);
-                if (user != null)
-                {
-                    var userDTO = new UserDTO();
-                    userDTO.Id = user.Id;
-                    userDTO.FirstName = user.FirstName;
-                    userDTO.LastName = user.LastName;
-                    userDTO.Email = user.Email;
-                    userDTO.Password = user.Password;
-                    userDTO.Login = user.Login;
-                    userDTO.role = new RoleDTO()
-                    {
-                        Id = user.role.Id,
-                        Name = user.role.Name,
-                        Description = user.role.Description
-                    };
-                    userDTO.IsBlocked = user.IsBlocked;
-                    return userDTO;
+                if (user == null)
+                { 
+                    return null; 
                 }
+                var userDTO = new UserDTO();
+                userDTO.Id = user.Id;
+                userDTO.FirstName = user.FirstName;
+                userDTO.LastName = user.LastName;
+                userDTO.Email = user.Email;
+                userDTO.Password = user.Password; 
+                userDTO.Login = user.Login;
+                userDTO.role = new RoleDTO()
+                {
+                    Id = user.role.Id,
+                    Name = user.role.Name,
+                    Description = user.role.Description
+                };
+                userDTO.IsBlocked = user.IsBlocked;
+                return userDTO;                
             }
             catch (DataBaseConnectionException ex)
             {
                 throw new DataBaseConnectionException(ex.Message);
-            }
-            return null;
+            }            
         }
 
 
@@ -164,37 +164,37 @@ namespace InfPortal.business.Providers
             try
             {
                 var users = userRepository.GetAllUsers();
-                if (users != null)
+                if (users == null)
                 {
-                    var usersDTO = new List<UserDTO>();
-                    foreach (var item in users)
-                    {
-                        usersDTO.Add(new UserDTO()
-                        {
-                            Id = item.Id,
-                            FirstName = item.FirstName,
-                            LastName = item.LastName,
-                            Email = item.Email,
-                            Login = item.Login,
-                            Password = item.Password,
-                            role = new RoleDTO()
-                            {
-                                Id = item.role.Id,
-                                Name = item.role.Name,
-                                Description = item.role.Description
-                            },
-                            IsBlocked = item.IsBlocked
-                        });
-
-                    }
-                    return usersDTO.ToArray();
+                    return null;
                 }
+                var usersDTO = new List<UserDTO>();
+                foreach (var item in users)
+                {
+                    usersDTO.Add(new UserDTO()
+                    {
+                        Id = item.Id,
+                        FirstName = item.FirstName,
+                        LastName = item.LastName,
+                        Email = item.Email,
+                        Login = item.Login,
+                        Password = item.Password,
+                        role = new RoleDTO()
+                        {
+                            Id = item.role.Id,  
+                            Name = item.role.Name,
+                            Description = item.role.Description
+                        },
+                        IsBlocked = item.IsBlocked
+                    });
+                }
+                return usersDTO.ToArray();
+                
             }
             catch (DataBaseConnectionException ex)
             {
                 throw new DataBaseConnectionException(ex.Message);
-            }
-            return null;
+            }            
         }
 
 

@@ -9,11 +9,12 @@ namespace InformationalPortal.DependencyResolution {
                    (
                        scan =>
                        {
+                           scan.LookForRegistries();
                            scan.Assembly("InfPortal.business");
                            scan.Assembly("InfPortal.data");
-                           //scan.Assembly("InformationalPortal");
+                           scan.Assembly("InfPortal.common");                          
                            scan.WithDefaultConventions();
-                           scan.LookForRegistries();
+                           
                        }
                    )
                 );

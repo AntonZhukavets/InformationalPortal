@@ -1,0 +1,29 @@
+2018-01-01 16:20:55,755 [46] INFO  SERVICELOGGER Info  - Successfully added new article with id 19
+2018-01-01 16:49:05,950 [48] INFO  SERVICELOGGER Info  - Successfully added new article with id 20
+2018-01-01 16:49:06,153 [48] ERROR SERVICELOGGER Error - Exception in metod AddArticle. Details: Буфер не может быть неопределенным.
+Имя параметра: buffer
+2018-01-01 16:50:42,514 [48] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\20.jpg
+2018-01-01 16:50:53,857 [48] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\20.jpg
+2018-01-01 16:51:18,799 [48] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\20.jpg
+2018-01-01 16:51:36,401 [48] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\20.jpg
+2018-01-01 16:52:23,692 [48] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByUserId. Details: d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\20.jpg
+2018-01-01 16:55:02,525 [51] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\20.jpg
+2018-01-01 16:55:29,819 [51] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\20.jpg
+2018-01-01 17:01:56,304 [47] INFO  SERVICELOGGER Info  - Successfully added new article with id 21
+2018-01-01 17:07:36,248 [25] INFO  SERVICELOGGER Info  - Successfully added new article with id 22
+2018-01-01 17:08:13,472 [40] INFO  SERVICELOGGER Info  - Successfully deleted article with id 22
+2018-01-01 17:11:51,910 [7] ERROR SERVICELOGGER Error - Exception in metod DeleteArticle. Details: Процесс не может получить доступ к файлу "d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\3.jpg", так как этот файл используется другим процессом.
+2018-01-01 17:12:29,936 [7] ERROR SERVICELOGGER Error - Exception in metod DeleteArticle. Details: Процесс не может получить доступ к файлу "d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\3.jpg", так как этот файл используется другим процессом.
+2018-01-01 17:15:05,507 [39] ERROR SERVICELOGGER Error - Exception in metod DeleteArticle. Details: Процесс не может получить доступ к файлу "d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\3.jpg", так как этот файл используется другим процессом.
+2018-01-01 17:15:19,576 [39] ERROR SERVICELOGGER Error - Exception in metod DeleteArticle. Details: Процесс не может получить доступ к файлу "d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\2.jpg", так как этот файл используется другим процессом.
+2018-01-01 17:15:34,868 [39] ERROR SERVICELOGGER Error - Exception in metod DeleteArticle. Details: Процесс не может получить доступ к файлу "d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\2.jpg", так как этот файл используется другим процессом.
+2018-01-01 17:29:10,746 [22] INFO  SERVICELOGGER Info  - Successfully deleted article with id 3
+2018-01-01 17:36:16,217 [1] INFO  SERVICELOGGER Info  - Successfully added new article with id 23
+2018-01-01 18:00:12,949 [22] INFO  SERVICELOGGER Info  - Successfully updated article with id 10
+2018-01-01 18:00:56,479 [47] INFO  SERVICELOGGER Info  - Successfully updated article with id 10
+2018-01-01 18:01:35,519 [24] INFO  SERVICELOGGER Info  - Successfully deleted article with id 23
+2018-01-01 18:03:49,239 [47] INFO  SERVICELOGGER Info  - Successfully updated article with id 11
+2018-01-01 18:51:17,666 [10] INFO  SERVICELOGGER Info  - Successfully deleted article with id 19
+2018-01-01 20:02:47,194 [1] INFO  SERVICELOGGER Info  - Successfully updated article with id 20
+2018-01-01 20:33:20,116 [32] INFO  SERVICELOGGER Info  - Successfully updated article with id 4
+2018-01-01 22:27:05,829 [21] INFO  SERVICELOGGER Info  - Successfully added new article with id 24

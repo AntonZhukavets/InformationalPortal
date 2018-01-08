@@ -3,9 +3,6 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>AddArticle</title>    
@@ -14,21 +11,24 @@
     <link href="~/Content/CSS/Portal.css" rel="stylesheet" />
     <h1>Add new article</h1>
     <div>
-        <span id="articleUserId">@HttpContext.Current.User.Identity.Name</span>
+        <span id="articleUserId" hidden="hidden">@HttpContext.Current.User.Identity.Name</span>
+        <span id="selectedLanguageId"></span>
         <div id="DataAndAutor" class="line">
-           <div id="Autor">
-               @Html.Label("Author :")               
-               @Html.Label(HttpContext.Current.User.ToString() , new { @id="articleAuthor" })
-           </div>
+            <div id="Autor">
+                @Html.Label("Author :")
+                @HttpContext.Current.User.ToString()
+            </div>
             <div id="PublicationDate">
-                @Html.Label("Publication Date: ") 
-                <div id="articleDate">@DateTime.Now.ToString()</div>              
-            </div>   
-                              
+                @Html.Label("Publication Date: ")
+                @DateTime.Now.ToShortDateString()
+            </div>
         </div>
         <div id="Headings">
         </div>
-        
+        <div id="Language" class="line">
+            @Html.Label("Language :")
+            @Html.DropDownList("LanguageList", ViewBag.LanguageList as SelectList)
+        </div>
         <div class="line"></div>
         <div id="ArticleName" class="line">
             @Html.LabelFor(model => model.Name)
@@ -52,16 +52,15 @@
             @Html.LabelFor(model => model.PictureLink)
         </div>
         <div>
-            <input type="file" />
-        </div>        
-        <input id="btnShow" type="button" value="Text" />
+            <input type="file" id="pictureAdd"/>
+        </div> 
         <div id="btnAdd" class="Heading">Add</div>     
         <div id="ResultOfAdding"></div> 
     </div>
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function () {           
             $.ajax({
                 url: '@Url.Action("GetHeadings","Home")',
                 type: 'GET',
@@ -70,12 +69,11 @@
                 success: function (data) {
                     var html = "";
                     var html1 = "";
-                    for (i = 0; i < data.length; i++) {
-                        html += '<div id="heading' + data[i].Id + '" class="headingButton" onmouseover=onMouseOver() onmouseout=onMouseOut()><a name="' + data[i].Name + '" href="/InfPortal.web/Home/GetArticlesByHeadingId/' + data[i].Id + '">' + data[i].Name + '</a></div>';
-                        //html1 += '<span id="span_' + data[i].Id + '"><input type="button" id="btn_' + data[i].Id + '" class="Heading" onclick=btnClick() value="' + data[i].Name + '"/></span>';
-                        html1 += '<span id="span' + data[i].Id + '" hidden="hidden" class="spans">notSelected</span><div id="' + data[i].Id + '" class="Heading"  onclick=btnClick(event) >' + data[i].Name + ' </div>';
+                    for (i = 0; i < data.length; i++)
+                    {               
+                        html += '<span id="span' + data[i].Id + '" hidden="hidden" class="spans">notSelected</span><div id="' + data[i].Id + '" class="Heading"  onclick=btnClick(event) >' + data[i].Name + ' </div>';
                     }                   
-                    $("#Headings").html(html1);
+                    $("#Headings").html(html);
                 }
             });
         });
@@ -92,7 +90,6 @@
                 $('#span' + event.target.id).html("notSelected");
             }
         }
-
         $("#btnAdd").mouseover(function () {
             $(this).css("background", "gray");
         });
@@ -100,7 +97,8 @@
             $(this).css("background", "lightgray");
         });
 
-        $("#btnAdd").click(function () {
+        $("#btnAdd").click(function (e) {
+            e.preventDefault();
             var buttons = $(".spans");
             var j = 0;
             var headings = new Array();            
@@ -110,34 +108,55 @@
                 {
                     headings[j] = i;                    
                     j++;                    
-                }
-                
+                }                
             }            
             var name = $("#articleName").val();
             var authorId = $("#articleUserId").html();
             var date = $("#articleDate").val();
             var text = $("#articleText").val();
-            var videoLink = $("#articleVideo").val();
-            alert($("#articleVideo").val());
+            var videoLink = $("#articleVideo").val();           
             var pictureLink = "~pictureLink";
-            var language="English";            
-            $.ajax({
-                type: 'POST',
-                //data: { Headings: headings },
-                
-                data: { Name: name, PictureLink: pictureLink, AuthorId: authorId, Text: text, Date: date, Language: language, VideoLink: videoLink, Headings: headings },                              
-                
-                url: '@Url.Action("AddArticle", "User")',
-                traditional: true,
-                success: function (result) {                   
-                    $("#ResultOfAdding").text(result);
-                    alert(result);
-                }                
-            });
+            var languageId = $("#LanguageList").val()
+            
+            var data = new FormData();
+            data.append("Name", name);
+            data.append("AuthorId", authorId);
+            data.append("Text", text);
+            data.append("LanguageId", languageId);
+            data.append("Headings", headings);
+            data.append("VideoLink", videoLink);
+            data.append("PictureLink", pictureLink);
+            var files = $("#pictureAdd").prop('files');
+            if (files.length > 0) {                
+                data.append("file", files[0]);
+                $.ajax({
+                    type: 'POST',
+                    contentType: false,
+                    processData: false,
+                    //data: { Picture: files[0], Name: name, PictureLink: pictureLink, AuthorId: authorId, Text: text, Date: date, LanguageId: languageId, VideoLink: videoLink, Headings: headings },
+                    data:data,
+                    url: '@Url.Action("AddArticle", "User")',
+                    traditional: true,
+                    success: function (result) {
+                        $("#ResultOfAdding").text(result);
+                        alert(result);
+                    },
+                    error: function (xhr, status, p3) {
+                        alert(xhr.responseText);
+                    }
+                });
+            }
+            else {
+                $("#ResultOfAdding").text("Picture is not selected");
+            }
         });
 
+        $("#LanguageList").change(function ()
+        {
+            alert($("#LanguageList").val())
+        });
 
 
     </script>
 </body>
-</html>
+

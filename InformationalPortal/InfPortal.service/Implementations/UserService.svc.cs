@@ -9,17 +9,35 @@ using System.ServiceModel;
 using System.Text;
 using InfPortal.service.Business.Exceptions;
 using InfPortal.service.Entities;
+using InfPortal.service.Business.Logs;
 
 namespace InfPortal.service.Contracts
 {
      public class UserService : IUserService
      {
-        const string errorArgument = "Parametr is invalid";
-        string connectionString = string.Empty;
-        private const string errorMessage = "Something wrong with database. Details: ";
-        public UserService()
+        private const string errorArgument = "Parametr is invalid";
+        private readonly string connectionString = string.Empty;
+        private const string errorConnection = "Something wrong with database. Details: ";
+        private readonly IServiceLoger serviceLoger;
+        public UserService():this(new ServiceLoger())
         {
-            connectionString = ConfigurationManager.ConnectionStrings["InfPortal"].ConnectionString;
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["InfPortal"].ConnectionString;
+            }
+            catch (Exception ex)
+            {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
+                throw new FaultException<ServiceException>(new ServiceException()
+                {
+                    ErrorMessage = errorConnection + ex.Message
+                });
+            }
+        }
+        public UserService(IServiceLoger serviceLoger)
+        {
+            this.serviceLoger = serviceLoger;
         }
         
         private bool UserValidator(UserEntity user)
@@ -37,8 +55,10 @@ namespace InfPortal.service.Contracts
         }
         public bool Register(UserEntity user)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (user == null || !UserValidator(user))
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));               
             }
             bool resultOfRegistration = false;
@@ -57,28 +77,30 @@ namespace InfPortal.service.Contracts
                     var result = Convert.ToInt32(command.ExecuteScalar());
                     if(result!=0)
                     {
+                        serviceLoger.Info(string.Format("Successfully registred user with login {0}", user.Login));
                         resultOfRegistration = true;
                     }
                     connection.Close();
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = errorMessage+ex.Message
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
                 return resultOfRegistration;
             }
         }
 
-
         public bool IsValidUser(string login, string password)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             int searchResult = 0;
@@ -101,22 +123,23 @@ namespace InfPortal.service.Contracts
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = errorMessage + ex.Message
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
             }
             return false;
         }
 
-
         public UserEntity GetUserByLoginAndPassword(string login, string password)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }            
             using (var connection = new SqlConnection(connectionString))
@@ -151,29 +174,29 @@ namespace InfPortal.service.Contracts
                             Id = id,
                             Name = name,
                             Description=desc
-                        };
-                        
+                        };                        
                     }
                     connection.Close();
                     return user;
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
-                    {                        
-                        ErrorMessage = errorMessage + ex.Message
+                    {
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
-            }
-           
+            }           
         }     
 
         public bool UpdateUser(UserEntity user)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (user == null || !UserValidator(user))
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             bool resultOfUpdating = false;
@@ -192,28 +215,30 @@ namespace InfPortal.service.Contracts
                     command.Parameters.AddWithValue("password", user.Password);                    
                     if(command.ExecuteNonQuery()!=0)
                     {
+                        serviceLoger.Info(string.Format("Successfully updated user with login {0}", user.Login));
                         resultOfUpdating = true;
                     }
                     connection.Close();                    
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = errorMessage + ex.Message
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
             }
             return resultOfUpdating;
         }
 
-
         public UserEntity GetUserById(int? id)
-        {       
+        {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (!id.HasValue)
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             var user = new UserEntity();
@@ -252,15 +277,14 @@ namespace InfPortal.service.Contracts
 
                     }
                     connection.Close();
-
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = errorMessage + ex.Message
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
             }
@@ -268,9 +292,11 @@ namespace InfPortal.service.Contracts
         }
 
         public bool DeleteUser(int? id)
-        {                       
+        {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;       
             if (!id.HasValue)
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             bool result = false; 
@@ -284,6 +310,7 @@ namespace InfPortal.service.Contracts
                     command.Parameters.AddWithValue("userId", id);
                     if(command.ExecuteNonQuery()!=0)
                     {
+                        serviceLoger.Info(string.Format("Successfully deleted user with id {0}", id));
                         result = true;
                     }
                     connection.Close();
@@ -291,22 +318,23 @@ namespace InfPortal.service.Contracts
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = errorMessage + ex.Message
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
             }
             return result;
         }
 
-
         public bool ResumeUser(int? id)
-        {  
+        {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (!id.HasValue)
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             bool result = false;
@@ -320,29 +348,30 @@ namespace InfPortal.service.Contracts
                     command.Parameters.AddWithValue("userId", id);
                     if (command.ExecuteNonQuery() != 0)
                     {
+                        serviceLoger.Info(string.Format("Successfully resumed user with id {0}", id));
                         result = true;
                     }
                     connection.Close();
-
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = errorMessage + ex.Message
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
             }
             return result;
         }
 
-
         public bool MakeAdmin(int? id)
-        {          
+        {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (!id.HasValue)
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             bool result = false;
@@ -356,27 +385,27 @@ namespace InfPortal.service.Contracts
                     command.Parameters.AddWithValue("userId", id);
                     if (command.ExecuteNonQuery() != 0)
                     {
+                        serviceLoger.Info(string.Format("User with id {0} is administrator now", id));
                         result = true;
                     }
                     connection.Close();
-
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = errorMessage + ex.Message
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
             }
             return result;
         }
 
-
         public UserEntity[] GetAllUsers()
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             var users = new List<UserEntity>();         
             using (var connection = new SqlConnection(connectionString))
             {
@@ -408,19 +437,17 @@ namespace InfPortal.service.Contracts
                                 Description = reader["roleDesc"].ToString()
                             },
                             IsBlocked = Convert.ToBoolean(reader["isBlocked"])
-                        });                        
-
+                        }); 
                     }
                     connection.Close();
-
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
-                        ErrorMessage = errorMessage + ex.Message
+                        ErrorMessage = errorConnection + ex.Message
                     });
                 }
             }

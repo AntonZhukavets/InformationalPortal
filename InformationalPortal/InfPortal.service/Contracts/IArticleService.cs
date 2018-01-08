@@ -31,10 +31,7 @@ namespace InfPortal.service.Contracts
         [OperationContract]
         [FaultContract(typeof(ServiceException))]
         [FaultContract(typeof(ArgumentException))]
-        ArticleEntity[] GetArticlesPreViewByHeadingId(int? Id);
-
-        [OperationContract]
-        int GetCountOfArticles();
+        ArticleEntity[] GetArticlesPreViewByHeadingId(int? Id);        
 
         [OperationContract]
         [FaultContract(typeof(ServiceException))]

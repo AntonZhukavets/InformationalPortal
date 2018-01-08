@@ -1,0 +1,12 @@
+2018-01-02 14:58:55,688 [14] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: При установлении соединения с SQL Server произошла ошибка, связанная с сетью или с определенным экземпляром. Сервер не найден или недоступен. Убедитесь, что имя экземпляра указано правильно и что на SQL Server разрешены удаленные соединения. (provider: Shared Memory Provider, error: 40 - Не удалось открыть подключение к SQL Server)
+2018-01-02 14:58:55,690 [3] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: При установлении соединения с SQL Server произошла ошибка, связанная с сетью или с определенным экземпляром. Сервер не найден или недоступен. Убедитесь, что имя экземпляра указано правильно и что на SQL Server разрешены удаленные соединения. (provider: Shared Memory Provider, error: 40 - Не удалось открыть подключение к SQL Server)
+2018-01-02 14:59:24,845 [3] ERROR SERVICELOGGER Error - Exception in metod GetHeadings. Details: При установлении соединения с SQL Server произошла ошибка, связанная с сетью или с определенным экземпляром. Сервер не найден или недоступен. Убедитесь, что имя экземпляра указано правильно и что на SQL Server разрешены удаленные соединения. (provider: Shared Memory Provider, error: 40 - Не удалось открыть подключение к SQL Server)
+2018-01-02 20:45:05,520 [14] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Недопустимый параметр.
+2018-01-02 20:45:05,520 [13] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Недопустимый параметр.
+2018-01-02 20:45:26,115 [14] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Недопустимый параметр.
+2018-01-02 20:45:28,330 [14] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Недопустимый параметр.
+2018-01-02 20:45:40,553 [14] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Недопустимый параметр.
+2018-01-02 20:45:41,596 [14] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Недопустимый параметр.
+2018-01-02 20:45:43,652 [14] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Недопустимый параметр.
+2018-01-02 20:45:46,900 [14] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Недопустимый параметр.
+2018-01-02 20:45:48,356 [14] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreViewByHeadingId. Details: Недопустимый параметр.

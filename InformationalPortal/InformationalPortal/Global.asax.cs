@@ -44,7 +44,7 @@ namespace InformationalPortal
                     UserPrincipal userPrincipal = new UserPrincipal(user);                   
                     HttpContext.Current.User = userPrincipal;                    
                 }
-                catch(Exception ex)
+                catch(Exception)
                 {
 
                 }

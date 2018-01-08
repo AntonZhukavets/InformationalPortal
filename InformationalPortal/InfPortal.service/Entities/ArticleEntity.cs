@@ -7,8 +7,8 @@ namespace InfPortal.service.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        public string PictureLink { get; set; }        
+        public string PictureLink { get; set; }
+        public byte[] Picture { get; set; }
         public InfoEntity Details { get; set; }
         public HeadingEntity[] Headings { get; set; }
         public int AuthorId { get; set; }

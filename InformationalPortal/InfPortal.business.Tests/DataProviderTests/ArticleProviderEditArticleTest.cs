@@ -54,7 +54,14 @@ namespace InfPortal.business.Tests.DataProviderTests
                 AuthorId = 1,
                 AuthorName = "AuthorName",
                 PictureLink = "PictureLink",
-                Details = new InfoDTO(),
+                Details = new InfoDTO()
+                {
+                    Language=new LanguageDTO()
+                    {
+                        LanguageId=1,
+                        LanguageName="English"
+                    }
+                },
                 Headings = new List<HeadingDTO>().ToArray()
             });
             Assert.IsTrue(result);
@@ -69,6 +76,7 @@ namespace InfPortal.business.Tests.DataProviderTests
         [ExpectedException(typeof(ArgumentException))]
         public void ArticleProvider_EditArticale_CatchArgumentException()
         {
+            byte[] picture = new byte[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
             articleRepository
                 .Setup(sp => sp.EditArticle(It.IsAny<Article>()))
                 .Throws<ArgumentException>();
@@ -79,14 +87,23 @@ namespace InfPortal.business.Tests.DataProviderTests
                 AuthorId = 1,
                 AuthorName = "AuthorName",
                 PictureLink = "PictureLink",
-                Details = new InfoDTO(),
-                Headings = new List<HeadingDTO>().ToArray()
+                Details = new InfoDTO()
+                {
+                    Language=new LanguageDTO()
+                    {
+                        LanguageId=1,
+                        LanguageName="English"
+                    }
+                },
+                Headings = new List<HeadingDTO>().ToArray(),
+                Picture=picture
             });
         }
 
         [TestMethod]
         public void ArticleProvider_EditArticale_ServiceProviderReturnedTrue_IsCacheRemoved()
-        {            
+        {
+            byte[] picture = new byte[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
             articleProvider.EditArticle(new ArticleDTO()
             {
                 Id = 1,
@@ -94,7 +111,14 @@ namespace InfPortal.business.Tests.DataProviderTests
                 AuthorId = 1,
                 AuthorName = "AuthorName",
                 PictureLink = "PictureLink",
-                Details = new InfoDTO(),
+                Details = new InfoDTO()
+                {
+                    Language=new LanguageDTO()
+                    {
+                        LanguageId=1,
+                        LanguageName="English"
+                    }
+                },
                 Headings = new List<HeadingDTO>()
                 {
                     new HeadingDTO()
@@ -103,7 +127,8 @@ namespace InfPortal.business.Tests.DataProviderTests
                         Name="Travelling",
                         Description="All about travelling"
                     }
-                }.ToArray()
+                }.ToArray(),
+                Picture=picture
             });
             cacheProvider.Verify(cp => cp.Remove(It.IsAny<string>()), Times.AtLeast(3));
         }

@@ -39,7 +39,7 @@ namespace InfPortal.business.Providers
             }
             var articleDTO = new ArticleDTO();
             var headings = new List<HeadingDTO>();
-            var articleLinks = new List<ArticleLinkDTO>();
+            var articleLinksDTO = new List<ArticleLinkDTO>();
             try
             {
                 var article = articleRepository.GetFullArticleById(id);
@@ -56,17 +56,22 @@ namespace InfPortal.business.Providers
                         Description = item.Description
                     });
                 }
-                foreach(var item in article.ArticleLinks)
+                var articleLinks = article.ArticleLinks;
+                if (articleLinks != null)
                 {
-                    articleLinks.Add(new ArticleLinkDTO() 
+                    foreach (var item in articleLinks)
                     {
-                        Id=item.Id,
-                        Name=item.Name
-                    });
+                        articleLinksDTO.Add(new ArticleLinkDTO()
+                        {
+                            Id = item.Id,
+                            Name = item.Name
+                        });
+                    }
                 }
                 articleDTO.Id = article.Id;
                 articleDTO.Name = article.Name;
                 articleDTO.PictureLink = article.PictureLink;
+                articleDTO.Picture = article.Picture;
                 articleDTO.Details = new InfoDTO()
                 {
                     Id = article.Details.Id,
@@ -82,7 +87,7 @@ namespace InfPortal.business.Providers
                 articleDTO.AuthorId = article.AuthorId;
                 articleDTO.AuthorName = article.AuthorName;
                 articleDTO.Headings = headings.ToArray<HeadingDTO>();
-                articleDTO.ArticleLinks = articleLinks.ToArray<ArticleLinkDTO>();
+                articleDTO.ArticleLinks = articleLinksDTO.ToArray<ArticleLinkDTO>();
                 cacheProvider.Insert(cacheKeyGetFullArticleById + id.ToString(), articleDTO);
 
             }
@@ -120,7 +125,8 @@ namespace InfPortal.business.Providers
                         Name = item.Name,
                         PictureLink = item.PictureLink,
                         AuthorId = item.AuthorId,
-                        AuthorName = item.AuthorName
+                        AuthorName = item.AuthorName,
+                        Picture=item.Picture
                     });
                 }
             }
@@ -156,7 +162,8 @@ namespace InfPortal.business.Providers
                         Name = item.Name,
                         PictureLink = item.PictureLink,
                         AuthorId = item.AuthorId,
-                        AuthorName = item.AuthorName
+                        AuthorName = item.AuthorName,
+                        Picture = item.Picture
                     });
                 }
             }
@@ -192,7 +199,8 @@ namespace InfPortal.business.Providers
                         Name = item.Name,
                         PictureLink = item.PictureLink,
                         AuthorId = item.AuthorId,
-                        AuthorName = item.AuthorName
+                        AuthorName = item.AuthorName,
+                        Picture = item.Picture
                     });
                 }
             }
@@ -236,7 +244,8 @@ namespace InfPortal.business.Providers
                             Date = article.Details.Date,
                             VideoLink = article.Details.VideoLink
                         },
-                        Headings = headings.ToArray<Heading>()
+                        Headings = headings.ToArray<Heading>(),
+                        Picture=article.Picture
                     });
                 }
                 catch (DataBaseConnectionException ex)
@@ -286,7 +295,8 @@ namespace InfPortal.business.Providers
                             Date = article.Details.Date,
                             VideoLink = article.Details.VideoLink
                         },
-                        Headings = headings.ToArray<Heading>()
+                        Headings = headings.ToArray<Heading>(),
+                        Picture = article.Picture
                     });
                 }
                 catch (DataBaseConnectionException ex)
@@ -361,7 +371,8 @@ namespace InfPortal.business.Providers
                         Name = item.Name,
                         PictureLink = item.PictureLink,
                         AuthorId = item.AuthorId,
-                        AuthorName = item.AuthorName
+                        AuthorName = item.AuthorName,
+                        Picture = item.Picture
                     });
                 }
             }
@@ -398,7 +409,8 @@ namespace InfPortal.business.Providers
                             Name = item.Name,
                             PictureLink = item.PictureLink,
                             AuthorId = item.AuthorId,
-                            AuthorName = item.AuthorName
+                            AuthorName = item.AuthorName,
+                            Picture = item.Picture
                         });
                     }
                 }

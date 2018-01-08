@@ -13,9 +13,11 @@ namespace InformationalPortal.DependencyResolution {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
-                });           
-            For<IAuthenticationService>().Use<AuthenticationService>();
-            For<IAuthenticationUser>().Use<AuthenticationUser>();
+                });
+            For<IOperationResult>().Use<OperationResult>();
+            //For<IAuthenticationService>().Use<AuthenticationService>();
+            //For<IAuthenticationUser>().Use<AuthenticationUser>();
+            
         }
 
         #endregion

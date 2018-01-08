@@ -1,4 +1,4 @@
-﻿@model List<InformationalPortal.Models.Article>
+﻿@model InformationalPortal.Models.Article[]
 @{
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
@@ -12,10 +12,8 @@
     <title>Index</title>
 </head>
 <body>
-    <div>  
-
-        @Html.Partial("ArticlesTable", Model)
-       
+    <div>
+        @Html.Partial("ArticlesTable", Model)       
     </div>    
 </body>
 </html>

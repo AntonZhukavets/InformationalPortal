@@ -50,9 +50,9 @@
     </div>
     
     <div id="HeadingsList"></div>    
-    <div id="content">
+    <div id="content">       
         @RenderBody()
-    </div>
+    </div> 
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
     <script>
@@ -81,8 +81,7 @@
         $("#AdvancedSearch").hide();
     });
     $(document).ready(function () {
-        $("#AdvancedSearch").hide();
-        $("#lifeSearch").hide();
+        $("#AdvancedSearch").hide();       
         $("#UserCapability").hide();
         $("#HeadingsForCheck").hide();
         $("#defaultSearchHref").text($("#SearchBtnLnk").attr("href"));
@@ -114,10 +113,12 @@
             async: false,
             success: function (data) {
                 var html = "";
-                for (i = 0; i < data.length; i++) {
-                    //<a data-ajax="true" data-ajax-mode="replace" data-ajax-update="#userCapabilities" href="/InfPortal.web/Home/ShowUsercapabilities">NatashaKingsman</a>
-                    //html += '<div id="button' + data[i].Id + '" class="headingButton" onmouseover=onMouseOver() onmouseout=onMouseOut()><a  data-ajax="true" data-ajax-mode="replace" data-ajax-update="#content" name="' + data[i].Name + '" href="/InfPortal.web/Home/GetArticlesByHeadingId/' + data[i].Id + '">' + data[i].Name + '</a></div>';
-                    html += '<div id="button' + data[i].Id + '" class="headingButton" onmouseover=onMouseOver() onmouseout=onMouseOut()><a name="' + data[i].Name + '" href="/InfPortal.web/Home/GetArticlesByHeadingId/' + data[i].Id + '">' + data[i].Name + '</a></div>';
+                for (i = 0; i < data.length; i++)
+                {
+                    html += '<div id="button' + data[i].Id +
+                        '" class="headingButton" onmouseover=onMouseOver() onmouseout=onMouseOut()><a name="' +
+                        data[i].Name + '" href="/InfPortal.web/Home/GetArticlesByHeadingId/' + data[i].Id + '">' +
+                        data[i].Name + '</a></div>';
                 }
                 $("#HeadingsList").html(html);
             }
@@ -133,12 +134,9 @@
     
     $("#SearchTxt").on('input', (function () {
         var link = '/InfPortal.web/Home/Search/';
-        $("#SearchBtnLnk").attr("href", link + $("#search").val());
-        //alert($("#defaultSearchHref").val());
+        $("#SearchBtnLnk").attr("href", link + $("#search").val());        
     }));
-
-
-    </script>
+    </script>   
 </body>
 </html>
 

@@ -25,6 +25,13 @@
         </div>
         <div id="Headings">
         </div>
+        <div>
+            <div id="articlePicture">
+                <img src="~/Content/Pictures/default.png" width="200" height="200">
+            </div>           
+            <input type="file" id="pictureAdd" />
+            <input type="button" id="uploadPrcture" value="Upload" />
+        </div> 
         <div id="Language" class="line">
             @Html.Label("Language :")
             @Html.DropDownList("LanguageList", ViewBag.LanguageList as SelectList)
@@ -50,11 +57,7 @@
         </div>
         <div id="ArticlePicture" class="line">
             @Html.LabelFor(model => model.PictureLink)
-        </div>
-        <div>
-            <input type="file" />
         </div>        
-        <input id="btnShow" type="button" value="Text" />
         <div id="btnAdd" class="Heading">Add</div>     
         <div id="ResultOfAdding"></div> 
     </div>
@@ -98,7 +101,7 @@
             $(this).css("background", "lightgray");
         });
 
-        $("#btnAdd").click(function () {
+        $("#btnAdd").click(function () {            
             var buttons = $(".spans");
             var j = 0;
             var headings = new Array();            
@@ -109,31 +112,78 @@
                     headings[j] = i;                    
                     j++;                    
                 }                
-            }            
+            }
+            var pictureLink;
             var name = $("#articleName").val();
             var authorId = $("#articleUserId").html();
             var date = $("#articleDate").val();
             var text = $("#articleText").val();
-            var videoLink = $("#articleVideo").val();
-            alert($("#articleVideo").val());
-            var pictureLink = "~pictureLink";
+            var videoLink = $("#articleVideo").val();    
             var languageId = $("#LanguageList").val()
+            var files = $("#pictureAdd").prop('files');
+            if (files.length > 0)
+            {
+                pictureLink = "selected";
+            }
+            else
+            {
+                pictureLink = "unSelected";
+            }
+
             $.ajax({
-                type: 'POST',             
-                data: { Name: name, PictureLink: pictureLink, AuthorId: authorId, Text: text, Date: date, LanguageId: languageId, VideoLink: videoLink, Headings: headings },                              
-                
+                type: 'POST',
+                data: { Name: name, PictureLink: pictureLink, AuthorId: authorId, Text: text, Date: date, LanguageId: languageId, VideoLink: videoLink, Headings: headings },
                 url: '@Url.Action("AddArticle", "User")',
                 traditional: true,
-                success: function (result) {                   
-                    $("#ResultOfAdding").text(result);
-                    alert(result);
-                }                
+                success: function (result)
+                {
+                    if (result.ResultOfOperation == true)
+                    {
+                        alert(result.Message);
+                        window.location.href = result.Redirect;                
+                    }
+                    else
+                    {
+                        alert(result.Message);
+                        $("#ResultOfAdding").text(result.Message);
+                    }
+                },
+                error: function (xhr, status, p3)
+                {
+                    alert(xhr.responseText);
+                }
             });
         });
 
         $("#LanguageList").change(function ()
         {
             alert($("#LanguageList").val())
+        });
+
+        $("#uploadPrcture").click(function (e)
+        {
+            e.preventDefault();
+            var data = new FormData();
+            var files = $("#pictureAdd").prop('files');
+            if (files.length > 0) {                
+                data.append("file", files[0]);
+                $.ajax({
+                    type: 'POST',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    url: '@Url.Action("UploadPicture", "User")',
+                    traditional: true,
+                    success: function (result) {                        
+                        $("#articlePicture").html(result);                       
+                    },
+                    error: function (xhr, status, p3) {
+                        alert(xhr.responseText);
+                    }
+                });
+
+            }
+
         });
 
 

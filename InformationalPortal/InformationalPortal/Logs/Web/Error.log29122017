@@ -1,0 +1,13 @@
+2017-12-29 21:13:45,358 [6] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Не удается открыть базу данных "InfPortal", запрашиваемую именем входа. Не удалось выполнить вход.
+Ошибка входа пользователя "portal_user".
+2017-12-29 21:13:45,388 [7] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Не удается открыть базу данных "InfPortal", запрашиваемую именем входа. Не удалось выполнить вход.
+Ошибка входа пользователя "portal_user".
+2017-12-29 21:14:44,109 [18] ERROR LOGGER Error - Ivalid parametr in metod GetFullArticle.
+2017-12-29 21:14:47,729 [7] ERROR LOGGER Error - Ivalid parametr in metod GetFullArticle.
+2017-12-29 21:14:52,138 [10] ERROR LOGGER Error - Ivalid parametr in metod GetFullArticle.
+2017-12-29 21:15:15,238 [18] ERROR LOGGER Error - Ivalid parametr in metod GetFullArticle.
+2017-12-29 21:19:18,275 [19] ERROR LOGGER Error - Exception in metod GetFullArticle. Details: Something wrong with database. Details:  Запись 'InfPortal' уже добавлена. (D:\install\projects8\InformationalPortal\InfPortal.service\web.config line 104)
+2017-12-29 21:25:11,913 [27] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Запись 'InfPortal' уже добавлена. (D:\install\projects8\InformationalPortal\InfPortal.service\web.config line 104)
+2017-12-29 21:25:37,831 [7] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Запись 'InfPortal' уже добавлена. (D:\install\projects8\InformationalPortal\InfPortal.service\web.config line 104)
+2017-12-29 21:25:45,675 [7] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Запись 'InfPortal' уже добавлена. (D:\install\projects8\InformationalPortal\InfPortal.service\web.config line 104)
+2017-12-29 22:59:33,607 [14] ERROR LOGGER Error - Ivalid parametr in metod GetFullArticle.

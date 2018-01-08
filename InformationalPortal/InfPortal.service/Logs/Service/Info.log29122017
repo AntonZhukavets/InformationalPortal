@@ -1,0 +1,13 @@
+2017-12-29 21:13:40,835 [13] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Не удается открыть базу данных "InfPortal", запрашиваемую именем входа. Не удалось выполнить вход.
+Ошибка входа пользователя "portal_user".
+2017-12-29 21:13:40,857 [12] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Не удается открыть базу данных "InfPortal", запрашиваемую именем входа. Не удалось выполнить вход.
+Ошибка входа пользователя "portal_user".
+2017-12-29 21:19:17,741 [21] ERROR SERVICELOGGER Error - Exception in metod .ctor. Details: Запись 'InfPortal' уже добавлена. (D:\install\projects8\InformationalPortal\InfPortal.service\web.config line 104)
+2017-12-29 21:25:11,891 [28] ERROR SERVICELOGGER Error - Exception in metod .ctor. Details: Запись 'InfPortal' уже добавлена. (D:\install\projects8\InformationalPortal\InfPortal.service\web.config line 104)
+2017-12-29 21:25:37,821 [21] ERROR SERVICELOGGER Error - Exception in metod .ctor. Details: Запись 'InfPortal' уже добавлена. (D:\install\projects8\InformationalPortal\InfPortal.service\web.config line 104)
+2017-12-29 21:25:45,669 [30] ERROR SERVICELOGGER Error - Exception in metod .ctor. Details: Запись 'InfPortal' уже добавлена. (D:\install\projects8\InformationalPortal\InfPortal.service\web.config line 104)
+2017-12-29 22:54:57,189 [13] INFO  SERVICELOGGER Info  - Successfully registred user with login
+2017-12-29 22:57:01,791 [23] INFO  SERVICELOGGER Info  - User with id 6 is administrator now
+2017-12-29 22:57:01,811 [21] INFO  SERVICELOGGER Info  - User with id 6 is administrator now
+2017-12-29 22:57:49,127 [21] INFO  SERVICELOGGER Info  - Successfully updated user with login
+2017-12-29 22:58:24,889 [24] INFO  SERVICELOGGER Info  - Successfully updated user with login DaveJones

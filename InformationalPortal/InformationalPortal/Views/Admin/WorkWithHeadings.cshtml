@@ -3,24 +3,21 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>WorkWithHeadings</title>
 </head>
 <body>
-    <h1>Work with headings</h1>        
+    <h1>Work with headings</h1>       
     <div>
-        @Html.ActionLink("Add new heading", "AddHeading", "Admin")
+        @Html.ActionLink("Add new heading", "AddHeading", "Admin", null, new { @id = "AddNewHeadingButton" })
     </div>
 
-    <div>
-            @foreach(var item in Model)
-            {
-                @Html.Partial("Heading", item)            
-            }       
+    <div>        
+       @foreach(var item in Model)
+         {
+            @Html.Partial("Heading", item)            
+         }       
     </div>
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
@@ -40,11 +37,6 @@
             });
            
         });
-        
-
-
     </script>  
 </body>
 
-
-</html>

@@ -44,6 +44,9 @@ namespace InfPortal.data.ArticleProxy {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] PictureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PictureLinkField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -143,6 +146,19 @@ namespace InfPortal.data.ArticleProxy {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Picture {
+            get {
+                return this.PictureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PictureField, value) != true)) {
+                    this.PictureField = value;
+                    this.RaisePropertyChanged("Picture");
                 }
             }
         }
@@ -552,8 +568,8 @@ namespace InfPortal.data.ArticleProxy {
         System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByNameAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticleNamesByInput", ReplyAction="http://tempuri.org/IArticleService/GetArticleNamesByInputResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/GetArticleNamesByInputArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
         [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticleNamesByInputServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/GetArticleNamesByInputArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
         string[] GetArticleNamesByInput(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticleNamesByInput", ReplyAction="http://tempuri.org/IArticleService/GetArticleNamesByInputResponse")]
@@ -569,12 +585,6 @@ namespace InfPortal.data.ArticleProxy {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingId", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdResponse")]
         System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByHeadingIdAsync(System.Nullable<int> Id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetCountOfArticles", ReplyAction="http://tempuri.org/IArticleService/GetCountOfArticlesResponse")]
-        int GetCountOfArticles();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetCountOfArticles", ReplyAction="http://tempuri.org/IArticleService/GetCountOfArticlesResponse")]
-        System.Threading.Tasks.Task<int> GetCountOfArticlesAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdAndDatePeriod", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdAndDatePeriodResp" +
             "onse")]
         [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByHeadingIdAndDatePeriodServ" +
@@ -588,34 +598,34 @@ namespace InfPortal.data.ArticleProxy {
         System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByHeadingIdAndDatePeriodAsync(System.DateTime dateFrom, System.DateTime dateTo, System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByUserId", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByUserIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByUserIdArgumentExceptionFau" +
-            "lt", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
         [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByUserIdServiceExceptionFaul" +
             "t", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/GetArticlesPreViewByUserIdArgumentExceptionFau" +
+            "lt", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
         InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreViewByUserId(System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/GetArticlesPreViewByUserId", ReplyAction="http://tempuri.org/IArticleService/GetArticlesPreViewByUserIdResponse")]
         System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByUserIdAsync(System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/AddArticle", ReplyAction="http://tempuri.org/IArticleService/AddArticleResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/AddArticleServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
         [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/AddArticleArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/AddArticleServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
         bool AddArticle(InfPortal.data.ArticleProxy.ArticleEntity article);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/AddArticle", ReplyAction="http://tempuri.org/IArticleService/AddArticleResponse")]
         System.Threading.Tasks.Task<bool> AddArticleAsync(InfPortal.data.ArticleProxy.ArticleEntity article);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/EditArticle", ReplyAction="http://tempuri.org/IArticleService/EditArticleResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/EditArticleServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
         [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/EditArticleArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/EditArticleServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
         bool EditArticle(InfPortal.data.ArticleProxy.ArticleEntity article);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/EditArticle", ReplyAction="http://tempuri.org/IArticleService/EditArticleResponse")]
         System.Threading.Tasks.Task<bool> EditArticleAsync(InfPortal.data.ArticleProxy.ArticleEntity article);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/DeleteArticle", ReplyAction="http://tempuri.org/IArticleService/DeleteArticleResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/DeleteArticleArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
         [System.ServiceModel.FaultContractAttribute(typeof(InfPortal.data.ArticleProxy.ServiceException), Action="http://tempuri.org/IArticleService/DeleteArticleServiceExceptionFault", Name="ServiceException", Namespace="http://schemas.datacontract.org/2004/07/InfPortal.service.Business.Exceptions")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IArticleService/DeleteArticleArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
         bool DeleteArticle(System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IArticleService/DeleteArticle", ReplyAction="http://tempuri.org/IArticleService/DeleteArticleResponse")]
@@ -687,14 +697,6 @@ namespace InfPortal.data.ArticleProxy {
         
         public System.Threading.Tasks.Task<InfPortal.data.ArticleProxy.ArticleEntity[]> GetArticlesPreViewByHeadingIdAsync(System.Nullable<int> Id) {
             return base.Channel.GetArticlesPreViewByHeadingIdAsync(Id);
-        }
-        
-        public int GetCountOfArticles() {
-            return base.Channel.GetCountOfArticles();
-        }
-        
-        public System.Threading.Tasks.Task<int> GetCountOfArticlesAsync() {
-            return base.Channel.GetCountOfArticlesAsync();
         }
         
         public InfPortal.data.ArticleProxy.ArticleEntity[] GetArticlesPreViewByHeadingIdAndDatePeriod(System.DateTime dateFrom, System.DateTime dateTo, System.Nullable<int> id) {

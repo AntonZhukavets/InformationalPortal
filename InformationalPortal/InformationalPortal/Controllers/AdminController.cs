@@ -7,24 +7,29 @@ using InformationalPortal.Models;
 using InfPortal.business.DTO;
 using InfPortal.business.Interfaces;
 using InfPortal.common.Exceptions;
+using InfPortal.common.Logs;
 
 
 namespace InformationalPortal.Controllers
 {
     public class AdminController : Controller
     {
+        private ILoger loger;
         private IHeadingProvider headingProvider;
         private IUserProvider userProvider;
-        public AdminController(IHeadingProvider headingProvider, IUserProvider userProvider)
+        public AdminController(IHeadingProvider headingProvider, IUserProvider userProvider, ILoger loger)
         {
             this.headingProvider = headingProvider;
             this.userProvider = userProvider;
+            this.loger = loger;
         }
         [HttpGet]
         public ActionResult AdminsArea()
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if(!HttpContext.User.IsInRole("Administrator"))
             {
+                loger.Warning(string.Format(StringsToLogger.accessDeniedToLogger, currentMethodName, HttpContext.User.ToString()));
                 return RedirectToAction("Denied", "User");
             }
             return View("AdminsArea");
@@ -32,8 +37,10 @@ namespace InformationalPortal.Controllers
         [HttpGet]
         public ActionResult WorkWithHeadings()
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (!HttpContext.User.IsInRole("Administrator"))
             {
+                loger.Warning(string.Format(StringsToLogger.accessDeniedToLogger, currentMethodName, HttpContext.User.ToString()));
                 return RedirectToAction("Denied", "User");
             }
             const string noHeadingError="There are no any heading. Add some.";
@@ -59,6 +66,7 @@ namespace InformationalPortal.Controllers
             }
             catch(DataBaseConnectionException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 ViewBag.ErrorMessage = ex.Message;
                 return View("ErrorView");
             }    
@@ -66,8 +74,10 @@ namespace InformationalPortal.Controllers
         [HttpGet]
         public ActionResult AddHeading()
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (!HttpContext.User.IsInRole("Administrator"))
             {
+                loger.Warning(string.Format(StringsToLogger.accessDeniedToLogger, currentMethodName, HttpContext.User.ToString()));
                 return RedirectToAction("Denied", "User");
             }
             return View();
@@ -77,6 +87,7 @@ namespace InformationalPortal.Controllers
         public string AddHeading(FormCollection form)
         {
             bool resultOfAdding = false;
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if(string.IsNullOrEmpty(form["Name"]))
             {
                 return "Empty heading name";
@@ -91,16 +102,19 @@ namespace InformationalPortal.Controllers
                 resultOfAdding = headingProvider.AddHeading(heading);
                 if(resultOfAdding)
                 {
+                    loger.Info(string.Format("Succesfully add new heading with name {0}", heading.Name));
                     return "Heading successfully added";
                 }
                 return "Heading not added";
             }
             catch(DataBaseConnectionException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 return ex.Message;
             }
             catch (ArgumentException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 return ex.Message;
             }
            
@@ -109,6 +123,7 @@ namespace InformationalPortal.Controllers
         [HttpPost]
         public string EditHeading(FormCollection form)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if(form==null)
             {
                 return "Heading not selected";
@@ -122,14 +137,17 @@ namespace InformationalPortal.Controllers
                       Name = form["Name"],
                       Description = form["Description"]
                   });
+                loger.Info(string.Format("Succesfully edit of heading with id {0}, new name is {1}, new description is {2}", form["Id"], form["Name"], form["Description"]));
                 return "Heading successfully updated";
             }
             catch(DataBaseConnectionException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 return ex.Message;
             }
             catch (ArgumentException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 return ex.Message;
             }
         }
@@ -137,22 +155,27 @@ namespace InformationalPortal.Controllers
         [HttpGet]
         public string DeleteHeading(int? id)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (id == null)
             {
+                loger.Error(string.Format(StringsToLogger.invalidParametrToLogger, currentMethodName));
                 return "Heading not selected";
             }
             bool resultOfEdition = false;
             try
             {
-                resultOfEdition = headingProvider.DeleteHeading(id);                
+                resultOfEdition = headingProvider.DeleteHeading(id);
+                loger.Info(string.Format("Succesfully delted heading with id {0}", id.ToString()));
                 return "Heading successfully deleted";
             }
             catch (DataBaseConnectionException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 return ex.Message;
             }
             catch (ArgumentException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 return ex.Message;
             }
         }
@@ -160,9 +183,11 @@ namespace InformationalPortal.Controllers
         [HttpGet]
         public ActionResult WorkWithUsers()
         {
-            const string noUsersError = "There are no any users. Add some.";
+            const string noUsersError = "There are no any users.";
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (!HttpContext.User.IsInRole("Administrator"))
             {
+                loger.Warning(string.Format(StringsToLogger.accessDeniedToLogger, currentMethodName, HttpContext.User.ToString()));
                 return RedirectToAction("Denied", "User");
             }
             try 
@@ -193,6 +218,7 @@ namespace InformationalPortal.Controllers
             }
             catch(DataBaseConnectionException ex)
             {
+                loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                 ViewBag.ErrorMessage = ex.Message;
                 return View("ErrorView");
             }
@@ -203,6 +229,7 @@ namespace InformationalPortal.Controllers
         [HttpGet]
         public string MakeAdmin(int? id)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             const string successMessage = "Profile successfully upgraded";
             const string unSuccessMessage = "Profile has not upgraded. Details: ";
             const string notSelectedMessage = "User has not selected";
@@ -212,6 +239,7 @@ namespace InformationalPortal.Controllers
                 {
                     if (userProvider.MakeAdmin(id))
                     {
+                        loger.Info(string.Format("user with id {0} is admin now", id ));
                         return successMessage;
                     }
                     else
@@ -221,10 +249,12 @@ namespace InformationalPortal.Controllers
                 }
                 catch (DataBaseConnectionException ex)
                 {
+                    loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                     return ex.Message;
                 }
                 catch (ArgumentException ex)
                 {
+                    loger.Error(string.Format(StringsToLogger.exceptionToLogger, currentMethodName, ex.Message));
                     return ex.Message;
                 }
             }

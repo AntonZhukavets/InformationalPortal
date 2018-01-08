@@ -7,26 +7,42 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using InfPortal.common.Logs;
-using InfPortal.common.Exceptions;
 using InfPortal.service.Business.Exceptions;
 using InfPortal.service.Entities;
+using InfPortal.service.Business.Logs;
 
 namespace InfPortal.service.Contracts
 {
     public class LanguageService : ILanguageService
     {
-        string connectionString = string.Empty;
-
-        const string errorArgument = "Parametr is invalid";
-        const string errorConnection = "Something wrong with database. Details:  ";
-        public LanguageService()
+        private readonly string connectionString = string.Empty;
+        private const string errorArgument = "Parametr is invalid";
+        private const string errorConnection = "Something wrong with database. Details:  ";
+        private readonly IServiceLoger serviceLoger;
+        public LanguageService():this(new ServiceLoger())
         {
-            connectionString = ConfigurationManager.ConnectionStrings["InfPortal"].ConnectionString;
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["InfPortal"].ConnectionString;
+            }
+            catch (Exception ex)
+            {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
+                throw new FaultException<ServiceException>(new ServiceException()
+                {
+                    ErrorMessage = errorConnection + ex.Message
+                });
+            }
+        }
+        public LanguageService(IServiceLoger serviceLoger)
+        {
+            this.serviceLoger = serviceLoger;
         }
 
         public LanguageEntity[] GetLanguages()
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             var languages = new List<LanguageEntity>();
             using (var connection = new SqlConnection(connectionString))
             {
@@ -53,7 +69,7 @@ namespace InfPortal.service.Contracts
                 }
                 catch (Exception ex)
                 {
-                    Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
                         ErrorMessage = errorConnection + ex.Message
@@ -65,8 +81,10 @@ namespace InfPortal.service.Contracts
 
         public bool AddLanguage(LanguageEntity language)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (language == null || string.IsNullOrEmpty(language.LanguageName))
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             bool resultOfOperation = false;
@@ -87,7 +105,7 @@ namespace InfPortal.service.Contracts
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
@@ -97,11 +115,12 @@ namespace InfPortal.service.Contracts
                 return resultOfOperation;
             }
         }
-
         public bool RestoreLanguage(int? id)
         {
-             if (!id.HasValue)
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
+            if (!id.HasValue)
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             bool resultOfOperation = false;
@@ -119,7 +138,7 @@ namespace InfPortal.service.Contracts
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
@@ -132,8 +151,10 @@ namespace InfPortal.service.Contracts
 
         public bool DeleteLanguage(int? id)
         {
+            string currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (!id.HasValue)
             {
+                serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, errorArgument));
                 throw new FaultException<ArgumentException>(new ArgumentException(errorArgument));
             }
             bool resultOfOperation = false;
@@ -151,7 +172,7 @@ namespace InfPortal.service.Contracts
                 }
                 catch (Exception ex)
                 {
-                    //Logger.AddToLog("error", ex.Message);
+                    serviceLoger.Error(string.Format(StringsToServiceLoger.exceptionToServiceLogger, currentMethodName, ex.Message));
                     connection.Close();
                     throw new FaultException<ServiceException>(new ServiceException()
                     {
@@ -161,6 +182,5 @@ namespace InfPortal.service.Contracts
                 return resultOfOperation;
             }
         }
-    }
-    
+    }    
 }

@@ -1,0 +1,4 @@
+2017-12-26 16:02:27,312 [5] WARN  LOGGER Warning - Access denied to user with login  to admins area
+2017-12-26 16:03:09,198 [5] WARN  LOGGER Warning - Access denied to user with login JaneRich to admins area
+2017-12-26 16:42:40,216 [8] WARN  LOGGER Warning - Access denied to method AdminsArea with login JaneRich
+2017-12-26 16:44:23,335 [6] WARN  LOGGER Warning - Access denied to method AdminsArea with login JaneRich

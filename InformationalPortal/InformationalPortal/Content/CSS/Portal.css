@@ -281,7 +281,31 @@ display:inline-block;
 }#AdvancedSearchButton{
     width:100px;
     cursor:pointer;
-}
+}.ArticleRow{        
+  width:100%;
+  height:320px;
+  z-index:1;
+  display:inline-block;  
+}.ArticlePreView{
+    text-align:center;
+    width:20%;
+    float:left;
+    background-color:lightgray;
+    margin-left:70px;
+    margin-right:70px;    
+}.Title{
+    font-family:fantasy;
+}#addArticle{
+    margin-bottom:50px;
+}#AddNewHeadingButton{ 
+    width:150px;   
+    line-height:40px; 
+    background-color:lightgrey;
+    font-family:fantasy;
+    text-align:center; 
+    z-index:1;
+    margin-bottom:50px;
+}
 
 
    

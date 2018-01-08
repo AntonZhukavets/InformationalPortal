@@ -1,0 +1,23 @@
+2017-12-30 20:00:16,137 [30] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Истекло время ожидания соединения. Время ожидания истекло при попытке обработки подтверждения предварительного согласования. Возможно, произошел сбой во время предварительного согласования, или сервер не смог ответить вовремя.  Время, затраченное на попытки подключиться к этому серверу, составило: [Pre-Login] initialization=7568; handshake=14670; 
+2017-12-30 20:00:26,346 [24] ERROR LOGGER Error - Exception in metod GetHeadings. Details: Something wrong with database. Details:  Не удается открыть базу данных "InfPortal", запрашиваемую именем входа. Не удалось выполнить вход.
+Ошибка входа пользователя "portal_user".
+2017-12-30 20:03:12,696 [35] ERROR LOGGER Error - Ivalid parametr in metod GetFullArticle.
+2017-12-30 20:03:18,223 [30] ERROR LOGGER Error - Ivalid parametr in metod GetFullArticle.
+2017-12-30 20:03:29,370 [20] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2017-12-30 20:22:09,100 [35] INFO  LOGGER Info  - User AntonZhukavets succesfully added article with id 
+2017-12-30 20:30:45,126 [35] INFO  LOGGER Info  - Succesfully logout for user with login AntonZhukavets
+2017-12-30 20:32:40,884 [8] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2017-12-30 20:46:04,288 [10] INFO  LOGGER Info  - User AntonZhukavets succesfully added article with id 
+2017-12-30 20:46:28,067 [9] ERROR LOGGER Error - Ivalid parametr in metod GetFullArticle.
+2017-12-30 20:46:35,337 [9] ERROR LOGGER Error - Ivalid parametr in metod GetFullArticle.
+2017-12-30 20:49:36,690 [8] INFO  LOGGER Info  - User AntonZhukavets succesfully added article with id 
+2017-12-30 21:16:27,375 [26] INFO  LOGGER Info  - Succesfully logout for user with login System.Security.Principal.WindowsPrincipal
+2017-12-30 21:16:40,958 [19] INFO  LOGGER Info  - Succesfully login for user with login NatashaKingsman
+2017-12-30 21:22:30,976 [13] INFO  LOGGER Info  - User NatashaKingsman succesfully added article with id 
+2017-12-30 21:26:42,298 [35] INFO  LOGGER Info  - User NatashaKingsman succesfully added article with id 
+2017-12-30 21:28:44,394 [13] INFO  LOGGER Info  - User NatashaKingsman succesfully added article with id 
+2017-12-30 21:43:10,402 [30] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\3.jpg
+2017-12-30 21:43:25,699 [43] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\3.jpg
+2017-12-30 21:43:28,822 [13] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\3.jpg
+2017-12-30 22:10:24,731 [26] ERROR LOGGER Error - Ivalid parametr in metod GetFullArticle.
+2017-12-30 22:24:59,718 [26] INFO  LOGGER Info  - User NatashaKingsman succesfully added article with id 

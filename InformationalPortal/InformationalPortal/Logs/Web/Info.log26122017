@@ -1,0 +1,22 @@
+2017-12-26 15:23:05,418 [10] INFO  LOGGER Info  - Succesfully logout for user with login JaneRich
+2017-12-26 16:02:27,312 [5] WARN  LOGGER Warning - Access denied to user with login  to admins area
+2017-12-26 16:03:01,979 [5] INFO  LOGGER Info  - Succesfully login for user with login JaneRich
+2017-12-26 16:03:09,198 [5] WARN  LOGGER Warning - Access denied to user with login JaneRich to admins area
+2017-12-26 16:42:40,216 [8] WARN  LOGGER Warning - Access denied to method AdminsArea with login JaneRich
+2017-12-26 16:44:23,335 [6] WARN  LOGGER Warning - Access denied to method AdminsArea with login JaneRich
+2017-12-26 17:19:05,288 [11] INFO  LOGGER Info  - Succesfully logout for user with login JaneRich
+2017-12-26 17:19:18,485 [9] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2017-12-26 17:24:53,833 [7] INFO  LOGGER Info  - user with id 5 is admin now
+2017-12-26 17:24:54,034 [9] INFO  LOGGER Info  - user with id 5 is admin now
+2017-12-26 17:25:26,050 [16] INFO  LOGGER Info  - user with id 5 is admin now
+2017-12-26 17:25:26,209 [7] INFO  LOGGER Info  - user with id 5 is admin now
+2017-12-26 20:17:49,156 [6] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2017-12-26 20:20:21,047 [18] INFO  LOGGER Info  - Succesfully edit of heading with id 2, new name is Sport, new description is All about sport
+2017-12-26 20:41:29,920 [69] INFO  LOGGER Info  - Succesfully logout for user with login AntonZhukavets
+2017-12-26 21:02:03,382 [70] INFO  LOGGER Info  - Succesfully registration for user with login NatashaKingsman
+2017-12-26 21:02:12,586 [71] INFO  LOGGER Info  - Succesfully login for user with login NatashaKingsman
+2017-12-26 21:04:23,953 [57] INFO  LOGGER Info  - Succesfully update of user with id 5
+2017-12-26 21:07:53,573 [11] INFO  LOGGER Info  - Succesfully removed user with id 5
+2017-12-26 21:07:53,582 [8] INFO  LOGGER Info  - Succesfully removed user with id 5
+2017-12-26 21:25:27,606 [63] INFO  LOGGER Info  - User NatashaKingsman succesfully added article with name Happy hollydays in Austria.
+2017-12-26 21:55:18,475 [6] INFO  LOGGER Info  - User NatashaKingsman succesfully updated article with id 9

@@ -19,8 +19,8 @@
                             <table align="center">
                                 <tr><td align="center">Author: @Model[counter].AutherName</td></tr>
                                 <tr><td align="center">@Model[counter].Id</td></tr>
-                                <tr><td align="center">@Html.ActionLink(Model[counter].Name, "GetFullArticle","Home", new { id = Model[counter].Id },null)</td></tr>
-                                <tr><td align="center">@Model[counter].PictureLink</td></tr>
+                                <tr><td align="center">@Html.ActionLink(Model[counter].Name, "GetFullArticle","Home", new { id = Model[counter].Id },null)</td></tr>                                
+                                <tr><td><img src="data:image;base64,@System.Convert.ToBase64String(Model[counter].Picture)" width="80" height="80"></td></tr>
                             </table>
                         </td>
                     }

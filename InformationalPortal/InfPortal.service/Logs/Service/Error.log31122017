@@ -1,0 +1,8 @@
+2017-12-31 15:25:14,978 [5] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Истекло время ожидания соединения. Время ожидания истекло при попытке обработки подтверждения предварительного согласования. Возможно, произошел сбой во время предварительного согласования, или сервер не смог ответить вовремя.  Время, затраченное на попытки подключиться к этому серверу, составило: [Pre-Login] initialization=140; handshake=10991; 
+2017-12-31 16:26:04,656 [49] ERROR SERVICELOGGER Error - Exception in metod EditArticle. Details: В GDI+ возникла ошибка общего вида.
+2017-12-31 16:26:45,258 [49] ERROR SERVICELOGGER Error - Exception in metod EditArticle. Details: В GDI+ возникла ошибка общего вида.
+2017-12-31 16:27:04,833 [49] ERROR SERVICELOGGER Error - Exception in metod EditArticle. Details: В GDI+ возникла ошибка общего вида.
+2017-12-31 16:28:17,742 [49] ERROR SERVICELOGGER Error - Exception in metod EditArticle. Details: В GDI+ возникла ошибка общего вида.
+2017-12-31 16:47:18,694 [1] ERROR SERVICELOGGER Error - Exception in metod EditArticle. Details: В GDI+ возникла ошибка общего вида.
+2017-12-31 17:58:16,346 [40] ERROR SERVICELOGGER Error - Exception in metod AddArticle. Details: Буфер не может быть неопределенным.
+Имя параметра: buffer

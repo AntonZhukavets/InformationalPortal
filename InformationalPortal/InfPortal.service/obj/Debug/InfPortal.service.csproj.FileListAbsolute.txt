@@ -108,3 +108,13 @@ C:\install\infPortal_this\projects8\InformationalPortal\InfPortal.service\bin\lo
 C:\install\infPortal_this\projects8\InformationalPortal\InfPortal.service\obj\Debug\InfPortal.service.csprojResolveAssemblyReference.cache
 C:\install\infPortal_this\projects8\InformationalPortal\InfPortal.service\obj\Debug\InfPortal.service.dll
 C:\install\infPortal_this\projects8\InformationalPortal\InfPortal.service\obj\Debug\InfPortal.service.pdb
+C:\install\infPortal_this\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.dll
+C:\install\infPortal_this\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.Net4.dll
+C:\install\infPortal_this\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.pdb
+C:\install\infPortal_this\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.xml
+C:\install\infPortal_this\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.Net4.pdb
+D:\install\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.dll
+D:\install\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.Net4.dll
+D:\install\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.pdb
+D:\install\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.xml
+D:\install\projects8\InformationalPortal\InfPortal.service\bin\StructureMap.Net4.pdb

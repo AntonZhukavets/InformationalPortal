@@ -1,0 +1,6 @@
+2017-12-30 20:00:13,905 [27] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: Истекло время ожидания соединения. Время ожидания истекло при попытке обработки подтверждения предварительного согласования. Возможно, произошел сбой во время предварительного согласования, или сервер не смог ответить вовремя.  Время, затраченное на попытки подключиться к этому серверу, составило: [Pre-Login] initialization=7568; handshake=14670; 
+2017-12-30 20:00:26,271 [27] ERROR SERVICELOGGER Error - Exception in metod GetHeadings. Details: Не удается открыть базу данных "InfPortal", запрашиваемую именем входа. Не удалось выполнить вход.
+Ошибка входа пользователя "portal_user".
+2017-12-30 21:43:09,595 [23] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\3.jpg
+2017-12-30 21:43:25,657 [23] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\3.jpg
+2017-12-30 21:43:28,790 [23] ERROR SERVICELOGGER Error - Exception in metod GetArticlesPreView. Details: d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\3.jpg

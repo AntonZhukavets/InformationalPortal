@@ -1,0 +1,10 @@
+2018-01-06 17:10:34,012 [7] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-06 17:10:40,360 [10] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-06 17:10:42,088 [10] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-06 17:10:43,339 [7] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-06 17:10:45,625 [10] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-06 17:10:52,009 [10] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-06 17:10:54,163 [13] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-06 17:10:57,694 [10] ERROR LOGGER Error - Exception in metod GetArticlesByHeadingId. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-06 17:11:06,585 [10] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Недопустимый параметр.
+2018-01-06 17:11:13,975 [10] ERROR LOGGER Error - Exception in metod Index. Details: Something wrong with database. Details:  Недопустимый параметр.
