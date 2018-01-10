@@ -16,7 +16,7 @@ namespace InformationalPortal.DependencyResolution {
                 });
             For<IOperationResult>().Use<OperationResult>();
             //For<IAuthenticationService>().Use<AuthenticationService>();
-            //For<IAuthenticationUser>().Use<AuthenticationUser>();
+            For<IAuthenticationUser>().Use<AuthenticationUser>();
             
         }
 

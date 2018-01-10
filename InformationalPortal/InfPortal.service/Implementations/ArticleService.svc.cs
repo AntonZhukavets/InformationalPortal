@@ -23,8 +23,8 @@ namespace InfPortal.service.Contracts
         private const string errorConnection = "Something wrong with database. Details:  ";
         private const string fileNotFound = "Something wrong with file storage. File not found. Details:  ";
         private string storageNotFound = string.Format("File storage not found. {0} is unreachable ", pathToStorage);
-        private const string errorArgument = "Parametr is invalid";
-        private const string pathToStorage = @"d:\install\projects8\InformationalPortal\InfPortal.service\Pictures\";
+        private const string errorArgument = "Parametr is invalid";        
+        private const string pathToStorage = @"d:\Pictures\";
         private const string pathToImage = pathToStorage + "\\{0}.jpg";
         private readonly IServiceLoger serviceLoger;
 

@@ -8,6 +8,10 @@ namespace InformationalPortal.business.Implementations
         private string roleName;
         private int id;
         private string login;
+        public AuthenticationUser()
+        {
+
+        }
         public string RoleName
         {
             get { return this.roleName; }

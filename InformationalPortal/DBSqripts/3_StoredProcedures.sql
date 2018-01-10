@@ -66,9 +66,17 @@ CREATE PROCEDURE [dbo].[AddHeading]
 @desc varchar(500)
 AS
 BEGIN
-	insert into Headings(name,description,deleted)
-	values(@name,@desc,0)		
-ENd
+IF EXISTS(select * from Headings where Headings.name=@name and Headings.deleted=1)
+	BEGIN
+		update Headings set deleted=0
+		where name=@name
+	END
+	Else
+	BEGIN	
+		insert into Headings(name,description,deleted)
+		values(@name,@desc,0)
+	END		
+END
 
 
 GO

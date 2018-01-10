@@ -11,15 +11,15 @@ using InformationalPortal.business.Implementations;
 using InfPortal.business.Interfaces;
 using InfPortal.business.Providers;
 using InformationalPortal.business.Interfaces;
+using StructureMap;
+using StructureMap.Attributes;
 
 namespace InformationalPortal
 {
     public class MvcApplication : System.Web.HttpApplication
-    {
-       
+    {    
         protected void Application_Start() 
-        {
-            
+        {            
             AreaRegistration.RegisterAllAreas();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -28,15 +28,15 @@ namespace InformationalPortal
 
         }
         public void Application_PostAuthenticateRequest(Object sender, EventArgs e)
-        {
-            const string cookieName = "AUTH_COOKIE";
-            IAuthenticationUser user = new AuthenticationUser();
+        {          
+            const string cookieName = "AUTH_COOKIE";            
             HttpCookie cookie = HttpContext.Current.Request.Cookies[cookieName];
+            IAuthenticationUser user = new AuthenticationUser();
             if (cookie != null && !string.IsNullOrEmpty(cookie.Value))
             {
                 try
                 {
-                    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+                    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);                    
                     var userFromCookie = JsonConvert.DeserializeObject<User>(ticket.UserData);
                     user.Id = userFromCookie.Id;
                     user.Login = userFromCookie.Login;

@@ -1,0 +1,32 @@
+2018-01-09 19:16:00,801 [5] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2018-01-09 19:22:24,090 [18] INFO  LOGGER Info  - User AntonZhukavets succesfully added article with id 
+2018-01-09 19:22:41,972 [18] INFO  LOGGER Info  - User AntonZhukavets succesfully uodated article with id 27
+2018-01-09 19:22:50,152 [28] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 27
+2018-01-09 19:23:46,556 [18] INFO  LOGGER Info  - Succesfully add new heading with name People
+2018-01-09 19:25:59,532 [31] INFO  LOGGER Info  - User AntonZhukavets succesfully added article with id 
+2018-01-09 19:26:23,055 [18] INFO  LOGGER Info  - Succesfully delted heading with id 10
+2018-01-09 19:26:23,075 [28] INFO  LOGGER Info  - Succesfully delted heading with id 10
+2018-01-09 20:00:24,530 [37] INFO  LOGGER Info  - Succesfully logout for user with login AntonZhukavets
+2018-01-09 20:00:27,888 [37] INFO  LOGGER Info  - Succesfully logout for user with login AntonZhukavets
+2018-01-09 20:00:30,741 [42] INFO  LOGGER Info  - Succesfully logout for user with login AntonZhukavets
+2018-01-09 20:02:00,698 [37] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2018-01-09 20:02:05,446 [42] INFO  LOGGER Info  - Succesfully logout for user with login AntonZhukavets
+2018-01-09 20:05:42,734 [37] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2018-01-09 20:06:38,103 [41] INFO  LOGGER Info  - User AntonZhukavets succesfully added article with id 
+2018-01-09 20:22:02,639 [39] INFO  LOGGER Info  - Succesfully logout for user with login System.Security.Principal.WindowsPrincipal
+2018-01-09 20:36:52,182 [36] INFO  LOGGER Info  - Succesfully login for user with login AntonZhukavets
+2018-01-09 20:37:19,522 [37] INFO  LOGGER Info  - Succesfully add new heading with name People
+2018-01-09 20:38:07,659 [37] INFO  LOGGER Info  - User AntonZhukavets succesfully deleted article with id 28
+2018-01-09 20:38:47,108 [39] INFO  LOGGER Info  - User AntonZhukavets succesfully added article with id 
+2018-01-09 20:44:56,385 [42] INFO  LOGGER Info  - Succesfully delted heading with id 11
+2018-01-09 20:44:56,388 [40] INFO  LOGGER Info  - Succesfully delted heading with id 11
+2018-01-09 20:45:40,930 [40] INFO  LOGGER Info  - Succesfully add new heading with name Theatre
+2018-01-09 20:46:16,674 [35] INFO  LOGGER Info  - Succesfully delted heading with id 10
+2018-01-09 20:46:16,675 [36] INFO  LOGGER Info  - Succesfully delted heading with id 10
+2018-01-09 20:46:46,167 [9] INFO  LOGGER Info  - Succesfully add new heading with name People
+2018-01-09 20:47:20,976 [42] INFO  LOGGER Info  - User AntonZhukavets succesfully uodated article with id 30
+2018-01-09 20:47:37,844 [35] INFO  LOGGER Info  - Succesfully delted heading with id 12
+2018-01-09 20:47:37,856 [40] INFO  LOGGER Info  - Succesfully delted heading with id 12
+2018-01-09 20:47:55,030 [9] INFO  LOGGER Info  - User AntonZhukavets succesfully uodated article with id 29
+2018-01-09 20:48:17,747 [36] INFO  LOGGER Info  - Succesfully add new heading with name Theatre
+2018-01-09 20:49:23,010 [40] INFO  LOGGER Info  - User AntonZhukavets succesfully uodated article with id 29

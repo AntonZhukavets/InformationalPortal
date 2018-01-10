@@ -19,20 +19,23 @@ namespace InformationalPortal.Controllers
         private IUserProvider userProvider;
         private IArticleProvider articleProvider;
         private ILanguageProvider languageProvider;
-        private ILoger loger;              
+        private ILoger loger;
+        private IOperationResult operationResult;   
         private static byte[] picture = null;
         private const string cookieName = "AUTH_COOKIE";
         private const string errorMessage = "Parametr is invalid";
-        private const string notFound = "Not found";        
+        private const string notFound = "Not found";
+        private const string pictureAttrinutes = "<img src=\"data:image;base64,{0}\" width=\"200\" height=\"200\">";
+         
         
         public UserController(IUserProvider userProvider, IArticleProvider articleProvider,
-            ILanguageProvider languageProvider, ILoger loger)
+            ILanguageProvider languageProvider, ILoger loger, IOperationResult operationresult)
         {
             this.userProvider = userProvider;
             this.articleProvider = articleProvider;
             this.languageProvider = languageProvider;
-            this.loger = loger;   
-
+            this.loger = loger;
+            this.operationResult = operationresult;
         }        
         [HttpGet]       
         public ActionResult EditProfile(int? id)
@@ -294,8 +297,7 @@ namespace InformationalPortal.Controllers
         [HttpPost]
         public JsonResult AddArticle(FormCollection form, int[] Headings)
         {
-            var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
-            OperationResult operationResult = new OperationResult();
+            var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;           
             operationResult.ResultOfOperation = false;
             if (string.IsNullOrEmpty(form["Name"]))
             {
@@ -383,8 +385,7 @@ namespace InformationalPortal.Controllers
         [Json]
         [HttpPost]
         public JsonResult EditArticle(FormCollection form, int[] Headings)
-        {
-            OperationResult operationResult = new OperationResult();
+        {            
             operationResult.ResultOfOperation = false;
             var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
             if (string.IsNullOrEmpty(form["Name"]))
@@ -471,8 +472,7 @@ namespace InformationalPortal.Controllers
         [HttpPost]
         public JsonResult DeleteArticle(int? id)
         {
-            var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;
-            OperationResult operationResult = new OperationResult();
+            var currentMethodName = System.Reflection.MethodInfo.GetCurrentMethod().Name;            
             operationResult.ResultOfOperation = false;
             if (!id.HasValue)
             {
@@ -533,7 +533,7 @@ namespace InformationalPortal.Controllers
                     uploadFile.InputStream.Read(picture, 0, uploadFile.ContentLength);
                 }
             }
-            return string.Format("<img src=\"data:image;base64,{0}\" width=\"200\" height=\"200\">", Convert.ToBase64String(picture));
+            return string.Format(pictureAttrinutes, Convert.ToBase64String(picture));
         }
     }
 }
